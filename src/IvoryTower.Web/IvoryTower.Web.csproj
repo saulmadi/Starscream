@@ -116,7 +116,7 @@
   <ItemGroup>
     <Compile Include="Api\Infrastructure\Configuration\AutoFacBlingDispatcher.cs" />
     <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
-    <Compile Include="Api\Modules\InvioIdentityExtentions.cs" />
+    <Compile Include="Api\Modules\IdentityExtentions.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />
     <Compile Include="Api\Modules\NewUserRequest.cs" />
     <Compile Include="Api\Modules\NoCurrentUserException.cs" />

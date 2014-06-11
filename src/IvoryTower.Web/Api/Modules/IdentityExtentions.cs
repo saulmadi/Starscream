@@ -5,7 +5,7 @@ using Nancy;
 
 namespace IvoryTower.Web.Api.Modules
 {
-    public static class InvioIdentityExtentions
+    public static class IdentityExtentions
     {
         public static IUserSession UserSession(this NancyModule module)
         {
