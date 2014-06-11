@@ -9,3 +9,5 @@ A SPA starter using Angular, Nancy and NHibernate.
 - Database deployer re-builds database from domain entities
 
 Active demo: [http://starscream.apphb.com/](http://starscream.apphb.com/)
+
+![Starscream](http://fc09.deviantart.net/fs47/i/2009/164/2/8/Decepticon_Starscream_by_davidnery.jpg)
