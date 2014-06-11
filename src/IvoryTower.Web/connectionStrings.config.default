@@ -1,4 +1,4 @@
 ﻿<connectionStrings>
   <add name="local" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=IvoryTower;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"></add>
-  <add name="remote" connectionString="Server=93df67bc-3445-46e9-a8ff-a347015e8142.sqlserver.sequelizer.com;Database=db93df67bc344546e9a8ffa347015e8142;User ID=aqpkvtzgoehpqocq;Password=nDrnzrmHzyzFMZ84SY6GvCTyBDgkpTrxBuAMNTUSzc8zuwKQkvZXMFqRSZS5kbtP;"></add>
+  <add name="remote" connectionString="Server=a88f63eb-282f-4a57-9945-a347016ac917.sqlserver.sequelizer.com;Database=dba88f63eb282f4a579945a347016ac917;User ID=nmaittkgmqaebqkr;Password=2CURs8wcZAPYPV57Lfg5zKBZquRvRKFATdhnEUXGg6CtfHGQQdE6EBopb4A6pbtp;"></add>
 </connectionStrings>
