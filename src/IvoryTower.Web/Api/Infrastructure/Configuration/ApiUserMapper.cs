@@ -25,7 +25,7 @@ namespace IvoryTower.Web.Api.Infrastructure.Configuration
         {
             UserLoginSession userLoginSession = GetUserSessionFromToken(token);
             MakeSureTokenHasntExpiredYet(userLoginSession);
-            return new IvoryTowerUserIdentity(userLoginSession);
+            return new LoggedInUserIdentity(userLoginSession);
         }
 
         #endregion

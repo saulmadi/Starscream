@@ -86,7 +86,7 @@ namespace IvoryTower.Web.Api.Infrastructure.Configuration
                             }
                         }
 
-                        return new IvoryTowerUserIdentity(new VisitorSession());
+                        return new LoggedInUserIdentity(new VisitorSession());
                     });
 
             StatelessAuthentication.Enable(pipelines, configuration);

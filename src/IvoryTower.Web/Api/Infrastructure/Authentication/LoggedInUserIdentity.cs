@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
-using IvoryTower.Domain;
 using IvoryTower.Domain.Entities;
 using IvoryTower.Domain.Services;
 using Nancy.Security;
 
 namespace IvoryTower.Web.Api.Infrastructure.Authentication
 {
-    public class IvoryTowerUserIdentity : IUserIdentity
+    public class LoggedInUserIdentity : IUserIdentity
     {
-        public IUserSession UserSession { get; private set; }
-
-        public IvoryTowerUserIdentity(IUserSession userSession)
+        public LoggedInUserIdentity(IUserSession userSession)
         {
             UserSession = userSession;
         }
+
+        public IUserSession UserSession { get; private set; }
+
+        #region IUserIdentity Members
 
         public string UserName
         {
@@ -22,7 +23,7 @@ namespace IvoryTower.Web.Api.Infrastructure.Authentication
             {
                 if (UserSession is UserLoginSession)
                 {
-                    var executor = ((UserLoginSession)UserSession).User;
+                    User executor = ((UserLoginSession) UserSession).User;
                     if (executor == null)
                     {
                         throw new Exception("The user should not be null on the user session.");
@@ -35,7 +36,9 @@ namespace IvoryTower.Web.Api.Infrastructure.Authentication
 
         public IEnumerable<string> Claims
         {
-            get { return new string[] { }; }
+            get { return new string[] {}; }
         }
+
+        #endregion
     }
 }

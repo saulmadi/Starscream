@@ -123,7 +123,7 @@
     <Compile Include="Api\Modules\RegistrationModule.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
     <Compile Include="Api\Infrastructure\Authentication\IApiUserMapper.cs" />
-    <Compile Include="Api\Infrastructure\Authentication\IvoryTowerUserIdentity.cs" />
+    <Compile Include="Api\Infrastructure\Authentication\LoggedInUserIdentity.cs" />
     <Compile Include="Api\Infrastructure\Authentication\TokenDoesNotExistException.cs" />
     <Compile Include="Api\Infrastructure\Authentication\TokenExpiredException.cs" />
     <Compile Include="Api\Infrastructure\Authentication\VisitorSession.cs" />
