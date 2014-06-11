@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvoryTower.Web", "IvoryTower.Web\IvoryTower.Web.csproj", "{EFD8559C-290D-45F6-A090-0ADE554A9065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvoryTower.Data", "IvoryTower.Data\IvoryTower.Data.csproj", "{828BB611-5955-47C0-AB91-32374D8506E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvoryTower.Domain", "IvoryTower.Domain\IvoryTower.Domain.csproj", "{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseDeployer", "DatabaseDeployer\DatabaseDeployer.csproj", "{7F8F5F26-6F21-4C0A-9183-9140CA894E50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvoryTower.AcceptanceTests", "IvoryTower.AcceptanceTests\IvoryTower.AcceptanceTests.csproj", "{A68CC815-BEA2-4AB7-9828-07526A848E01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFD8559C-290D-45F6-A090-0ADE554A9065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD8559C-290D-45F6-A090-0ADE554A9065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD8559C-290D-45F6-A090-0ADE554A9065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD8559C-290D-45F6-A090-0ADE554A9065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{828BB611-5955-47C0-AB91-32374D8506E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{828BB611-5955-47C0-AB91-32374D8506E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{828BB611-5955-47C0-AB91-32374D8506E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{828BB611-5955-47C0-AB91-32374D8506E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F8F5F26-6F21-4C0A-9183-9140CA894E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8F5F26-6F21-4C0A-9183-9140CA894E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8F5F26-6F21-4C0A-9183-9140CA894E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8F5F26-6F21-4C0A-9183-9140CA894E50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A68CC815-BEA2-4AB7-9828-07526A848E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A68CC815-BEA2-4AB7-9828-07526A848E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A68CC815-BEA2-4AB7-9828-07526A848E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A68CC815-BEA2-4AB7-9828-07526A848E01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
