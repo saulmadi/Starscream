@@ -36,6 +36,15 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\..\lib\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
+    <Reference Include="FluentAutomation.Core">
+      <HintPath>..\..\lib\FluentAutomation.Core.3.0.0.0\lib\net40\FluentAutomation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAutomation.SeleniumWebDriver">
+      <HintPath>..\..\lib\FluentAutomation.SeleniumWebDriver.3.0.0.0\lib\net40\FluentAutomation.SeleniumWebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Newtonsoft.Json.5.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\lib\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -59,22 +68,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Steps\LoginSteps.cs" />
+    <Compile Include="Automation\PageObjects\RegistrationPage.cs" />
+    <Compile Include="Automation\Steps\EnvironmentSteps.cs" />
+    <Compile Include="Automation\Steps\LoginSteps.cs" />
+    <Compile Include="Automation\Steps\UserCanRegisterSteps.cs" />
     <Compile Include="Features\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Registration.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Registration.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Global.cs" />
-    <Compile Include="PageObjects\LoginPage.cs" />
-    <Compile Include="PageBase.cs" />
+    <Compile Include="Automation\TargetEnvironment.cs" />
+    <Compile Include="Automation\PageObjects\LoginPage.cs" />
+    <Compile Include="Automation\TestBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Login.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Registration.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Registration.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

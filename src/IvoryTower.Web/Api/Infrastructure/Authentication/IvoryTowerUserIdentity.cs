@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using IvoryTower.Domain;
+using IvoryTower.Domain.Entities;
+using IvoryTower.Domain.Services;
 using Nancy.Security;
 
 namespace IvoryTower.Web.Api.Infrastructure.Authentication
@@ -18,9 +20,9 @@ namespace IvoryTower.Web.Api.Infrastructure.Authentication
         {
             get
             {
-                if (UserSession is UserSession)
+                if (UserSession is UserLoginSession)
                 {
-                    var executor = ((UserSession)UserSession).User;
+                    var executor = ((UserLoginSession)UserSession).User;
                     if (executor == null)
                     {
                         throw new Exception("The user should not be null on the user session.");

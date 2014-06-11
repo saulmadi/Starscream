@@ -4,6 +4,7 @@ using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions.Helpers;
 using IvoryTower.Domain;
+using IvoryTower.Domain.Entities;
 
 namespace IvoryTower.Data
 {

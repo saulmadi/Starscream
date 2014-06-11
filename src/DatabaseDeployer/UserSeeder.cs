@@ -1,5 +1,7 @@
 using DomainDrivenDatabaseDeployer;
 using IvoryTower.Domain;
+using IvoryTower.Domain.Entities;
+using IvoryTower.Domain.Services;
 using NHibernate;
 
 namespace DatabaseDeployer
@@ -18,7 +20,7 @@ namespace DatabaseDeployer
         public void Seed()
         {
             var encryptor = new HashPasswordEncryptor();
-            _session.Save(new User("Test User", "test@test.com", encryptor.Encrypt("password")));
+            _session.Save(new User("Test User", "test@test.com", encryptor.Encrypt("password"), "615-555-1212"));
         }
 
         #endregion

@@ -1,6 +1,8 @@
 ﻿using System;
 using IvoryTower.Data;
-using IvoryTower.Domain;
+using IvoryTower.Domain.Entities;
+using IvoryTower.Domain.Services;
+using IvoryTower.Domain.ValueObjects;
 using IvoryTower.Web.Api.Infrastructure.Exceptions;
 using IvoryTower.Web.Api.Requests;
 using IvoryTower.Web.Api.Responses;
@@ -11,7 +13,8 @@ namespace IvoryTower.Web.Api.Modules
 {
     public class LoginModule : NancyModule
     {
-        public LoginModule(IPasswordEncryptor passwordEncryptor, IReadOnlyRepository readOnlyRepository, IUserSessionFactory userSessionFactory)
+        public LoginModule(IPasswordEncryptor passwordEncryptor, IReadOnlyRepository readOnlyRepository,
+                           IUserSessionFactory userSessionFactory)
         {
             Post["/login"] =
                 _ =>
@@ -28,9 +31,9 @@ namespace IvoryTower.Web.Api.Modules
                                 readOnlyRepository.First<User>(
                                     x => x.Email == loginInfo.Email && x.EncryptedPassword == encryptedPassword.Password);
 
-                            var userSession = userSessionFactory.Create(user);
+                            UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
-                            return new SuccessfulLoginResponse<Guid>(userSession.Id, user.Name, userSession.Expires);
+                            return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
                         }
                         catch (ItemNotFoundException<User>)
                         {

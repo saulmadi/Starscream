@@ -30,29 +30,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlingBag">
+      <HintPath>..\..\lib\BlingBag.1.3.1.1\lib\net40\BlingBag.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EncryptedPassword.cs" />
-    <Compile Include="GuidTokenGenerator.cs" />
-    <Compile Include="HashPasswordEncryptor.cs" />
-    <Compile Include="IEntity.cs" />
-    <Compile Include="IPasswordEncryptor.cs" />
-    <Compile Include="IReadOnlyRepository.cs" />
-    <Compile Include="ITimeProvider.cs" />
-    <Compile Include="ITokenExpirationProvider.cs" />
-    <Compile Include="ITokenGenerator.cs" />
-    <Compile Include="IUserSession.cs" />
-    <Compile Include="IUserSessionFactory.cs" />
-    <Compile Include="IWriteableRepository.cs" />
+    <Compile Include="CommandHandlers\UserCreator.cs" />
+    <Compile Include="Commands\CreateUser.cs" />
+    <Compile Include="DomainEvent.cs" />
+    <Compile Include="DomainEvents\UserCreated.cs" />
+    <Compile Include="Services\ICommandDispatcher.cs" />
+    <Compile Include="Services\ICommandHandler.cs" />
+    <Compile Include="Services\NoAvailableHandlerException.cs" />
+    <Compile Include="Services\SynchronousCommandDispatcher.cs" />
+    <Compile Include="ValueObjects\EncryptedPassword.cs" />
+    <Compile Include="Services\GuidTokenGenerator.cs" />
+    <Compile Include="Services\HashPasswordEncryptor.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Services\IPasswordEncryptor.cs" />
+    <Compile Include="Services\IReadOnlyRepository.cs" />
+    <Compile Include="Services\ITimeProvider.cs" />
+    <Compile Include="Services\ITokenExpirationProvider.cs" />
+    <Compile Include="Services\ITokenGenerator.cs" />
+    <Compile Include="Services\IUserSession.cs" />
+    <Compile Include="Services\IUserSessionFactory.cs" />
+    <Compile Include="Services\IWriteableRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemTimeProvider.cs" />
-    <Compile Include="TokenExpirationProvider.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserSession.cs" />
-    <Compile Include="UserSessionFactory.cs" />
+    <Compile Include="Services\SystemTimeProvider.cs" />
+    <Compile Include="Services\TokenExpirationProvider.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserLoginSession.cs" />
+    <Compile Include="Services\UserSessionFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DomainEventHandlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,8 @@
 using System;
 using IvoryTower.Data;
 using IvoryTower.Domain;
+using IvoryTower.Domain.Entities;
+using IvoryTower.Domain.Services;
 using IvoryTower.Web.Api.Infrastructure.Authentication;
 using Nancy.Security;
 
@@ -21,30 +23,30 @@ namespace IvoryTower.Web.Api.Infrastructure.Configuration
 
         public IUserIdentity GetUserFromAccessToken(Guid token)
         {
-            UserSession userSession = GetUserSessionFromToken(token);
-            MakeSureTokenHasntExpiredYet(userSession);
-            return new IvoryTowerUserIdentity(userSession);
+            UserLoginSession userLoginSession = GetUserSessionFromToken(token);
+            MakeSureTokenHasntExpiredYet(userLoginSession);
+            return new IvoryTowerUserIdentity(userLoginSession);
         }
 
         #endregion
 
-        UserSession GetUserSessionFromToken(Guid token)
+        UserLoginSession GetUserSessionFromToken(Guid token)
         {
-            UserSession userSession;
+            UserLoginSession userLoginSession;
             try
             {
-                userSession = _readOnlyRepo.First<UserSession>(x => x.Id == token);
+                userLoginSession = _readOnlyRepo.First<UserLoginSession>(x => x.Id == token);
             }
-            catch (ItemNotFoundException<UserSession> e)
+            catch (ItemNotFoundException<UserLoginSession> e)
             {
                 throw new TokenDoesNotExistException();
             }
-            return userSession;
+            return userLoginSession;
         }
 
-        void MakeSureTokenHasntExpiredYet(UserSession userSession)
+        void MakeSureTokenHasntExpiredYet(UserLoginSession userLoginSession)
         {
-            DateTime expires = userSession.Expires;
+            DateTime expires = userLoginSession.Expires;
             DateTime now = _timeProvider.Now();
             if (expires < now)
             {

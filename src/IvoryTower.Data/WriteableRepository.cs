@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using IvoryTower.Domain;
+using IvoryTower.Domain.Entities;
+using IvoryTower.Domain.Services;
 using NHibernate;
 
 namespace IvoryTower.Data

@@ -32,6 +32,9 @@
         RemoveUser: function () {
             window.sessionStorage.removeItem("user");
             window.localStorage.removeItem("user");
+        },
+        Register : function(email, password, name, phoneNumber) {
+            $http
         }
     };
 });

@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <title>Ivory Tower - {{title}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/bootswatch.min.css" media="screen">          
+        <link href="/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+        <link href="/assets/bootswatch.min.css" rel="stylesheet" media="screen">          
     </head>
     <body>
         <div class="navbar navbar-default navbar-fixed-top">
@@ -78,24 +79,23 @@
 
                     </div>
                 </div>
-
             </footer>
-
         </div>            
         
         <script src="/assets/jquery-1.10.2.min.js"> </script>
         <script src="/assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"> </script>    
         <script src="/assets/angular.min.js"> </script>
-        <script src="/assets/angular-route.js"> </script>
-        
+        <script src="/assets/angular-route.js"> </script>        
         <script src="/app/app.js"> </script>
         
         <!--controllers-->
         <script src="/app/controllers/loginController.js"> </script>
+        <script src="/app/controllers/registrationController.js"> </script>
         <script src="/app/controllers/homeController.js"> </script>
         <script src="/app/controllers/parentController.js"> </script>
         
-        <!--services-->
+        <!--services-->        
+        <script src="/app/services/registrationService.js"> </script>
         <script src="/app/services/loginService.js"> </script>
         <script src="/app/services/userService.js"> </script>
         

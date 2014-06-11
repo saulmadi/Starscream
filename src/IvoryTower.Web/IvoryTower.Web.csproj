@@ -52,6 +52,10 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\lib\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BlingBag, Version=1.3.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\BlingBag.1.3.1.1\lib\net40\BlingBag.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
@@ -85,13 +89,16 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\parentController.js" />
+    <Content Include="app\controllers\registrationController.js" />
     <Content Include="app\interceptors\401Interceptor.js" />
     <Content Include="app\interceptors\AllRequestInterceptor.js" />
     <Content Include="app\services\loginService.js" />
+    <Content Include="app\services\registrationService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
+    <Content Include="app\views\registration.html" />
     <Content Include="assets\angular-route.js" />
     <Content Include="assets\angular.min.js" />
     <Content Include="assets\bootstrap-3.1.1-dist\css\bootstrap-theme.css" />
@@ -107,7 +114,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Infrastructure\Configuration\AutoFacBlingDispatcher.cs" />
+    <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
+    <Compile Include="Api\Modules\InvioIdentityExtentions.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />
+    <Compile Include="Api\Modules\NewUserRequest.cs" />
+    <Compile Include="Api\Modules\NoCurrentUserException.cs" />
+    <Compile Include="Api\Modules\RegistrationModule.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
     <Compile Include="Api\Infrastructure\Authentication\IApiUserMapper.cs" />
     <Compile Include="Api\Infrastructure\Authentication\IvoryTowerUserIdentity.cs" />

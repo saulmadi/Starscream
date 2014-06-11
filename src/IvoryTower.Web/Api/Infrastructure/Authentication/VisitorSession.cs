@@ -1,5 +1,6 @@
 using System;
 using IvoryTower.Domain;
+using IvoryTower.Domain.Services;
 
 namespace IvoryTower.Web.Api.Infrastructure.Authentication
 {

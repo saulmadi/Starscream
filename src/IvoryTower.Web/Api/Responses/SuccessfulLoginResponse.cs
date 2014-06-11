@@ -16,8 +16,8 @@ namespace IvoryTower.Web.Api.Responses
             Expires = expires;
         }
 
-        public T Token { get; private set; }
-        public string Name { get; private set; }
-        public DateTime Expires { get; private set; }
+        public T Token { get; set; }
+        public string Name { get; set; }
+        public DateTime Expires { get; set; }
     }
 }

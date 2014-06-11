@@ -5,10 +5,14 @@ angular.module('ivoryTower.Services', []);
 angular.module('ivoryTower.Directives', []);
 
 app.config(function($routeProvider) {
-    $routeProvider.
-        when('/login', {
+    $routeProvider
+        .when('/login', {
             templateUrl: 'app/views/login.html',
             controller: 'loginController'
+        })
+        .when('/register', {
+            templateUrl: 'app/views/registration.html',
+            controller: 'registrationController'
         })
         .when('/', {
             templateUrl: 'app/views/home.html',
@@ -20,7 +24,7 @@ app.config(function($routeProvider) {
         .otherwise({
             redirectTo: '/404'
         });
-    })
+})
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push(['$q', '$location', 'userService', function($q, $location, userService) {
             return {
@@ -35,24 +39,24 @@ app.config(function($routeProvider) {
             };
         }]);
     }])
-    .config(['$httpProvider', function ($httpProvider) {
-        $httpProvider.interceptors.push(['$q', 'userService', function ($q, userService) {
+    .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push(['$q', 'userService', function($q, userService) {
             return {
-                'request': function (config) {
-                    
+                'request': function(config) {
+
                     console.log(config.method + " " + config.url);
 
                     var user = userService.GetUser();
                     if (user) {
                         config.headers["Authorization"] = 'Bearer ' + user.Token;
-                    } 
+                    }
                     if (config.method == "POST" || config.method == "PUT") {
                         console.log(JSON.stringify(config.data));
                     }
                     return config || $q.when(config);
                 },
                 'requestError': function(rejection) {
-                    console.log("RequestError: " + JSON.stringify(rejection));                    
+                    console.log("RequestError: " + JSON.stringify(rejection));
                     return $q.reject(rejection);
                 }
             };

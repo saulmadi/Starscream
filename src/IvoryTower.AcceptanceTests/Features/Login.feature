@@ -2,7 +2,10 @@
 	As a website visitor
 	I want to log into the application
 	In order to start using it
-	
+
+Background: 
+	Given the feature is available in "development"
+
 Scenario: Successful log in
 	Given I have navigated to the login page
 	When I have entered "test@test.com" into the email address field
