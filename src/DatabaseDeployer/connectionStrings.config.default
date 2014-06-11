@@ -1,5 +1,4 @@
 ﻿<connectionStrings>
-  <add name="local" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=NovaEnergy;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"></add>
-  <add name="remote" connectionString="Server=c5743e7b-4b57-4355-9381-a31b00fc810c.sqlserver.sequelizer.com;Database=dbc5743e7b4b5743559381a31b00fc810c;User ID=lonjpksksimyiarn;Password=VbPDQBXtJZbHjkknrkTcTWR3oVQUzDE4zJnNWyh7ToTUxiqGiqPipMV7sUp4Uc2f;"></add>
-  <add name="production" connectionString="Server=4d95dabd-ec0b-4a53-9f12-a33e00f6fd18.sqlserver.sequelizer.com;Database=db4d95dabdec0b4a539f12a33e00f6fd18;User ID=hwjetctbteuhuluz;Password=XjLvmqXNsziv55sjtRxJ7vYCadmu3rjsnuY3nv2beRYt5zhYZM7fdn7BshuheBUb;"></add>
+  <add name="local" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=IvoryTower;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"></add>
+  <add name="remote" connectionString="Server=93df67bc-3445-46e9-a8ff-a347015e8142.sqlserver.sequelizer.com;Database=db93df67bc344546e9a8ffa347015e8142;User ID=aqpkvtzgoehpqocq;Password=nDrnzrmHzyzFMZ84SY6GvCTyBDgkpTrxBuAMNTUSzc8zuwKQkvZXMFqRSZS5kbtP;"></add>
 </connectionStrings>
