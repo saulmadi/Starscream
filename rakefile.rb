@@ -73,3 +73,29 @@ task :specs do
     # If we get here, all's good
     puts "All tests passed"
 end
+
+task :dbRebuild => [:dbDrop, :dbCreate, :dbSeed]
+
+task :dbDrop => [:compile] do
+	Dir.chdir("build/") do
+		sh "DatabaseDeployer.exe drop"
+	end
+end
+
+task :dbCreate => [:compile] do
+	Dir.chdir("build/") do
+		sh "DatabaseDeployer.exe create"
+	end
+end
+
+task :dbUpdate => [:compile] do
+	Dir.chdir("build/") do
+		sh "DatabaseDeployer.exe update"
+	end
+end
+
+task :dbSeed => [:compile] do
+	Dir.chdir("build/") do
+		sh "DatabaseDeployer.exe seed"
+	end
+end

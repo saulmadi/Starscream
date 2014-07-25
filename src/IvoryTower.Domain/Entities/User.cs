@@ -11,6 +11,7 @@ namespace IvoryTower.Domain.Entities
 
         public User(string name, string emailAddress, EncryptedPassword encryptedPassword)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Email = emailAddress;
             EncryptedPassword = encryptedPassword.Password;

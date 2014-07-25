@@ -1,31 +1,58 @@
+using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 
 namespace IvoryTower.Data
 {
     public class ConnectionStrings
     {
-        public static string Get()
+        public static ConnectionStringSettings Get()
         {
-            var local = ConfigurationManager.ConnectionStrings["local"].ToString();
+            string environment = GetEnvironment();
+            List<ConnectionStringSettings> connectionStringSettings = GetConnectionStringSettings();
+            ConnectionStringSettings setting = GetMatchingConnectionStringSetting(connectionStringSettings, environment);
+            return setting;
+        }
 
-            var remote = (ConfigurationManager.ConnectionStrings["remote"].ConnectionString);
+        static ConnectionStringSettings GetMatchingConnectionStringSetting(
+            List<ConnectionStringSettings> connectionStringSettings, string environment)
+        {
+            ConnectionStringSettings match = connectionStringSettings
+                .FirstOrDefault(x => x.Name.ToLower() == environment.ToLower());
 
-            //var production = (ConfigurationManager.ConnectionStrings["production"].ConnectionString);
-
-            var environment = (ConfigurationManager.AppSettings["Environment"] ?? "").ToLower();
-            var connectionStringToUse = local;
-
-
-            if (environment == "qa" || environment == "remote")
+            if (match == null)
             {
-                connectionStringToUse = remote;
+                throw new Exception(
+                    string.Format(
+                        "Connection string for '{0}' not found in the config file. Available connection strings are: {1}",
+                        environment, string.Join(", ", connectionStringSettings.Select(x => x.Name))));
             }
-            //else if (environment == "production")
-            //{
-            //    connectionStringToUse = production;
-            //}
+            return match;
+        }
 
-            return connectionStringToUse;
+        static string GetEnvironment()
+        {
+            string environment =
+                (Environment.GetEnvironmentVariable("Environment")
+                 ?? ConfigurationManager.AppSettings["Environment"]
+                 ?? "local").ToLower();
+
+            if (environment == "remote") environment = "qa";
+
+            return environment;
+        }
+
+        static List<ConnectionStringSettings> GetConnectionStringSettings()
+        {
+            IEnumerable<ConnectionStringSettings> connectionStringSettings =
+                ConfigurationManager.ConnectionStrings.Cast<ConnectionStringSettings>();
+
+            if (connectionStringSettings == null)
+            {
+                throw new Exception("No connection strings were found in the config file.");
+            }
+            return connectionStringSettings.ToList();
         }
     }
 }

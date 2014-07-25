@@ -47,8 +47,11 @@
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="ItemNotFoundException.cs" />
     <Compile Include="MappingScheme.cs" />
+    <Compile Include="MsSqlAzureDialect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadOnlyRepository.cs" />
+    <Compile Include="UserAutoMappingOverride.cs" />
+    <Compile Include="UserLoginSessionAutoMappingOverride.cs" />
     <Compile Include="WriteableRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +63,11 @@
       <Project>{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}</Project>
       <Name>IvoryTower.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HbmMappings\ManyToManyClusteredIndexes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

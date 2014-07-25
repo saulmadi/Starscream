@@ -1,5 +1,4 @@
-﻿using AcklenAvenue.Testing.Moq.ExpectedObjects;
-using IvoryTower.Domain.CommandHandlers;
+﻿using IvoryTower.Domain.CommandHandlers;
 using IvoryTower.Domain.Commands;
 using IvoryTower.Domain.DomainEvents;
 using IvoryTower.Domain.Entities;
@@ -36,9 +35,11 @@ namespace IvoryTower.Domain.Specs
         It should_create_the_new_user =
             () => Mock.Get(_writeableRepository).Verify(
                 x =>
-                x.Create(
-                    WithExpected.Object(new User(_command.Name, _command.Email, _command.EncryptedPassword,
-                                                 _command.PhoneNumber))));
+                x.Create(Moq.It.Is<User>(u =>
+                                         u.Name == _command.Name
+                                         && u.Email == _command.Email
+                                         && u.EncryptedPassword == _command.EncryptedPassword.Password
+                                         && u.PhoneNumber == _command.PhoneNumber)));
 
         It should_handle_the_expected_event =
             () => _handler.CommandType.ShouldEqual(_command.GetType());

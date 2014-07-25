@@ -16,7 +16,7 @@ namespace IvoryTower.Web.Api.Infrastructure.Configuration
             get
             {
                 MsSqlConfiguration databaseConfiguration = MsSqlConfiguration.MsSql2008.ShowSql().
-                    ConnectionString(x => x.Is(ConnectionStrings.Get()));
+                    ConnectionString(x => x.Is(ConnectionStrings.Get().ConnectionString)).Dialect<MsSqlAzureDialect>();
 
                 return container =>
                            {

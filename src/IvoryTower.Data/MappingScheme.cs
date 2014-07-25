@@ -3,25 +3,32 @@ using AcklenAvenue.Data;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions.Helpers;
-using IvoryTower.Domain;
 using IvoryTower.Domain.Entities;
 
 namespace IvoryTower.Data
 {
     public class MappingScheme : IDatabaseMappingScheme<MappingConfiguration>
     {
+        #region IDatabaseMappingScheme<MappingConfiguration> Members
+
         public Action<MappingConfiguration> Mappings
         {
             get
             {
-                var autoPersistenceModel = AutoMap.Assemblies(typeof(IEntity).Assembly)
-                    .Where(t => typeof(IEntity).IsAssignableFrom(t))
-                    //.UseOverridesFromAssemblyOf<CompanyAutoMappingOverride>()
+                AutoPersistenceModel autoPersistenceModel = AutoMap.Assemblies(typeof (IEntity).Assembly)
+                    .Where(t => typeof (IEntity).IsAssignableFrom(t))
+                    .UseOverridesFromAssemblyOf<UserAutoMappingOverride>()
                     //.IncludeBase<LessonActionBase>()
                     .Conventions.Add(DefaultCascade.All());
 
-                return x => x.AutoMappings.Add(autoPersistenceModel);
+                return x =>
+                           {
+                               x.AutoMappings.Add(autoPersistenceModel);
+                               x.HbmMappings.AddFromAssemblyOf<ReadOnlyRepository>();
+                           };
             }
         }
+
+        #endregion
     }
 }

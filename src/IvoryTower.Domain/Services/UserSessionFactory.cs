@@ -25,12 +25,10 @@ namespace IvoryTower.Domain.Services
 
         public UserLoginSession Create(User executor)
         {
-            var userSession = new UserLoginSession
-                                  {
-                                      Id = _tokenGenerator.Generate(),
-                                      User = executor,
-                                      Expires = _tokenExpirationProvider.GetExpiration(_timeProvider.Now())
-                                  };
+            DateTime dateTime = _tokenExpirationProvider.GetExpiration(_timeProvider.Now());
+            Guid token = _tokenGenerator.Generate();
+
+            var userSession = new UserLoginSession(token, executor, dateTime);
 
             _writeableRepository.Create(userSession);
 

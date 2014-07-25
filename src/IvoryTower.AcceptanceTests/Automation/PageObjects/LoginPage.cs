@@ -37,6 +37,7 @@ namespace IvoryTower.AcceptanceTests.Automation.PageObjects
 
         public string GetErrorMessage()
         {
+            I.WaitUntil(() => I.Expect.Exists(ErrorMessage));            
             return I.Find(ErrorMessage).Element.Text;
         }        
 
