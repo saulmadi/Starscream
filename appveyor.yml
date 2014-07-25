@@ -55,6 +55,7 @@ test:
 
 artifacts:
   - path: deploy\*.zip
+    name: appZip
 
 deploy:
   - provider: WebDeploy
@@ -63,7 +64,7 @@ deploy:
     username: $starscream-starter
     password: kHbwofpzBaifjtSc7RcpTRon84SPvSABEWPtnBrKWu6QkcwdCmMFWLefaF6o
     ntlm: false
-    artifact: deploy\*.zip
+    artifact: appZip
   
 # scripts to run before deployment
 before_deploy:
