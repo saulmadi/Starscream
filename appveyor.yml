@@ -19,7 +19,7 @@ init:
 # clone_folder: c:\projects\myproject
 
 # enable service required for build/tests
-#services:
+services:
   - mssql2012sp1        # start SQL Server 2012 SP1 Express
   - iis                 # start IIS
 
