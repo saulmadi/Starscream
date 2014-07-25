@@ -1,5 +1,5 @@
 MSBUILD_PATH = "C:/Windows/Microsoft.NET/Framework/v4.0.30319/msbuild.exe"
-MSPEC_PATH = "lib/Machine.Specifications.0.5.12/tools/mspec-clr4.exe"
+MSPEC_PATH = "lib/Machine.Specifications.0.8.3/tools/mspec-clr4.exe"
 VERSION = ENV["APPVEYOR_BUILD_VERSION"] || "local"
 MSTEST_PATH = File.join(ENV['VS110COMNTOOLS'], '..', 'IDE', 'mstest.exe')
 BUILD_PATH = File.expand_path('build')
@@ -22,9 +22,9 @@ task :build => [:removeArtifacts, :compile]
 
 task :createArtifact do
 	puts 'Creating deployment artifact...'
-	
+	Dir.mkdir(DEPLOY_PATH) unless Dir.exists?(DEPLOY_PATH)	
 	Dir.chdir("build/_publishedWebsites/#{WEB_APP}") do
-		sh "\"#{PATH_7ZIP}\" a \"../../#{WEB_APP}-#{VERSION}.zip\" *"
+		sh "\"#{PATH_7ZIP}\" a \"#{DEPLOY_PATH}/#{WEB_APP}-#{VERSION}.zip\" *"
 	end
 end
 
