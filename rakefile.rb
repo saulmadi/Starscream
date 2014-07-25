@@ -1,5 +1,6 @@
 MSBUILD_PATH = "C:/Windows/Microsoft.NET/Framework/v4.0.30319/msbuild.exe"
 MSPEC_PATH = "lib/Machine.Specifications.0.5.12/tools/mspec-clr4.exe"
+VERSION = ENV["APPVEYOR_BUILD_VERSION"] || "local"
 MSTEST_PATH = File.join(ENV['VS110COMNTOOLS'], '..', 'IDE', 'mstest.exe')
 BUILD_PATH = File.expand_path('build')
 DATABASE_DEPLOYMENT_PATH = File.expand_path('database_deployment')
@@ -10,10 +11,22 @@ SOLUTION = "IvoryTower.sln"
 SOLUTION_PATH = File.join("src",SOLUTION)
 TRXFILE = File.join(REPORTS_PATH, SOLUTION + '.trx')
 CONFIG = "Debug"
+PATH_7ZIP = "C:/Program Files/7-Zip/7z.exe"
+WEB_APP = "IvoryTower.Web"
 
 task :default => [:all]
 
-task :all => [:removeArtifacts, :compile, :specs]
+task :all => [:build, :specs, :createArtifact]
+
+task :build => [:removeArtifacts, :compile]
+
+task :createArtifact do
+	puts 'Creating deployment artifact...'
+	
+	Dir.chdir("build/_publishedWebsites/#{WEB_APP}") do
+		sh "\"#{PATH_7ZIP}\" a \"../../#{WEB_APP}-#{VERSION}.zip\" *"
+	end
+end
 
 task :removeArtifacts do
 	require 'fileutils'
