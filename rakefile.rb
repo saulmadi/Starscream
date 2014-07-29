@@ -7,12 +7,12 @@ DATABASE_DEPLOYMENT_PATH = File.expand_path('database_deployment')
 DEPLOY_PATH = File.expand_path('deploy')
 REPORTS_PATH = File.expand_path('testresults')
 TEST_RESULTS_PATH = File.expand_path('testresults')
-SOLUTION = "IvoryTower.sln"
+SOLUTION = "Starscream.sln"
 SOLUTION_PATH = File.join("src",SOLUTION)
 TRXFILE = File.join(REPORTS_PATH, SOLUTION + '.trx')
 CONFIG = "Debug"
 PATH_7ZIP = "C:/Program Files/7-Zip/7z.exe"
-WEB_APP = "IvoryTower.Web"
+WEB_APP = "Starscream.Web"
 
 task :default => [:all]
 

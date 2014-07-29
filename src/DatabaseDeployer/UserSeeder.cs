@@ -1,7 +1,7 @@
 using DomainDrivenDatabaseDeployer;
-using IvoryTower.Domain;
-using IvoryTower.Domain.Entities;
-using IvoryTower.Domain.Services;
+using Starscream.Domain;
+using Starscream.Domain.Entities;
+using Starscream.Domain.Services;
 using NHibernate;
 
 namespace DatabaseDeployer

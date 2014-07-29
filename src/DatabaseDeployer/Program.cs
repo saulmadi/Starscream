@@ -7,7 +7,7 @@ using System.Linq;
 using AcklenAvenue.Data.NHibernate;
 using DomainDrivenDatabaseDeployer;
 using FluentNHibernate.Cfg.Db;
-using IvoryTower.Data;
+using Starscream.Data;
 using NHibernate;
 
 namespace DatabaseDeployer
