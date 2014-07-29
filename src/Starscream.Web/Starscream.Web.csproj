@@ -127,7 +127,6 @@
     <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
     <Compile Include="Api\Modules\IdentityExtentions.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />
-    <Compile Include="Api\Modules\NewUserRequest.cs" />
     <Compile Include="Api\Modules\NoCurrentUserException.cs" />
     <Compile Include="Api\Modules\RegistrationModule.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
@@ -144,6 +143,7 @@
     <Compile Include="Api\Infrastructure\RootModule.cs" />
     <Compile Include="Api\Infrastructure\Configuration\IBootstrapperTask.cs" />
     <Compile Include="Api\Infrastructure\Exceptions\UserInputPropertyMissingException.cs" />
+    <Compile Include="Api\Requests\NewUserRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\BadRequestExceptionRepackager.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\ErrorResponse.cs" />

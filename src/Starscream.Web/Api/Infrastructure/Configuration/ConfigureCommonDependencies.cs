@@ -35,7 +35,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             container.RegisterType<BlingInitializer<DomainEvent>>().As<IBlingInitializer<DomainEvent>>();
             container.RegisterType<BlingConfigurator>().As<IBlingConfigurator<DomainEvent>>();
             container.RegisterType<AutoFacBlingDispatcher>().As<IBlingDispatcher>();
-            container.RegisterType<SynchronousCommandDispatcher>().As<ICommandDispatcher>();
+            container.RegisterType<ImmediateCommandDispatcher>().As<ICommandDispatcher>();
         }
 
         static void AutoRegisterDataAndDomain(ContainerBuilder container)

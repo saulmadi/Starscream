@@ -1,4 +1,4 @@
-namespace Starscream.Web.Api.Modules
+namespace Starscream.Web.Api.Requests
 {
     public class NewUserRequest
     {

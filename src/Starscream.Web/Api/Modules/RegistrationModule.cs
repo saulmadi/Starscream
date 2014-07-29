@@ -2,6 +2,7 @@ using Starscream.Domain.Commands;
 using Starscream.Domain.Services;
 using Nancy;
 using Nancy.ModelBinding;
+using Starscream.Web.Api.Requests;
 
 namespace Starscream.Web.Api.Modules
 {

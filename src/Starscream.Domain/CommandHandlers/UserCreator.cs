@@ -6,7 +6,7 @@ using Starscream.Domain.Services;
 
 namespace Starscream.Domain.CommandHandlers
 {
-    public class UserCreator : ICommandHandler
+    public class UserCreator : ICommandHandler<CreateUser>
     {
         readonly IWriteableRepository _writeableRepository;
 
@@ -17,16 +17,10 @@ namespace Starscream.Domain.CommandHandlers
 
         #region ICommandHandler Members
 
-        public Type CommandType
+        public void Handle(IUserSession userIssuingCommand, CreateUser command)
         {
-            get { return typeof (CreateUser); }
-        }
-
-        public void Handle(IUserSession userIssuingCommand, object command)
-        {
-            var c = (CreateUser) command;
-            _writeableRepository.Create(new User(c.Name, c.Email, c.EncryptedPassword, c.PhoneNumber));
-            NotifyObservers(new UserCreated(c.Email, c.Name, c.PhoneNumber));
+            _writeableRepository.Create(new User(command.Name, command.Email, command.EncryptedPassword, command.PhoneNumber));
+            NotifyObservers(new UserCreated(command.Email, command.Name, command.PhoneNumber));
         }
 
         public event DomainEvent NotifyObservers;

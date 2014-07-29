@@ -1,11 +1,12 @@
-using System;
-
 namespace Starscream.Domain.Services
 {
     public interface ICommandHandler
     {
-        Type CommandType { get; }
-        void Handle(IUserSession userIssuingCommand, object command);
         event DomainEvent NotifyObservers;
+    }
+
+    public interface ICommandHandler<in T> : ICommandHandler
+    {
+        void Handle(IUserSession userIssuingCommand, T command);        
     }
 }
