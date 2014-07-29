@@ -7,8 +7,7 @@ using Starscream.Web.Api.Requests;
 namespace Starscream.Web.Api.Modules
 {
     public class RegistrationModule : NancyModule
-    {
-        
+    {        
         public RegistrationModule(ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor)
         {
             Post["/register"] =

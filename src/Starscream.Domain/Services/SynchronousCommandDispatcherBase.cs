@@ -10,16 +10,20 @@ namespace Starscream.Domain.Services
         {
             foreach (var validator in GetMatchingCommandValidators(command))
             {
-                MethodInfo handlerMethod = validator.GetType().GetMethod("Validate");
-                handlerMethod.Invoke(validator, new[] { userSession, command });
+                InvokeMethod("Validate", validator, userSession, command);
             }
 
-            foreach (object handler in GetMatchingCommandHandlers(command))
+            foreach (var handler in GetMatchingCommandHandlers(command))
             {
                 InitializeHandler(handler);
-                MethodInfo handlerMethod = handler.GetType().GetMethod("Handle");
-                handlerMethod.Invoke(handler, new[] {userSession, command});
+                InvokeMethod("Handle", handler, userSession, command);
             }
+        }
+
+        static void InvokeMethod(string methodName, object invokableObject, params object[] methodArgs)
+        {
+            MethodInfo handlerMethod = invokableObject.GetType().GetMethod(methodName);
+            handlerMethod.Invoke(invokableObject, methodArgs);
         }
 
         IEnumerable GetMatchingCommandHandlers(object command)
