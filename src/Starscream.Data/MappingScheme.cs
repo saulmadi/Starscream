@@ -3,6 +3,7 @@ using AcklenAvenue.Data;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions.Helpers;
+using Starscream.Domain;
 using Starscream.Domain.Entities;
 
 namespace Starscream.Data

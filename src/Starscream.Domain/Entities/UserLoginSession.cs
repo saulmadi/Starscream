@@ -3,7 +3,7 @@ using Starscream.Domain.Services;
 
 namespace Starscream.Domain.Entities
 {
-    public class UserLoginSession : IEntity, IUserSession
+    public class UserLoginSession : Entity, IUserSession
     {
         protected UserLoginSession()
         {            
@@ -16,7 +16,6 @@ namespace Starscream.Domain.Entities
             Expires = expires;
         }
 
-        public virtual Guid Id { get; protected set; }
         public virtual User User { get; protected set; }
         public virtual DateTime Expires { get; protected set; }
     }

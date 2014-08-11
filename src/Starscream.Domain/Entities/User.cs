@@ -3,7 +3,7 @@ using Starscream.Domain.ValueObjects;
 
 namespace Starscream.Domain.Entities
 {
-    public class User : IEntity
+    public class User : Entity
     {
         protected User()
         {
@@ -26,12 +26,6 @@ namespace Starscream.Domain.Entities
         public virtual string Email { get; protected set; }
         public virtual string PhoneNumber { get; protected set; }
         public virtual string EncryptedPassword { get; protected set; }
-
-        #region IEntity Members
-
-        public virtual Guid Id { get; protected set; }
-
-        #endregion
 
         public virtual void ChangeEmailAddress(string emailAddress)
         {

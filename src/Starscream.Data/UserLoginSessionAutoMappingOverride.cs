@@ -7,8 +7,7 @@ namespace Starscream.Data
     public class UserLoginSessionAutoMappingOverride : IAutoMappingOverride<UserLoginSession>
     {
         public void Override(AutoMapping<UserLoginSession> mapping)
-        {
-            mapping.Id().GeneratedBy.Assigned();
+        {            
         }
     }
 }

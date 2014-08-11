@@ -44,6 +44,8 @@
     <Compile Include="Commands\CreateUser.cs" />
     <Compile Include="DomainEvent.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="Services\ICommandDispatcher.cs" />
     <Compile Include="Services\ICommandHandler.cs" />
     <Compile Include="Services\ICommandValidator.cs" />
@@ -53,7 +55,6 @@
     <Compile Include="ValueObjects\EncryptedPassword.cs" />
     <Compile Include="Services\GuidTokenGenerator.cs" />
     <Compile Include="Services\HashPasswordEncryptor.cs" />
-    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Services\IPasswordEncryptor.cs" />
     <Compile Include="Services\IReadOnlyRepository.cs" />
     <Compile Include="Services\ITimeProvider.cs" />

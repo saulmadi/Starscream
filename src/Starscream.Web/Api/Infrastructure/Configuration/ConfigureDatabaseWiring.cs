@@ -41,7 +41,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
 
 
                                container.Register(c =>
-                                                  new SessionFactoryBuilder(new MappingScheme(), databaseConfiguration)
+                                                  new SessionFactoryBuilder(new MappingScheme(), databaseConfiguration, new EntityInterceptor())
                                                       .Build())
                                    .SingleInstance()
                                    .As<ISessionFactory>();
