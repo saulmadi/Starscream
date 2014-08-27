@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="EntityInterceptor.cs" />
-    <Compile Include="ItemNotFoundException.cs" />
     <Compile Include="MappingScheme.cs" />
     <Compile Include="MsSqlAzureDialect.cs" />
     <Compile Include="PrimaryKeyGeneratorConvention.cs" />

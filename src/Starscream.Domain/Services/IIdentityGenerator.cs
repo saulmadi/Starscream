@@ -1,6 +1,6 @@
 namespace Starscream.Domain.Services
 {
-    public interface ITokenGenerator<out T>
+    public interface IIdentityGenerator<out T>
     {
         T Generate();
     }

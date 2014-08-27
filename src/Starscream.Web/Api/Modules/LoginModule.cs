@@ -1,5 +1,6 @@
 ﻿using System;
 using Starscream.Data;
+using Starscream.Domain;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Starscream.Domain.ValueObjects;

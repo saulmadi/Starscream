@@ -70,10 +70,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Automation\PageObjects\ForgotPasswordPage.cs" />
     <Compile Include="Automation\PageObjects\RegistrationPage.cs" />
     <Compile Include="Automation\Steps\EnvironmentSteps.cs" />
+    <Compile Include="Automation\Steps\ForgotPasswordSteps.cs" />
     <Compile Include="Automation\Steps\LoginSteps.cs" />
     <Compile Include="Automation\Steps\UserCanRegisterSteps.cs" />
+    <Compile Include="Features\ForgotPassword.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ForgotPassword.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\ForgotPassword.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ForgotPassword.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Login.feature.cs</LastGenOutput>

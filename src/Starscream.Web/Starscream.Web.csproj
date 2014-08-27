@@ -94,16 +94,19 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\homeController.js" />
+    <Content Include="app\controllers\forgotPasswordController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\parentController.js" />
     <Content Include="app\controllers\registrationController.js" />
     <Content Include="app\interceptors\401Interceptor.js" />
     <Content Include="app\interceptors\AllRequestInterceptor.js" />
+    <Content Include="app\services\accountService.js" />
+    <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
-    <Content Include="app\services\registrationService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
     <Content Include="app\views\home.html" />
+    <Content Include="app\views\forgot-password.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\registration.html" />
     <Content Include="assets\angular-route.js" />
@@ -125,16 +128,16 @@
   <ItemGroup>
     <Compile Include="Api\Infrastructure\Configuration\AutoFacBlingDispatcher.cs" />
     <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
+    <Compile Include="Api\Infrastructure\RestExceptions\CommandValidationExceptionRepackager.cs" />
     <Compile Include="Api\Modules\IdentityExtentions.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />
     <Compile Include="Api\Modules\NoCurrentUserException.cs" />
-    <Compile Include="Api\Modules\RegistrationModule.cs" />
+    <Compile Include="Api\Modules\UserAccountModule.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
     <Compile Include="Api\Infrastructure\Authentication\IApiUserMapper.cs" />
     <Compile Include="Api\Infrastructure\Authentication\LoggedInUserIdentity.cs" />
     <Compile Include="Api\Infrastructure\Authentication\TokenDoesNotExistException.cs" />
     <Compile Include="Api\Infrastructure\Authentication\TokenExpiredException.cs" />
-    <Compile Include="Api\Infrastructure\Authentication\VisitorSession.cs" />
     <Compile Include="Api\Infrastructure\Configuration\ApiUserMapper.cs" />
     <Compile Include="Api\Infrastructure\Configuration\Bootstrapper.cs" />
     <Compile Include="Api\Infrastructure\Configuration\ConfigureAutomapperMappings.cs" />
@@ -144,6 +147,8 @@
     <Compile Include="Api\Infrastructure\Configuration\IBootstrapperTask.cs" />
     <Compile Include="Api\Infrastructure\Exceptions\UserInputPropertyMissingException.cs" />
     <Compile Include="Api\Requests\NewUserRequest.cs" />
+    <Compile Include="Api\Requests\ResetPasswordRequest.cs" />
+    <Compile Include="emails\PasswordResetEmailTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\BadRequestExceptionRepackager.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\ErrorResponse.cs" />
@@ -186,9 +191,21 @@
       <Project>{828BB611-5955-47C0-AB91-32374D8506E2}</Project>
       <Name>Starscream.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StarScream.Domain.Email\StarScream.Domain.Email.csproj">
+      <Project>{1a8f107f-5e54-423c-9512-114ee80c90d4}</Project>
+      <Name>StarScream.Domain.Email</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Starscream.Domain\Starscream.Domain.csproj">
       <Project>{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}</Project>
       <Name>Starscream.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StarScream.EmailClients.DotNet\StarScream.EmailClients.DotNet.csproj">
+      <Project>{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}</Project>
+      <Name>StarScream.EmailClients.DotNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StarScream.TemplateEngines.Razor\StarScream.TemplateEngines.Razor.csproj">
+      <Project>{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}</Project>
+      <Name>StarScream.TemplateEngines.Razor</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

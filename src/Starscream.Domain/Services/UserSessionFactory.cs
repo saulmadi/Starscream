@@ -7,17 +7,17 @@ namespace Starscream.Domain.Services
     {
         readonly ITimeProvider _timeProvider;
         readonly ITokenExpirationProvider _tokenExpirationProvider;
-        readonly ITokenGenerator<Guid> _tokenGenerator;
+        readonly IIdentityGenerator<Guid> _identityGenerator;
         readonly IWriteableRepository _writeableRepository;
 
         public UserSessionFactory(IWriteableRepository writeableRepository,
                                   ITimeProvider timeProvider,
-                                  ITokenGenerator<Guid> tokenGenerator,
+                                  IIdentityGenerator<Guid> identityGenerator,
                                   ITokenExpirationProvider tokenExpirationProvider)
         {
             _writeableRepository = writeableRepository;
             _timeProvider = timeProvider;
-            _tokenGenerator = tokenGenerator;
+            _identityGenerator = identityGenerator;
             _tokenExpirationProvider = tokenExpirationProvider;
         }
 
@@ -26,7 +26,7 @@ namespace Starscream.Domain.Services
         public UserLoginSession Create(User executor)
         {
             DateTime dateTime = _tokenExpirationProvider.GetExpiration(_timeProvider.Now());
-            Guid token = _tokenGenerator.Generate();
+            Guid token = _identityGenerator.Generate();
 
             var userSession = new UserLoginSession(token, executor, dateTime);
 

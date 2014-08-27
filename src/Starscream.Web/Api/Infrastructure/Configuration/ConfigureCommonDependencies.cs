@@ -1,11 +1,16 @@
 using System;
-using System.Reflection;
-using AutoMapper;
+using System.Linq;
 using Autofac;
+using AutoMapper;
 using BlingBag;
+using Starscream.Data;
 using Starscream.Domain;
+using StarScream.Domain.Email;
 using Starscream.Domain.Services;
+using StarScream.EmailClients.DotNet;
+using StarScream.TemplateEngines.Razor;
 using Starscream.Web.Api.Infrastructure.Authentication;
+using Starscream.Web.emails;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {
@@ -18,13 +23,14 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             get
             {
                 return container =>
-                           {
-                               AutoRegisterDataAndDomain(container);
-                               container.RegisterInstance(Mapper.Engine).As<IMappingEngine>();
-                               container.RegisterType<ApiUserMapper>().As<IApiUserMapper<Guid>>();
+                       {
+                           AutoRegisterDataAndDomain(container);
+                           container.RegisterInstance(Mapper.Engine).As<IMappingEngine>();
+                           container.RegisterType<ApiUserMapper>().As<IApiUserMapper<Guid>>();
 
-                               ConfigureCommandAndEventHandlers(container);
-                           };
+                           ConfigureCommandAndEventHandlers(container);
+                           AutoRegisterEmailTemplates(container);
+                       };
             }
         }
 
@@ -38,13 +44,26 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             container.RegisterType<ImmediateCommandDispatcher>().As<ICommandDispatcher>();
         }
 
+        static void AutoRegisterEmailTemplates(ContainerBuilder container)
+        {
+            container.RegisterAssemblyTypes(typeof (PasswordResetEmailTemplate).Assembly)
+                .Where(x => typeof (IEmailBodyTemplate).IsAssignableFrom(x) ||
+                            typeof (IEmailSubjectTemplate).IsAssignableFrom(x)
+                ).AsImplementedInterfaces();
+        }
+
         static void AutoRegisterDataAndDomain(ContainerBuilder container)
         {
-            Assembly data = Assembly.Load("Starscream.Data");
-            Assembly domain = Assembly.Load("Starscream.Domain");
-
             container
-                .RegisterAssemblyTypes(data, domain)
+                .RegisterAssemblyTypes(new[]
+                                       {
+                                           typeof (ReadOnlyRepository).Assembly,
+                                           typeof (IEntity).Assembly,
+                                           typeof (DotNetSmtpClient).Assembly,
+                                           typeof (EmailSender).Assembly,
+                                           typeof (RazorViewEngine).Assembly                                          
+                                       })
+                .Where(x => x.GetInterfaces().Any())
                 .AsImplementedInterfaces();
         }
     }

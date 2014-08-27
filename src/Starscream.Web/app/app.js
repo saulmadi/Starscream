@@ -10,6 +10,10 @@ app.config(function($routeProvider) {
             templateUrl: 'app/views/login.html',
             controller: 'loginController'
         })
+        .when('/forgot-password', {
+            templateUrl: 'app/views/forgot-password.html',
+            controller: 'forgotPasswordController'
+        })
         .when('/register', {
             templateUrl: 'app/views/registration.html',
             controller: 'registrationController'

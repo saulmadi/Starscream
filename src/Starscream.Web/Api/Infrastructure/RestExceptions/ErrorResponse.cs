@@ -9,7 +9,7 @@ namespace Starscream.Web.Api.Infrastructure.RestExceptions
             
             this.WithStatusCode(statusCode);
             this.WithContentType(contentType);
-            ReasonPhrase = message;
+            this.WithBody(message);
         }        
     }
 }

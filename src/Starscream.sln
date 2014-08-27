@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starscream.Web", "Starscream.Web\Starscream.Web.csproj", "{EFD8559C-290D-45F6-A090-0ADE554A9065}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starscream.Data", "Starscream.Data\Starscream.Data.csproj", "{828BB611-5955-47C0-AB91-32374D8506E2}"
@@ -23,6 +25,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D30E0F
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarScream.Domain.Email", "StarScream.Domain.Email\StarScream.Domain.Email.csproj", "{1A8F107F-5E54-423C-9512-114EE80C90D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarScream.Domain.Email.Specs", "StarScream.Domain.Email.Specs\StarScream.Domain.Email.Specs.csproj", "{DFD64F30-CDB1-4A0A-BBDC-23DFBD7D7F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarScream.TemplateEngines.Razor", "StarScream.TemplateEngines.Razor\StarScream.TemplateEngines.Razor.csproj", "{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarScream.EmailClients.DotNet", "StarScream.EmailClients.DotNet\StarScream.EmailClients.DotNet.csproj", "{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +68,22 @@ Global
 		{172AA855-33FC-4A9D-ADEC-F17555C02072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{172AA855-33FC-4A9D-ADEC-F17555C02072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{172AA855-33FC-4A9D-ADEC-F17555C02072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8F107F-5E54-423C-9512-114EE80C90D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8F107F-5E54-423C-9512-114EE80C90D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8F107F-5E54-423C-9512-114EE80C90D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8F107F-5E54-423C-9512-114EE80C90D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD64F30-CDB1-4A0A-BBDC-23DFBD7D7F80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD64F30-CDB1-4A0A-BBDC-23DFBD7D7F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD64F30-CDB1-4A0A-BBDC-23DFBD7D7F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD64F30-CDB1-4A0A-BBDC-23DFBD7D7F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +92,6 @@ Global
 		{A68CC815-BEA2-4AB7-9828-07526A848E01} = {72ED1C0E-D185-4EF5-B897-5FB6FE6A4274}
 		{76EE1961-B5BF-4F77-8EE9-0545BD74A2B7} = {72ED1C0E-D185-4EF5-B897-5FB6FE6A4274}
 		{172AA855-33FC-4A9D-ADEC-F17555C02072} = {72ED1C0E-D185-4EF5-B897-5FB6FE6A4274}
+		{DFD64F30-CDB1-4A0A-BBDC-23DFBD7D7F80} = {72ED1C0E-D185-4EF5-B897-5FB6FE6A4274}
 	EndGlobalSection
 EndGlobal

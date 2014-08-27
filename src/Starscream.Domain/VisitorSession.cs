@@ -1,8 +1,7 @@
 using System;
-using Starscream.Domain;
 using Starscream.Domain.Services;
 
-namespace Starscream.Web.Api.Infrastructure.Authentication
+namespace Starscream.Domain
 {
     public class VisitorSession : IUserSession
     {

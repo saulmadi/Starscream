@@ -2,7 +2,7 @@ using System;
 
 namespace Starscream.Domain.Services
 {
-    public class GuidTokenGenerator : ITokenGenerator<Guid>
+    public class GuidIdentityGenerator : IIdentityGenerator<Guid>
     {
         public Guid Generate()
         {

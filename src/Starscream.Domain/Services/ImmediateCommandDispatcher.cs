@@ -24,12 +24,12 @@ namespace Starscream.Domain.Services
             _blingInitializer.Initialize(handler);
         }
 
-        protected override IEnumerable FindHandlers(Type genericCommandType)
+        protected override IEnumerable<object> FindHandlers(Type genericCommandType)
         {
             return _commandHandlers.Where(x => x.GetType().GetInterfaces().Any(i => i == genericCommandType));
         }
 
-        protected override IEnumerable FindValidators(Type genericCommandValidatorType)
+        protected override IEnumerable<object> FindValidators(Type genericCommandValidatorType)
         {
             return _commandValidators.Where(x => x.GetType().GetInterfaces().Any(i => i == genericCommandValidatorType));
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Autofac;
+using Starscream.Domain;
 using Starscream.Web.Api.Infrastructure.Authentication;
 using Starscream.Web.Api.Infrastructure.RestExceptions;
 using Nancy;

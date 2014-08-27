@@ -6,9 +6,10 @@ using Starscream.Web.Api.Requests;
 
 namespace Starscream.Web.Api.Modules
 {
-    public class RegistrationModule : NancyModule
+
+    public class UserAccountModule : NancyModule
     {        
-        public RegistrationModule(ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor)
+        public UserAccountModule(ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor)
         {
             Post["/register"] =
                 _ =>
@@ -18,6 +19,15 @@ namespace Starscream.Web.Api.Modules
                                                    new CreateUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber));
                         return null;
                     };
+
+            Post["/reset-password"] =
+                _ =>
+                {
+                    var req = this.Bind<ResetPasswordRequest>();
+                    commandDispatcher.Dispatch(this.UserSession(),
+                                               new CreatePasswordResetToken(req.Email) );
+                    return null;
+                };
         }
     }
 }

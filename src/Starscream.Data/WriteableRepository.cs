@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Starscream.Domain;
-using Starscream.Domain.Entities;
-using Starscream.Domain.Services;
 using NHibernate;
+using Starscream.Domain;
+using Starscream.Domain.Services;
 
 namespace Starscream.Data
 {
@@ -25,7 +24,7 @@ namespace Starscream.Data
 
         public void DeleteAll<T>() where T : class, IEntity
         {
-            foreach (var item in _session.QueryOver<T>().List())
+            foreach (T item in _session.QueryOver<T>().List())
             {
                 Delete<T>(item.Id);
             }
@@ -33,8 +32,8 @@ namespace Starscream.Data
 
         public IEnumerable<T> CreateAll<T>(IEnumerable<T> list) where T : IEntity
         {
-            var items = list as List<T> ?? list.ToList();
-            foreach (var item in items)
+            List<T> items = list as List<T> ?? list.ToList();
+            foreach (T item in items)
             {
                 Create(item);
             }
@@ -44,7 +43,7 @@ namespace Starscream.Data
 
         public T Update<T>(T itemToUpdate) where T : IEntity
         {
-            var session = _session;
+            ISession session = _session;
             session.Update(itemToUpdate);
             return itemToUpdate;
         }
@@ -54,7 +53,5 @@ namespace Starscream.Data
             var itemToDelete = _session.Get<T>(itemId);
             _session.Delete(itemToDelete);
         }
-
-
     }
 }

@@ -18,8 +18,8 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
         protected override IEnumerable ResolveAll(Type blingHandlerType)
         {
             Type serviceType = typeof(IEnumerable<>).MakeGenericType(blingHandlerType);
-            var resolveAll = _container.Resolve(serviceType) as IEnumerable;
-            return resolveAll;
+            var handlers = _container.Resolve(serviceType) as IEnumerable;
+            return handlers;
         }
     }
 }

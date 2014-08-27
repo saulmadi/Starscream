@@ -1,46 +1,44 @@
-﻿angular.module('Starscream.Controllers').controller('registrationController', [
-    '$scope', '$location', 'registrationService', function ($scope, $location, registrationService) {
+﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService) {
 
-        $scope.user = { };
+    $scope.user = { };
 
-        $scope.$parent.title = "Registration";
+    $scope.$parent.title = "Registration";
 
-        $scope.cancel = function () {
-            $location.path("/login");
-            return false;
-        };
+    $scope.cancel = function () {
+        $location.path("/login");
+        return false;
+    };
 
-        var password1 = document.getElementById('password1');
-        var password2 = document.getElementById('password2');
+    var password1 = document.getElementById('password1');
+    var password2 = document.getElementById('password2');
 
-        var checkPasswordValidity = function () {
-            if ($scope.user.password != $scope.user.passwordConfirm) {
-                password1.setCustomValidity('Passwords must match.');
-            } else {
-                password1.setCustomValidity('');
-            }
+    var checkPasswordValidity = function () {
+        if ($scope.user.password != $scope.user.passwordConfirm) {
+            password1.setCustomValidity('Passwords must match.');
+        } else {
+            password1.setCustomValidity('');
+        }
             
-            if($scope.user.password.length<8) {
-                password1.setCustomValidity('Passwords must be at least 8 characters long.');
-            }
-            else {
-                password1.setCustomValidity('');
-            }
-        };
+        if($scope.user.password.length<8) {
+            password1.setCustomValidity('Passwords must be at least 8 characters long.');
+        }
+        else {
+            password1.setCustomValidity('');
+        }
+    };
 
-        password1.addEventListener('change', checkPasswordValidity, false);
-        password2.addEventListener('change', checkPasswordValidity, false);
+    password1.addEventListener('change', checkPasswordValidity, false);
+    password2.addEventListener('change', checkPasswordValidity, false);
         
-        $scope.register = function () {
+    $scope.register = function () {
             
-            $scope.registered = false;
+        $scope.registered = false;
             
-            registrationService.Register($scope.user.email, $scope.user.password, $scope.user.name, $scope.user.phoneNumber)
-                .then(function() {
-                    $scope.registered = true;
-                }).catch(function() {
-                    debugger;
-                });
-        };
-    }
-]);
+        accountService.Register($scope.user.email, $scope.user.password, $scope.user.name, $scope.user.phoneNumber)
+            .then(function() {
+                $scope.registered = true;
+            }).catch(function(err1, err2, err3) {
+                debugger;
+            });
+    };
+});

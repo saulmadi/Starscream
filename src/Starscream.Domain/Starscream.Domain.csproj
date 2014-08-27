@@ -40,26 +40,38 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\PasswordResetTokenCreator.cs" />
     <Compile Include="CommandHandlers\UserCreator.cs" />
     <Compile Include="Commands\CreateUser.cs" />
+    <Compile Include="Commands\CreatePasswordResetToken.cs" />
+    <Compile Include="CommandValidationException.cs" />
     <Compile Include="DomainEvent.cs" />
+    <Compile Include="DomainEventHandlers\PasswordresertEmailSender.cs" />
+    <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
+    <Compile Include="Entities\PasswordResetToken.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="ItemNotFoundException.cs" />
+    <Compile Include="PasswordResetEmail.cs" />
     <Compile Include="Services\ICommandDispatcher.cs" />
     <Compile Include="Services\ICommandHandler.cs" />
     <Compile Include="Services\ICommandValidator.cs" />
+    <Compile Include="Services\IEmailSender.cs" />
     <Compile Include="Services\NoAvailableHandlerException.cs" />
     <Compile Include="Services\SynchronousCommandDispatcherBase.cs" />
     <Compile Include="Services\ImmediateCommandDispatcher.cs" />
+    <Compile Include="ValidationFailure.cs" />
+    <Compile Include="ValidationFailureType.cs" />
+    <Compile Include="Validators\PasswordResetValidator.cs" />
     <Compile Include="ValueObjects\EncryptedPassword.cs" />
-    <Compile Include="Services\GuidTokenGenerator.cs" />
+    <Compile Include="Services\GuidIdentityGenerator.cs" />
     <Compile Include="Services\HashPasswordEncryptor.cs" />
     <Compile Include="Services\IPasswordEncryptor.cs" />
     <Compile Include="Services\IReadOnlyRepository.cs" />
     <Compile Include="Services\ITimeProvider.cs" />
     <Compile Include="Services\ITokenExpirationProvider.cs" />
-    <Compile Include="Services\ITokenGenerator.cs" />
+    <Compile Include="Services\IIdentityGenerator.cs" />
     <Compile Include="Services\IUserSession.cs" />
     <Compile Include="Services\IUserSessionFactory.cs" />
     <Compile Include="Services\IWriteableRepository.cs" />
@@ -69,10 +81,9 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserLoginSession.cs" />
     <Compile Include="Services\UserSessionFactory.cs" />
+    <Compile Include="VisitorSession.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DomainEventHandlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

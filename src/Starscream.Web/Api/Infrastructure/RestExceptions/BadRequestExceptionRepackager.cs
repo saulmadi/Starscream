@@ -9,7 +9,7 @@ namespace Starscream.Web.Api.Infrastructure.RestExceptions
 
         public ErrorResponse Repackage(Exception exception, NancyContext context, string contentType)
         {
-            return new ErrorResponse(exception.Message, HttpStatusCode.NotImplemented, contentType);
+            return new ErrorResponse(exception.Message, HttpStatusCode.BadRequest, contentType);
         }
 
         public bool CanHandle(Exception ex, string contentType)
