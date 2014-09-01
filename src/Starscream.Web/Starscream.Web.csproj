@@ -126,6 +126,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BaseUrlProvider.cs" />
+    <Compile Include="Api\IBaseUrlProvider.cs" />
     <Compile Include="Api\Infrastructure\Configuration\AutoFacBlingDispatcher.cs" />
     <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\CommandValidationExceptionRepackager.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Api\Modules\LoginModule.cs" />
     <Compile Include="Api\Modules\NoCurrentUserException.cs" />
     <Compile Include="Api\Modules\UserAccountModule.cs" />
+    <Compile Include="Api\PasswordResetEmailSender.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
     <Compile Include="Api\Infrastructure\Authentication\IApiUserMapper.cs" />
     <Compile Include="Api\Infrastructure\Authentication\LoggedInUserIdentity.cs" />

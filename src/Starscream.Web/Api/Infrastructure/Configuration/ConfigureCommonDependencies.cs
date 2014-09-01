@@ -26,6 +26,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                        {
                            AutoRegisterDataAndDomain(container);
                            container.RegisterInstance(Mapper.Engine).As<IMappingEngine>();
+                           container.RegisterType<BaseUrlProvider>().As<IBaseUrlProvider>();
                            container.RegisterType<ApiUserMapper>().As<IApiUserMapper<Guid>>();
 
                            ConfigureCommandAndEventHandlers(container);

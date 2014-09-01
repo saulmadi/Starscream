@@ -1,25 +1,28 @@
 ﻿using BlingBag;
+using Starscream.Domain;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 
-namespace Starscream.Domain.DomainEventHandlers
+namespace Starscream.Web.Api
 {
-    public class PasswordResertEmailSender : IBlingHandler<PasswordResetTokenCreated>
+    public class PasswordResetEmailSender : IBlingHandler<PasswordResetTokenCreated>
     {
         readonly IReadOnlyRepository _readOnlyRepository;
         readonly IEmailSender _emailSender;
+        readonly IBaseUrlProvider _baseUrlProvider;
 
-        public PasswordResertEmailSender(IReadOnlyRepository readOnlyRepository, IEmailSender emailSender)
+        public PasswordResetEmailSender(IReadOnlyRepository readOnlyRepository, IEmailSender emailSender, IBaseUrlProvider baseUrlProvider)
         {
             _readOnlyRepository = readOnlyRepository;
             _emailSender = emailSender;
+            _baseUrlProvider = baseUrlProvider;
         }
 
         public void Handle(PasswordResetTokenCreated @event)
         {
             var user = _readOnlyRepository.GetById<User>(@event.UserId);
-            _emailSender.Send(user.Email, new PasswordResetEmail(@event.TokenId));
+            _emailSender.Send(user.Email, new PasswordResetEmail(_baseUrlProvider.GetBaseUrl(), @event.TokenId));
         }
     }
 }

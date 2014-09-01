@@ -1,20 +1,22 @@
-﻿using System;
+using System;
 using AcklenAvenue.Testing.Moq.ExpectedObjects;
 using Machine.Specifications;
 using Moq;
-using Starscream.Domain.DomainEventHandlers;
+using Starscream.Domain;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Starscream.Domain.ValueObjects;
+using Starscream.Web.Api;
 using It = Machine.Specifications.It;
 
-namespace Starscream.Domain.Specs
+namespace StarScream.Web.Specs
 {
     public class when_sending_a_an_email_after_creating_a_password_reset_token
     {
         const string Email = "bob@email.com";
-        static PasswordResertEmailSender _eventHandler;
+        const string BaseUrl = "http://baseurl";
+        static PasswordResetEmailSender _eventHandler;
         static readonly Guid UserId = Guid.NewGuid();
         static readonly Guid TokenId = Guid.NewGuid();
         static IEmailSender _emailSender;
@@ -24,7 +26,10 @@ namespace Starscream.Domain.Specs
             {
                 var readOnlyRepository = Mock.Of<IReadOnlyRepository>();
                 _emailSender = Mock.Of<IEmailSender>();
-                _eventHandler = new PasswordResertEmailSender(readOnlyRepository, _emailSender);
+                var _baseUrlProvider = Mock.Of<IBaseUrlProvider>();
+                _eventHandler = new PasswordResetEmailSender(readOnlyRepository, _emailSender, _baseUrlProvider);
+
+                Mock.Get(_baseUrlProvider).Setup(x => x.GetBaseUrl()).Returns(BaseUrl);
 
                 var value = new User("Bob", Email, new EncryptedPassword("something"));
                 Mock.Get(readOnlyRepository)
@@ -36,6 +41,9 @@ namespace Starscream.Domain.Specs
             () => _eventHandler.Handle(new PasswordResetTokenCreated(TokenId, UserId));
 
         It should_send_the_email =
-            () => Mock.Get(_emailSender).Verify(x => x.Send(Email, WithExpected.Object(new PasswordResetEmail(TokenId))));
+            () =>
+                Mock.Get(_emailSender)
+                    .Verify(x => x.Send(Email, WithExpected.Object(new PasswordResetEmail(BaseUrl, TokenId))));
+
     }
 }

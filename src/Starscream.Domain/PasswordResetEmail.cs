@@ -4,11 +4,11 @@ namespace Starscream.Domain
 {
     public class PasswordResetEmail
     {
-        public Guid Token { get; private set; }
+        public string ResetUrl { get; private set; }
 
-        public PasswordResetEmail(Guid token)
+        public PasswordResetEmail(string baseUrl, Guid token)
         {
-            Token = token;
+            ResetUrl = string.Format("{0}/reset-password?token={1}", baseUrl, token);
         }
     }
 }

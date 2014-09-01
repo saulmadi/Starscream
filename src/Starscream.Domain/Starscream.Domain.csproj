@@ -46,7 +46,6 @@
     <Compile Include="Commands\CreatePasswordResetToken.cs" />
     <Compile Include="CommandValidationException.cs" />
     <Compile Include="DomainEvent.cs" />
-    <Compile Include="DomainEventHandlers\PasswordresertEmailSender.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
     <Compile Include="Entities\PasswordResetToken.cs" />
@@ -83,7 +82,9 @@
     <Compile Include="Services\UserSessionFactory.cs" />
     <Compile Include="VisitorSession.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DomainEventHandlers\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

@@ -13,7 +13,11 @@ namespace Starscream.Web.emails
 
         public string BodyTemplate
         {
-            get { return "Please reset your password. Here's the token: @Model.Token."; }
+            get
+            {
+                return
+                    "A request was made to reset your password. If you didn't make this request, you can ignore this email. If you need to reset your password, click this link to get started: <a href='@Model.ResetUrl'>@Model.ResetUrl</a>.";
+            }
         }
 
         public string SubjectTemplate
