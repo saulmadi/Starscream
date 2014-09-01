@@ -190,13 +190,13 @@
     <Folder Include="app\directives\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AcklenAvenue.Email\AcklenAvenue.Email.csproj">
+      <Project>{8E8BC717-05D0-4B6E-A6D1-AA5F1CA59C67}</Project>
+      <Name>AcklenAvenue.Email</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Starscream.Data\Starscream.Data.csproj">
       <Project>{828BB611-5955-47C0-AB91-32374D8506E2}</Project>
       <Name>Starscream.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StarScream.Domain.Email\StarScream.Domain.Email.csproj">
-      <Project>{1a8f107f-5e54-423c-9512-114ee80c90d4}</Project>
-      <Name>StarScream.Domain.Email</Name>
     </ProjectReference>
     <ProjectReference Include="..\Starscream.Domain\Starscream.Domain.csproj">
       <Project>{2BEE7A33-DCB7-4F9C-B45C-A7DAC69AEB52}</Project>

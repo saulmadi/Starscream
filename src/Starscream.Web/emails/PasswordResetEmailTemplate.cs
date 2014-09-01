@@ -1,6 +1,6 @@
 ﻿using System;
+using AcklenAvenue.Email;
 using Starscream.Domain;
-using StarScream.Domain.Email;
 
 namespace Starscream.Web.emails
 {

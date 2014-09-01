@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StarScream.Domain.Email\StarScream.Domain.Email.csproj">
-      <Project>{1A8F107F-5E54-423C-9512-114EE80C90D4}</Project>
-      <Name>StarScream.Domain.Email</Name>
+    <ProjectReference Include="..\AcklenAvenue.Email\AcklenAvenue.Email.csproj">
+      <Project>{8E8BC717-05D0-4B6E-A6D1-AA5F1CA59C67}</Project>
+      <Name>AcklenAvenue.Email</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

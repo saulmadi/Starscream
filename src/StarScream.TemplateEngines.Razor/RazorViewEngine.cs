@@ -1,4 +1,4 @@
-using StarScream.Domain.Email;
+using AcklenAvenue.Email;
 
 namespace StarScream.TemplateEngines.Razor
 {

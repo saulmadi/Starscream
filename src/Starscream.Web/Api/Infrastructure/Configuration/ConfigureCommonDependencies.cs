@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
+using AcklenAvenue.Email;
 using Autofac;
 using AutoMapper;
 using BlingBag;
 using Starscream.Data;
 using Starscream.Domain;
-using StarScream.Domain.Email;
 using Starscream.Domain.Services;
 using StarScream.EmailClients.DotNet;
 using StarScream.TemplateEngines.Razor;

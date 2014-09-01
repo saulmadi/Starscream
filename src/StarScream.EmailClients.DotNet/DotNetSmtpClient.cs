@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Net.Mail;
-using StarScream.Domain.Email;
+using AcklenAvenue.Email;
 
 namespace StarScream.EmailClients.DotNet
 {

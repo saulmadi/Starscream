@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A8F107F-5E54-423C-9512-114EE80C90D4}</ProjectGuid>
+    <ProjectGuid>{8E8BC717-05D0-4B6E-A6D1-AA5F1CA59C67}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AcklenAvenue.Email</RootNamespace>
