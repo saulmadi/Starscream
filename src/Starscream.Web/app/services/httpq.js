@@ -13,7 +13,7 @@
         },
         put: function (resource, payload) {
             var defer = $q.defer();
-            $http.post(resource, payload)
+            $http.put(resource, payload)
               .success(function (data) {
                   defer.resolve(data);
               }).error(function (data) {
@@ -33,7 +33,7 @@
         },
         delete: function (resource) {
             var defer = $q.defer();
-            $http.get(resource)
+            $http.delete(resource)
               .success(function (data) {
                   defer.resolve(data);
               }).error(function (data) {

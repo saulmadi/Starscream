@@ -13,8 +13,10 @@ Scenario: Start Reset Password Process
 
 Scenario: Reset Password
 	Given a website visitor
+	And I have requested to reset my password
 	And I have clicked the link in the email to reset my password
 	When I enter my new password twice
+	And I click the reset password button
 	Then I should see confirmation that I have successfully reset my password
 	And I should see a prompt to log in with my new password
 

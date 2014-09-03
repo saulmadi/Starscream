@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Starscream.Domain
 {
     public class CommandValidationException : Exception
     {
         public CommandValidationException(IEnumerable<ValidationFailure> failures)
-            : base("The command was issued with invalid properties.")
+            : base(
+                string.Format("The command was issued with the following properties in invalid state: {0}",
+                    string.Join(",", (failures ?? new List<ValidationFailure>()).Select(x => string.Format("{0} {1}", x.Property, x.FailureType)))))
         {
             ValidationFailures = failures;
         }

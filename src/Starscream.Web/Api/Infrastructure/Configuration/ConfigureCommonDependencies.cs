@@ -31,8 +31,17 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
 
                            ConfigureCommandAndEventHandlers(container);
                            AutoRegisterEmailTemplates(container);
+
+                           AutoRegisterAllDomainEvents(container);
                        };
             }
+        }
+
+        void AutoRegisterAllDomainEvents(ContainerBuilder container)
+        {
+            container.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+                .Where(x => x.GetInterfaces().Any(i => i.Name.StartsWith("IBlingHandler")))
+                .AsImplementedInterfaces();
         }
 
         #endregion

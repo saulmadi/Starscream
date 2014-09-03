@@ -14,6 +14,10 @@ app.config(function($routeProvider) {
             templateUrl: 'app/views/forgot-password.html',
             controller: 'forgotPasswordController'
         })
+        .when('/reset-password', {
+            templateUrl: 'app/views/reset-password.html',
+            controller: 'resetPasswordController'
+        })
         .when('/register', {
             templateUrl: 'app/views/registration.html',
             controller: 'registrationController'

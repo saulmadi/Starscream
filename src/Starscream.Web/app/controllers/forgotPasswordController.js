@@ -9,7 +9,7 @@
     $scope.$parent.title = "Reset Password";
 
     $scope.resetPassword = function () {
-        accountService.resetPassword($scope.user.email).then(function () {
+        accountService.RequestToResetPassword($scope.user.email).then(function () {
             $scope.success = true;
         });
     };

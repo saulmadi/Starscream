@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\resetPasswordController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\forgotPasswordController.js" />
     <Content Include="app\controllers\loginController.js" />
@@ -105,6 +106,7 @@
     <Content Include="app\services\loginService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
+    <Content Include="app\views\reset-password.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\forgot-password.html" />
     <Content Include="app\views\login.html" />
@@ -179,6 +181,7 @@
     <Content Include="connectionStrings.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="smtp.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -238,7 +241,8 @@
   </ProjectExtensions>
   <Import Project="..\..\lib\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\lib\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)connectionStrings.config" copy "$(ProjectDir)connectionStrings.config.default" "$(ProjectDir)connectionStrings.config"</PreBuildEvent>
+    <PreBuildEvent>IF NOT EXIST "$(ProjectDir)connectionStrings.config" copy "$(ProjectDir)connectionStrings.config.default" "$(ProjectDir)connectionStrings.config"
+IF NOT EXIST "$(ProjectDir)smtp.config" copy "$(ProjectDir)smtp.config.default" "$(ProjectDir)smtp.config"</PreBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

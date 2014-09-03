@@ -20,12 +20,18 @@ namespace Starscream.Web.Api.Modules
                         return null;
                     };
 
-            Post["/reset-password"] =
+            Post["/password/requestReset"] =
                 _ =>
                 {
                     var req = this.Bind<ResetPasswordRequest>();
                     commandDispatcher.Dispatch(this.UserSession(),
                                                new CreatePasswordResetToken(req.Email) );
+                    return null;
+                };
+
+            Put["/password/reset/{token}"] =
+                _ =>
+                {
                     return null;
                 };
         }

@@ -4,8 +4,11 @@
         Register: function (email, password, name, phoneNumber) {
             return $httpq.post("/register", { email: email, password: password, name: name, phoneNumber: phoneNumber });            
         },
-        resetPassword: function (email) {
-            return $httpq.post("/reset-password", { email: email });
+        RequestToResetPassword: function (email) {
+            return $httpq.post("/password/requestReset", { email: email });
+        },
+        ResetPassword: function (token, password) {
+            return $httpq.put("/password/reset/" + token, { password: password });
         }
     };
 });

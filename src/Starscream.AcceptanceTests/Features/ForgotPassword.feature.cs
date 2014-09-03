@@ -99,12 +99,16 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
  testRunner.Given("a website visitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
- testRunner.And("I have clicked the link in the email to reset my password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have requested to reset my password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.When("I enter my new password twice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I have clicked the link in the email to reset my password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.Then("I should see confirmation that I have successfully reset my password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I enter my new password twice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
+ testRunner.And("I click the reset password button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.Then("I should see confirmation that I have successfully reset my password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
  testRunner.And("I should see a prompt to log in with my new password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -115,15 +119,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void LoginAfterResetPassword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login After Reset Password", ((string[])(null)));
-#line 21
-this.ScenarioSetup(scenarioInfo);
-#line 22
- testRunner.Given("a website visitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 23
- testRunner.And("I am on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 24
- testRunner.When("I enter my username and new password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("a website visitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 25
+ testRunner.And("I am on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.When("I enter my username and new password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 27
  testRunner.Then("I should be taken to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

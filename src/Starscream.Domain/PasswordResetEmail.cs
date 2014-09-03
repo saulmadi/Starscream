@@ -8,7 +8,7 @@ namespace Starscream.Domain
 
         public PasswordResetEmail(string baseUrl, Guid token)
         {
-            ResetUrl = string.Format("{0}/reset-password?token={1}", baseUrl, token);
+            ResetUrl = string.Format("{0}/#/reset-password?token={1}", baseUrl, token);
         }
     }
 }
