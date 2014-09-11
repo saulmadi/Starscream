@@ -37,7 +37,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                          {
                              new ConfigureCommonDependencies(),
                              new ConfigureDatabaseWiring(),
-                             new ConfigureAutomapperMappings()
+                             new ConfigureAutomapperMappings(),                             
                          };
         }
 

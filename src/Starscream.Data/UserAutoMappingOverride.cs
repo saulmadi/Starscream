@@ -7,7 +7,7 @@ namespace Starscream.Data
     public class UserAutoMappingOverride : IAutoMappingOverride<User>
     {
         public void Override(AutoMapping<User> mapping)
-        {            
+        {                      
         }
     }
 }

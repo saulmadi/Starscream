@@ -1,6 +1,6 @@
 using System;
 
-namespace Starscream.Domain.Services
+namespace Starscream.Domain.Exceptions
 {
     public class NoAvailableHandlerException : Exception
     {

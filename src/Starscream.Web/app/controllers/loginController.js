@@ -6,6 +6,7 @@
 
     $scope.user = {};
     $scope.$parent.title = "Login";
+
     $scope.login = function () {
         $scope.error = "";
         loginService.Login($scope.user.email, $scope.user.password).then(function (data) {

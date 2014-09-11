@@ -2,8 +2,9 @@
 using AcklenAvenue.Testing.Moq;
 using Machine.Specifications;
 using Moq;
-using Starscream.Domain.Commands;
+using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Entities;
+using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
 using Starscream.Domain.Validators;
 using Starscream.Domain.ValueObjects;

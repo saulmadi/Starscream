@@ -99,8 +99,6 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\parentController.js" />
     <Content Include="app\controllers\registrationController.js" />
-    <Content Include="app\interceptors\401Interceptor.js" />
-    <Content Include="app\interceptors\AllRequestInterceptor.js" />
     <Content Include="app\services\accountService.js" />
     <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
@@ -129,13 +127,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BaseUrlProvider.cs" />
+    <Compile Include="Api\emails\PasswordResetEmailTemplate.cs" />
     <Compile Include="Api\IBaseUrlProvider.cs" />
     <Compile Include="Api\Infrastructure\Configuration\AutoFacBlingDispatcher.cs" />
     <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
+    <Compile Include="Api\Infrastructure\Exceptions\NoCurrentUserException.cs" />
+    <Compile Include="Api\Infrastructure\IdentityExtentions.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\CommandValidationExceptionRepackager.cs" />
-    <Compile Include="Api\Modules\IdentityExtentions.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />
-    <Compile Include="Api\Modules\NoCurrentUserException.cs" />
     <Compile Include="Api\Modules\UserAccountModule.cs" />
     <Compile Include="Api\PasswordResetEmailSender.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
@@ -153,7 +152,6 @@
     <Compile Include="Api\Infrastructure\Exceptions\UserInputPropertyMissingException.cs" />
     <Compile Include="Api\Requests\NewUserRequest.cs" />
     <Compile Include="Api\Requests\ResetPasswordRequest.cs" />
-    <Compile Include="emails\PasswordResetEmailTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\BadRequestExceptionRepackager.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\ErrorResponse.cs" />
@@ -191,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\directives\" />
+    <Folder Include="app\interceptors\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AcklenAvenue.Email\AcklenAvenue.Email.csproj">

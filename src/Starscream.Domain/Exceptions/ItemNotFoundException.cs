@@ -1,6 +1,6 @@
 using System;
 
-namespace Starscream.Domain
+namespace Starscream.Domain.Exceptions
 {
     public class ItemNotFoundException<T> : Exception
     {

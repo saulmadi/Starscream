@@ -1,10 +1,10 @@
 ﻿using System;
-using Starscream.Domain.Commands;
+using Starscream.Domain.Application.Commands;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 
-namespace Starscream.Domain.CommandHandlers
+namespace Starscream.Domain.Application.CommandHandlers
 {
     public class PasswordResetTokenCreator : ICommandHandler<CreatePasswordResetToken>
     {

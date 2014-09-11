@@ -9,8 +9,8 @@ using Starscream.Domain;
 using Starscream.Domain.Services;
 using StarScream.EmailClients.DotNet;
 using StarScream.TemplateEngines.Razor;
+using Starscream.Web.Api.emails;
 using Starscream.Web.Api.Infrastructure.Authentication;
-using Starscream.Web.emails;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {

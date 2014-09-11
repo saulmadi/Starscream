@@ -2,6 +2,7 @@ using System;
 using Starscream.Data;
 using Starscream.Domain;
 using Starscream.Domain.Entities;
+using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
 using Starscream.Web.Api.Infrastructure.Authentication;
 using Nancy.Security;

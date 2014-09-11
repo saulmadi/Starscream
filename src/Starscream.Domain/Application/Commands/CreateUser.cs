@@ -1,6 +1,6 @@
 using Starscream.Domain.ValueObjects;
 
-namespace Starscream.Domain.Commands
+namespace Starscream.Domain.Application.Commands
 {
     public class CreateUser
     {

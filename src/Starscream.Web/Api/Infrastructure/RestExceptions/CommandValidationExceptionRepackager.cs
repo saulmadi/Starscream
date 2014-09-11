@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Nancy;
 using Starscream.Domain;
+using Starscream.Domain.Exceptions;
 
 namespace Starscream.Web.Api.Infrastructure.RestExceptions
 {

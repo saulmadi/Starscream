@@ -1,9 +1,11 @@
+using Nancy;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Starscream.Web.Api.Infrastructure.Authentication;
-using Nancy;
+using Starscream.Web.Api.Infrastructure.Exceptions;
+using Starscream.Web.Api.Modules;
 
-namespace Starscream.Web.Api.Modules
+namespace Starscream.Web.Api.Infrastructure
 {
     public static class IdentityExtentions
     {

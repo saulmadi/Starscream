@@ -2,7 +2,7 @@
 using AcklenAvenue.Email;
 using Starscream.Domain;
 
-namespace Starscream.Web.emails
+namespace Starscream.Web.Api.emails
 {
     public class PasswordResetEmailTemplate : IEmailBodyTemplate, IEmailSubjectTemplate
     {

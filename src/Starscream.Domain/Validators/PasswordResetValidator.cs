@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Starscream.Domain.Commands;
+using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Entities;
+using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
 
 namespace Starscream.Domain.Validators
@@ -28,7 +29,7 @@ namespace Starscream.Domain.Validators
                 {
                     _readOnlyRepsitory.First<User>(x => x.Email == command.Email);
                 }
-                catch (Exception)
+                catch (ItemNotFoundException<User>)
                 {
                     validationFailures.Add(new ValidationFailure("Email", ValidationFailureType.DoesNotExist));
                 }

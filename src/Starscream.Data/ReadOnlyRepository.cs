@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Starscream.Domain;
 using Starscream.Domain.Entities;
+using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
 using NHibernate;
 using NHibernate.Linq;

@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
 using Moq;
-using Starscream.Domain.CommandHandlers;
-using Starscream.Domain.Commands;
+using Starscream.Domain.Application.CommandHandlers;
+using Starscream.Domain.Application.Commands;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;

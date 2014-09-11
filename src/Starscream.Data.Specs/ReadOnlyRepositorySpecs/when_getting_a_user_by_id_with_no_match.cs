@@ -4,6 +4,7 @@ using Starscream.Domain;
 using Starscream.Domain.Entities;
 using Machine.Specifications;
 using NHibernate;
+using Starscream.Domain.Exceptions;
 
 namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
 {

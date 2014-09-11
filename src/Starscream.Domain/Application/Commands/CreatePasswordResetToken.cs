@@ -1,4 +1,4 @@
-namespace Starscream.Domain.Commands
+namespace Starscream.Domain.Application.Commands
 {
     public class CreatePasswordResetToken
     {
