@@ -63,6 +63,7 @@
     <Compile Include="Services\ImmediateCommandDispatcher.cs" />
     <Compile Include="ValidationFailure.cs" />
     <Compile Include="ValidationFailureType.cs" />
+    <Compile Include="Validators\PassowrdResetValidator.cs" />
     <Compile Include="Validators\PasswordResetValidator.cs" />
     <Compile Include="ValueObjects\EncryptedPassword.cs" />
     <Compile Include="Services\GuidIdentityGenerator.cs" />
