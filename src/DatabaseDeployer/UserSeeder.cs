@@ -20,7 +20,7 @@ namespace DatabaseDeployer
         public void Seed()
         {
             var encryptor = new HashPasswordEncryptor();
-            _session.Save(new User("Test User", "test@test.com", encryptor.Encrypt("password"), "615-555-1212"));
+            _session.Save(new UserEmailLogin("Test User", "test@test.com", encryptor.Encrypt("password"), "615-555-1212"));
         }
 
         #endregion

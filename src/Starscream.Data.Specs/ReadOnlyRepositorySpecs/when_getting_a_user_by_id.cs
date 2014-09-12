@@ -12,19 +12,19 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
     public class when_getting_a_user_by_id
     {
         static ReadOnlyRepository _readOnlyRepository;
-        static User _result;
-        static User _userToFind;
+        static UserEmailLogin _result;
+        static UserEmailLogin _userToFind;
 
         Establish context =
             () =>
                 {
                     ISession session = InMemorySession.New(new MappingScheme());
 
-                    var users = new List<User>
+                    var users = new List<UserEmailLogin>
                                     {
-                                        new User("test1", "test1@test.com", new EncryptedPassword("password")),
-                                        new User("test2-match", "test2@test.com", new EncryptedPassword("password")),
-                                        new User("test3", "test2@test.com", new EncryptedPassword("password"))
+                                        new UserEmailLogin("test1", "test1@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test2-match", "test2@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test3", "test2@test.com", new EncryptedPassword("password"))
                                     };
 
                     _userToFind = users.First(x => x.Name.Contains("match"));
@@ -35,7 +35,7 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
                 };
 
         Because of =
-            () => _result = _readOnlyRepository.GetById<User>(_userToFind.Id);
+            () => _result = _readOnlyRepository.GetById<UserEmailLogin>(_userToFind.Id);
 
         It should_return_matching_user =
             () => _result.ShouldBeLike(_userToFind);

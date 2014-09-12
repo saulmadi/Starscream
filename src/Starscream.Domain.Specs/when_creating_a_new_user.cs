@@ -35,7 +35,7 @@ namespace Starscream.Domain.Specs
         It should_create_the_new_user =
             () => Mock.Get(_writeableRepository).Verify(
                 x =>
-                    x.Create(Moq.It.Is<User>(u =>
+                    x.Create(Moq.It.Is<UserEmailLogin>(u =>
                         u.Name == _command.Name
                         && u.Email == _command.Email
                         && u.EncryptedPassword == _command.EncryptedPassword.Password

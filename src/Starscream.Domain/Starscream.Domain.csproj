@@ -51,6 +51,7 @@
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
     <Compile Include="Entities\PasswordResetAuthorization.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
     <Compile Include="Exceptions\ItemNotFoundException.cs" />
@@ -81,7 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SystemTimeProvider.cs" />
     <Compile Include="Services\TokenExpirationProvider.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserEmailLogin.cs" />
     <Compile Include="Entities\UserLoginSession.cs" />
     <Compile Include="Services\UserSessionFactory.cs" />
     <Compile Include="VisitorSession.cs" />

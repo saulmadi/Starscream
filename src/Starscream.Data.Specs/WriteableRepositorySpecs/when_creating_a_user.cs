@@ -12,7 +12,7 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
     public class when_creating_a_user
     {
         static IWriteableRepository _writeableRepository;
-        static User _result;
+        static UserEmailLogin _result;
         static ISession _session;
 
         Establish context =
@@ -25,10 +25,10 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
         Because of =
             () =>
             _result =
-            _writeableRepository.Create(new User("test", "test@test.com", new EncryptedPassword("password")));
+            _writeableRepository.Create(new UserEmailLogin("test", "test@test.com", new EncryptedPassword("password")));
 
         It should_be_retrievable =
-            () => _session.Get<User>(_result.Id).Name.ShouldEqual("test");
+            () => _session.Get<UserEmailLogin>(_result.Id).Name.ShouldEqual("test");
 
         It should_return_the_created_user_with_an_id =
             () => _result.Id.ShouldNotEqual(Guid.Empty);

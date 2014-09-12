@@ -25,11 +25,11 @@ namespace Starscream.Domain.Specs.Validation
                 _readOnlyRepsitory = Mock.Of<IReadOnlyRepository>();
                 _validator = new PasswordResetValidator(_readOnlyRepsitory);
 
-                Mock.Get(_readOnlyRepsitory).Setup(x => x.First(ThatHas.AnExpressionFor<User>()
-                    .ThatMatches(new User("some user", EmailAddress, new EncryptedPassword("pw")))
-                    .ThatDoesNotMatch(new User("other user", "other@email.com", new EncryptedPassword("pw")))
+                Mock.Get(_readOnlyRepsitory).Setup(x => x.First(ThatHas.AnExpressionFor<UserEmailLogin>()
+                    .ThatMatches(new UserEmailLogin("some user", EmailAddress, new EncryptedPassword("pw")))
+                    .ThatDoesNotMatch(new UserEmailLogin("other user", "other@email.com", new EncryptedPassword("pw")))
                     .Build()))
-                    .Throws<ItemNotFoundException<User>>();
+                    .Throws<ItemNotFoundException<UserEmailLogin>>();
             };
 
         Because of =

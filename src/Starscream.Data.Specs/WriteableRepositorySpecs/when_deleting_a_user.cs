@@ -14,7 +14,7 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
     {
         static IWriteableRepository _writeableRepository;
         static ISession _session;
-        static User _userToDelete;
+        static UserEmailLogin _userToDelete;
 
         Establish context =
             () =>
@@ -22,11 +22,11 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
                     _session = InMemorySession.New(new MappingScheme());
                     _writeableRepository = new WriteableRepository(_session);
 
-                    var users = new List<User>
+                    var users = new List<UserEmailLogin>
                                     {
-                                        new User("test1", "test1@test.com", new EncryptedPassword("password")),
-                                        new User("test2-match", "test2@test.com", new EncryptedPassword("password")),
-                                        new User("test3", "test2@test.com", new EncryptedPassword("password"))
+                                        new UserEmailLogin("test1", "test1@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test2-match", "test2@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test3", "test2@test.com", new EncryptedPassword("password"))
                                     };
                     users.ForEach(x => _session.Save(x));
                     _session.Flush();
@@ -36,9 +36,9 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
                 };
 
         Because of =
-            () => _writeableRepository.Delete<User>(_userToDelete.Id);
+            () => _writeableRepository.Delete<UserEmailLogin>(_userToDelete.Id);
 
         It should_make_the_change_in_the_session =
-            () => ShouldExtensionMethods.ShouldBeNull(_session.Get<User>(_userToDelete.Id));
+            () => ShouldExtensionMethods.ShouldBeNull(_session.Get<UserEmailLogin>(_userToDelete.Id));
     }
 }

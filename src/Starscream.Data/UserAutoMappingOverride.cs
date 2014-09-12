@@ -4,9 +4,9 @@ using Starscream.Domain.Entities;
 
 namespace Starscream.Data
 {
-    public class UserAutoMappingOverride : IAutoMappingOverride<User>
+    public class UserAutoMappingOverride : IAutoMappingOverride<UserEmailLogin>
     {
-        public void Override(AutoMapping<User> mapping)
+        public void Override(AutoMapping<UserEmailLogin> mapping)
         {                      
         }
     }

@@ -23,7 +23,7 @@ namespace Starscream.Domain.Application.CommandHandlers
 
         public void Handle(IUserSession userIssuingCommand, CreatePasswordResetToken command)
         {
-            var user = _readOnlyRepository.First<User>(x => x.Email == command.Email);
+            var user = _readOnlyRepository.First<UserEmailLogin>(x => x.Email == command.Email);
             Guid tokenId = _idGenerator.Generate();
             _writeableRepository.Create(new PasswordResetAuthorization(tokenId, user.Id, _timeProvider.Now()));
             NotifyObservers(new PasswordResetTokenCreated(tokenId, user.Id));

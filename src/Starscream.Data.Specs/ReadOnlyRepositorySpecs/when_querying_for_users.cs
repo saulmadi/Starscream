@@ -12,19 +12,19 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
     public class when_querying_for_users
     {
         static ReadOnlyRepository _readOnlyRepository;
-        static IEnumerable<User> _result;
-        static List<User> _users;
+        static IEnumerable<UserEmailLogin> _result;
+        static List<UserEmailLogin> _users;
 
         Establish context =
             () =>
                 {
                     ISession session = InMemorySession.New(new MappingScheme());
 
-                    _users = new List<User>
+                    _users = new List<UserEmailLogin>
                                  {
-                                     new User("test1", "test1@test.com", new EncryptedPassword("password")),
-                                     new User("test2-match", "test2@test.com", new EncryptedPassword("password")),
-                                     new User("test3-match", "test2@test.com", new EncryptedPassword("password"))
+                                     new UserEmailLogin("test1", "test1@test.com", new EncryptedPassword("password")),
+                                     new UserEmailLogin("test2-match", "test2@test.com", new EncryptedPassword("password")),
+                                     new UserEmailLogin("test3-match", "test2@test.com", new EncryptedPassword("password"))
                                  };
 
                     _users.ForEach(x => session.Save(x));
@@ -34,7 +34,7 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
                 };
 
         Because of =
-            () => _result = _readOnlyRepository.Query<User>(x => x.Name.Contains("match"));
+            () => _result = _readOnlyRepository.Query<UserEmailLogin>(x => x.Name.Contains("match"));
 
         It should_return_the_matching_users =
             () => _result.ShouldBeLike(_users.Where(x => x.Name.Contains("match")));

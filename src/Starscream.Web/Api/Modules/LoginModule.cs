@@ -30,14 +30,14 @@ namespace Starscream.Web.Api.Modules
                         try
                         {
                             var user =
-                                readOnlyRepository.First<User>(
+                                readOnlyRepository.First<UserEmailLogin>(
                                     x => x.Email == loginInfo.Email && x.EncryptedPassword == encryptedPassword.Password);
 
                             UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
                             return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
                         }
-                        catch (ItemNotFoundException<User>)
+                        catch (ItemNotFoundException<UserEmailLogin>)
                         {
                             throw new UnauthorizedAccessException();
                         }

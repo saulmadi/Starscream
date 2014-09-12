@@ -21,7 +21,7 @@ namespace Starscream.Web.Api
 
         public void Handle(PasswordResetTokenCreated @event)
         {
-            var user = _readOnlyRepository.GetById<User>(@event.UserId);
+            var user = _readOnlyRepository.GetById<UserEmailLogin>(@event.UserId);
             _emailSender.Send(user.Email, new PasswordResetEmail(_baseUrlProvider.GetBaseUrl(), @event.TokenId));
         }
     }

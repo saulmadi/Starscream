@@ -20,7 +20,7 @@ namespace Starscream.Domain.Specs
         static IWriteableRepository _writeableRepository;
         static ITimeProvider _timeProvider;
         static DateTime _now;
-        static User _userWithMatchingEmailAddress;
+        static UserEmailLogin _userWithMatchingEmailAddress;
         static object _eventRaised;
         static readonly Guid TokenId = Guid.NewGuid();
         static PasswordResetTokenCreated _expectedEvent;
@@ -41,10 +41,10 @@ namespace Starscream.Domain.Specs
                 _now = DateTime.Now;
                 Mock.Get(_timeProvider).Setup(x => x.Now()).Returns(_now);
 
-                _userWithMatchingEmailAddress = new User("Test User", EmailAddress,
+                _userWithMatchingEmailAddress = new UserEmailLogin("Test User", EmailAddress,
                     new EncryptedPassword("some password"));
-                var otherUser = new User("Other User", "other@email.com", new EncryptedPassword("password"));
-                Mock.Get(readOnlyRepository).Setup(x => x.First(ThatHas.AnExpressionFor<User>()
+                var otherUser = new UserEmailLogin("Other User", "other@email.com", new EncryptedPassword("password"));
+                Mock.Get(readOnlyRepository).Setup(x => x.First(ThatHas.AnExpressionFor<UserEmailLogin>()
                     .ThatMatches(_userWithMatchingEmailAddress)
                     .ThatDoesNotMatch(otherUser)
                     .Build()))

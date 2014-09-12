@@ -12,19 +12,19 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
     public class when_getting_first_or_default_user_by_query_with_match
     {
         static ReadOnlyRepository _readOnlyRepository;
-        static User _result;
-        static User _userToFind;
+        static UserEmailLogin _result;
+        static UserEmailLogin _userToFind;
 
         Establish context =
             () =>
                 {
                     ISession session = InMemorySession.New(new MappingScheme());
 
-                    var users = new List<User>
+                    var users = new List<UserEmailLogin>
                                     {
-                                        new User("test1", "test1@test.com", new EncryptedPassword("password")),
-                                        new User("test2-match", "test2@test.com", new EncryptedPassword("password")),
-                                        new User("test3", "test2@test.com", new EncryptedPassword("password"))
+                                        new UserEmailLogin("test1", "test1@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test2-match", "test2@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test3", "test2@test.com", new EncryptedPassword("password"))
                                     };
 
                     _userToFind = users.First(x => x.Name == "test2-match");
@@ -36,7 +36,7 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
                 };
 
         Because of =
-            () => _result = _readOnlyRepository.FirstOrDefault<User>(x => x.Name == "test2-match");
+            () => _result = _readOnlyRepository.FirstOrDefault<UserEmailLogin>(x => x.Name == "test2-match");
 
         It should_return_matching_user =
             () => _result.ShouldBeLike(_userToFind);

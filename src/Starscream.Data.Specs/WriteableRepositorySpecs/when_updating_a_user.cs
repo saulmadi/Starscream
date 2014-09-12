@@ -14,7 +14,7 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
     {
         static IWriteableRepository _writeableRepository;
         static ISession _session;
-        static User _userToUpdate;
+        static UserEmailLogin _userToUpdate;
 
         Establish context =
             () =>
@@ -22,11 +22,11 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
                     _session = InMemorySession.New(new MappingScheme());
                     _writeableRepository = new WriteableRepository(_session);
 
-                    var users = new List<User>
+                    var users = new List<UserEmailLogin>
                                     {
-                                        new User("test1", "test1@test.com", new EncryptedPassword("password")),
-                                        new User("test2-match", "test2@test.com", new EncryptedPassword("password")),
-                                        new User("test3", "test2@test.com", new EncryptedPassword("password"))
+                                        new UserEmailLogin("test1", "test1@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test2-match", "test2@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test3", "test2@test.com", new EncryptedPassword("password"))
                                     };
                     users.ForEach(x => _session.Save(x));
                     _session.Flush();
@@ -39,6 +39,6 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
             () => _writeableRepository.Update(_userToUpdate);
 
         It should_make_the_change_in_the_session =
-            () => _session.Get<User>(_userToUpdate.Id).Email.ShouldEqual("another@test.com");
+            () => _session.Get<UserEmailLogin>(_userToUpdate.Id).Email.ShouldEqual("another@test.com");
     }
 }

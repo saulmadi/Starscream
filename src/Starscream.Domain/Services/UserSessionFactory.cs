@@ -23,7 +23,7 @@ namespace Starscream.Domain.Services
 
         #region IUserSessionFactory Members
 
-        public UserLoginSession Create(User executor)
+        public UserLoginSession Create(UserEmailLogin executor)
         {
             DateTime dateTime = _tokenExpirationProvider.GetExpiration(_timeProvider.Now());
             Guid token = _identityGenerator.Generate();

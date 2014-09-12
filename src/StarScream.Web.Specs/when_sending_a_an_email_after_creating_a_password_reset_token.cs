@@ -31,9 +31,9 @@ namespace StarScream.Web.Specs
 
                 Mock.Get(_baseUrlProvider).Setup(x => x.GetBaseUrl()).Returns(BaseUrl);
 
-                var value = new User("Bob", Email, new EncryptedPassword("something"));
+                var value = new UserEmailLogin("Bob", Email, new EncryptedPassword("something"));
                 Mock.Get(readOnlyRepository)
-                    .Setup(x => x.GetById<User>(UserId))
+                    .Setup(x => x.GetById<UserEmailLogin>(UserId))
                     .Returns(value);
             };
 
