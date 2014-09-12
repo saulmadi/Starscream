@@ -82,6 +82,6 @@ on_success:
 # on build failure
 on_failure:
   
-#notifications:
-#  - provider: Webhook
-#    url: http://appharborservicehookendpoint.apphb.com/build/appveyor/changeme
+notifications:
+  - provider: Webhook
+    url: http://appharborservicehookendpoint.apphb.com/build/appveyor/Starscream
