@@ -21,6 +21,7 @@ namespace Starscream.Data
                     .UseOverridesFromAssemblyOf<UserAutoMappingOverride>()
                     //.IncludeBase<LessonActionBase>()
                     .Conventions.Add(DefaultCascade.All())
+
                     .Conventions.AddFromAssemblyOf<UserAutoMappingOverride>();
                    
 
