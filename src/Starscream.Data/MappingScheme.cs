@@ -20,7 +20,10 @@ namespace Starscream.Data
                     .Where(t => typeof (IEntity).IsAssignableFrom(t))
                     .UseOverridesFromAssemblyOf<UserAutoMappingOverride>()
                     //.IncludeBase<LessonActionBase>()
-                    .Conventions.Add(DefaultCascade.All());
+                    .Conventions.Add(DefaultCascade.All())
+                    .Conventions.AddFromAssemblyOf<UserAutoMappingOverride>();
+                   
+
 
                 return x =>
                            {
