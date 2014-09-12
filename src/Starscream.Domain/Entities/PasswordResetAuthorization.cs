@@ -2,13 +2,13 @@ using System;
 
 namespace Starscream.Domain.Entities
 {
-    public class PasswordResetToken:IEntity
+    public class PasswordResetAuthorization:IEntity
     {
-        protected PasswordResetToken()
+        protected PasswordResetAuthorization()
         {            
         }
 
-        public PasswordResetToken(Guid id, User user, DateTime created)
+        public PasswordResetAuthorization(Guid id, User user, DateTime created)
         {
             Id = id;
             User = user;

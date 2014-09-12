@@ -12,7 +12,7 @@ using It = Machine.Specifications.It;
 
 namespace Starscream.Domain.Specs.Validation
 {
-    public class when_validating_a_password_reset_command_with_non_existent_reset_token
+    public class when_validating_a_password_reset_command_with_reset_token_that_is_too_old
     {
         static ICommandValidator<ResetPassword> _validator;
         static readonly EncryptedPassword EncryptedPassword = new EncryptedPassword("password");
@@ -20,22 +20,28 @@ namespace Starscream.Domain.Specs.Validation
         static List<ValidationFailure> _expectedFailures;
         static Exception _exception;
         static IReadOnlyRepository _readOnlyRepo;
+        static DateTime _now;
+        static ITimeProvider _timeProvider;
 
         Establish context =
             () =>
             {
                 _readOnlyRepo = Mock.Of<IReadOnlyRepository>();
-                _validator = new PassowrdResetValidator(_readOnlyRepo, Mock.Of<ITimeProvider>());
+                _timeProvider = Mock.Of<ITimeProvider>();
+                _validator = new PassowrdResetValidator(_readOnlyRepo, _timeProvider);
 
                 _expectedFailures = new List<ValidationFailure>
                                     {
                                         new ValidationFailure(
                                             "ResetPasswordToken",
-                                            ValidationFailureType.DoesNotExist)
+                                            ValidationFailureType.Expired)
                                     };
 
+                _now = DateTime.Now;
+                Mock.Get(_timeProvider).Setup(x => x.Now()).Returns(_now);
+
                 Mock.Get(_readOnlyRepo).Setup(x => x.GetById<PasswordResetAuthorization>(ResetPasswordToken))
-                    .Throws(new ItemNotFoundException<PasswordResetAuthorization>(ResetPasswordToken));
+                    .Returns(new PasswordResetAuthorization(ResetPasswordToken, null, _now.AddDays(3)));
             };
 
         Because of =

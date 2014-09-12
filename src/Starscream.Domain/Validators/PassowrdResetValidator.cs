@@ -11,10 +11,12 @@ namespace Starscream.Domain.Validators
     public class PassowrdResetValidator : ICommandValidator<ResetPassword>
     {
         readonly IReadOnlyRepository _readOnlyRepo;
+        readonly ITimeProvider _timeProvider;
 
-        public PassowrdResetValidator(IReadOnlyRepository readOnlyRepo)
+        public PassowrdResetValidator(IReadOnlyRepository readOnlyRepo, ITimeProvider timeProvider)
         {
             _readOnlyRepo = readOnlyRepo;
+            _timeProvider = timeProvider;
         }
 
         public void Validate(IUserSession userSession, ResetPassword command)
@@ -32,9 +34,14 @@ namespace Starscream.Domain.Validators
             {
                 try
                 {
-                    _readOnlyRepo.GetById<PasswordResetToken>(command.ResetPasswordToken);
+                    var passwordResetToken = _readOnlyRepo.GetById<PasswordResetAuthorization>(command.ResetPasswordToken);
+
+                    if (passwordResetToken.Created > _timeProvider.Now().AddDays(2))
+                    {
+                        failures.Add(new ValidationFailure("ResetPasswordToken", ValidationFailureType.Expired));
+                    }
                 }
-                catch (ItemNotFoundException<PasswordResetToken>)
+                catch (ItemNotFoundException<PasswordResetAuthorization>)
                 {
                     failures.Add(new ValidationFailure("ResetPasswordToken", ValidationFailureType.DoesNotExist));
                 }

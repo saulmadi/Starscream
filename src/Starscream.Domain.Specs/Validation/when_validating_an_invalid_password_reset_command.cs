@@ -19,7 +19,7 @@ namespace Starscream.Domain.Specs.Validation
         Establish context =
             () =>
             {
-                _validator = new PassowrdResetValidator(Mock.Of<IReadOnlyRepository>());
+                _validator = new PassowrdResetValidator(Mock.Of<IReadOnlyRepository>(), Mock.Of<ITimeProvider>());
 
                 _expectedFailures = new List<ValidationFailure>
                                     {

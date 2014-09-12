@@ -25,7 +25,7 @@ namespace Starscream.Domain.Application.CommandHandlers
         {
             var user = _readOnlyRepository.First<User>(x => x.Email == command.Email);
             Guid tokenId = _idGenerator.Generate();
-            _writeableRepository.Create(new PasswordResetToken(tokenId, user, _timeProvider.Now()));
+            _writeableRepository.Create(new PasswordResetAuthorization(tokenId, user, _timeProvider.Now()));
             NotifyObservers(new PasswordResetTokenCreated(tokenId, user.Id));
         }
 

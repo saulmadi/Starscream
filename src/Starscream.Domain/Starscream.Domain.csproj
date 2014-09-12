@@ -40,15 +40,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CommandHandlers\PasswordResetter.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetTokenCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserCreator.cs" />
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
     <Compile Include="Application\Commands\CreateUser.cs" />
     <Compile Include="Application\Commands\ResetPassword.cs" />
     <Compile Include="DomainEvent.cs" />
+    <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
-    <Compile Include="Entities\PasswordResetToken.cs" />
+    <Compile Include="Entities\PasswordResetAuthorization.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
     <Compile Include="Exceptions\ItemNotFoundException.cs" />

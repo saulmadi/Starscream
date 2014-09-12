@@ -31,5 +31,10 @@ namespace Starscream.Domain.Entities
         {
             Email = emailAddress;
         }
+
+        public void ChangePassword(EncryptedPassword encryptedPassword)
+        {
+            EncryptedPassword = encryptedPassword.Password;
+        }
     }
 }
