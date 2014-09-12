@@ -5,7 +5,7 @@ using Starscream.Domain.Services;
 
 namespace Starscream.Domain.Application.CommandHandlers
 {
-    public class UserCreator : ICommandHandler<CreateUser>
+    public class UserCreator : ICommandHandler<CreateEmailLoginUser>
     {
         readonly IWriteableRepository _writeableRepository;
 
@@ -16,7 +16,7 @@ namespace Starscream.Domain.Application.CommandHandlers
 
         #region ICommandHandler Members
 
-        public void Handle(IUserSession userIssuingCommand, CreateUser command)
+        public void Handle(IUserSession userIssuingCommand, CreateEmailLoginUser command)
         {
             _writeableRepository.Create(new UserEmailLogin(command.Name, command.Email, command.EncryptedPassword, command.PhoneNumber));
             NotifyObservers(new UserCreated(command.Email, command.Name, command.PhoneNumber));

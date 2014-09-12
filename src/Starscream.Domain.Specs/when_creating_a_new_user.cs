@@ -12,16 +12,16 @@ namespace Starscream.Domain.Specs
 {
     public class when_creating_a_new_user
     {
-        static CreateUser _command;
+        static CreateEmailLoginUser _command;
         static IWriteableRepository _writeableRepository;
-        static ICommandHandler<CreateUser> _handler;
+        static ICommandHandler<CreateEmailLoginUser> _handler;
         static UserCreated _expectedEvent;
         static object _eventRaised;
 
         Establish context =
             () =>
             {
-                _command = new CreateUser("email", new EncryptedPassword("password"), "name", "password");
+                _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password");
                 _writeableRepository = Mock.Of<IWriteableRepository>();
                 _handler = new UserCreator(_writeableRepository);
 
