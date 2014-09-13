@@ -41,7 +41,7 @@ namespace Starscream.Domain.Specs.Validation
                 Mock.Get(_timeProvider).Setup(x => x.Now()).Returns(_now);
 
                 Mock.Get(_readOnlyRepo).Setup(x => x.GetById<PasswordResetAuthorization>(ResetPasswordToken))
-                    .Returns(new PasswordResetAuthorization(ResetPasswordToken, null, _now.AddDays(3)));
+                    .Returns(new PasswordResetAuthorization(ResetPasswordToken, Guid.NewGuid(), _now.AddDays(3)));
             };
 
         Because of =

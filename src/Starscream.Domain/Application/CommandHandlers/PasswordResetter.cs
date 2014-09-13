@@ -19,10 +19,11 @@ namespace Starscream.Domain.Application.CommandHandlers
         public void Handle(IUserSession userIssuingCommand, ResetPassword command)
         {
             var passwordResetToken = _readOnlyRepository.GetById<PasswordResetAuthorization>(command.ResetPasswordToken);
-            passwordResetToken.User.ChangePassword(command.EncryptedPassword);
-            _writeableRepository.Update(passwordResetToken.User);
+            var user = _readOnlyRepository.GetById<User>(passwordResetToken.UserId);
+            user.ChangePassword(command.EncryptedPassword);
+            _writeableRepository.Update(user);
             _writeableRepository.Delete<PasswordResetAuthorization>(command.ResetPasswordToken);
-            NotifyObservers(new PasswordReset(passwordResetToken.User.Id));
+            NotifyObservers(new PasswordReset(passwordResetToken.UserId));
         }
 
         public event DomainEvent NotifyObservers;

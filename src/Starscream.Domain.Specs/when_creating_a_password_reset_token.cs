@@ -62,7 +62,7 @@ namespace Starscream.Domain.Specs
                 .Verify(
                     x =>
                         x.Create(
-                            WithExpected.Object(new PasswordResetAuthorization(TokenId, _userWithMatchingEmailAddress,
+                            WithExpected.Object(new PasswordResetAuthorization(TokenId, _userWithMatchingEmailAddress.Id,
                                 _now))));
 
         It should_raise_the_expected_event =

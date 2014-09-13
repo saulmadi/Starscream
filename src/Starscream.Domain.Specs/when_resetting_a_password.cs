@@ -19,7 +19,6 @@ namespace Starscream.Domain.Specs
         static IReadOnlyRepository _readOnlyRepository;
         static ICommandHandler<ResetPassword> _commandHander;
         static readonly Guid ResetPasswordToken = Guid.NewGuid();
-        static TestUser _user;
         static object _eventRaised;
         static PasswordReset _expectedEvent;
 
@@ -31,12 +30,15 @@ namespace Starscream.Domain.Specs
                 _commandHander =
                     new PasswordResetter(_readOnlyRepository, _writeableRepository);
 
-                _user = new TestUser("tester", "old_password");
+                var userId = Guid.NewGuid();
                 Mock.Get(_readOnlyRepository).Setup(x => x.GetById<PasswordResetAuthorization>(ResetPasswordToken))
-                    .Returns(new PasswordResetAuthorization(ResetPasswordToken, _user, DateTime.Now));
+                    .Returns(new PasswordResetAuthorization(ResetPasswordToken, userId, DateTime.Now));
+
+                Mock.Get(_readOnlyRepository).Setup(x => x.GetById<User>(userId))
+                    .Returns(new TestUser(userId, "name", "password"));
 
                 _commandHander.NotifyObservers += x => _eventRaised = x;
-                _expectedEvent = new PasswordReset(_user.Id);
+                _expectedEvent = new PasswordReset(userId);
             };
 
         Because of =

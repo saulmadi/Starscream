@@ -2,21 +2,21 @@ using System;
 
 namespace Starscream.Domain.Entities
 {
-    public class PasswordResetAuthorization:IEntity
+    public class PasswordResetAuthorization : IEntity
     {
         protected PasswordResetAuthorization()
-        {            
+        {
         }
 
-        public PasswordResetAuthorization(Guid id, User user, DateTime created)
+        public PasswordResetAuthorization(Guid token, Guid userId, DateTime created)
         {
-            Id = id;
-            User = user;
+            Id = token;
+            UserId = userId;
             Created = created;
         }
 
-        public virtual Guid Id { get; protected set; }
-        public virtual User User { get; protected set; }
+        public virtual Guid UserId { get; protected set; }
         public virtual DateTime Created { get; protected set; }
+        public virtual Guid Id { get; protected set; }
     }
 }

@@ -1,11 +1,13 @@
-﻿using Starscream.Domain.Entities;
+﻿using System;
+using Starscream.Domain.Entities;
 
 namespace Starscream.Domain.Specs.Stubs
 {
     public class TestUser : User
     {
-        public TestUser(string name, string password)
+        public TestUser(Guid userId, string name, string password)
         {
+            Id = userId;
             Name = name;
             EncryptedPassword = password;
         }
