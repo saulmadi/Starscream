@@ -150,6 +150,7 @@
     <Compile Include="Api\Infrastructure\RootModule.cs" />
     <Compile Include="Api\Infrastructure\Configuration\IBootstrapperTask.cs" />
     <Compile Include="Api\Infrastructure\Exceptions\UserInputPropertyMissingException.cs" />
+    <Compile Include="Api\Requests\NewPasswordRequest.cs" />
     <Compile Include="Api\Requests\NewUserRequest.cs" />
     <Compile Include="Api\Requests\ResetPasswordRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

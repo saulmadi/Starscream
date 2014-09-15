@@ -3,6 +3,7 @@
     public enum ValidationFailureType
     {
         Missing,
-        DoesNotExist
+        DoesNotExist,
+        Expired
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Services;
 using Nancy;
@@ -31,8 +32,12 @@ namespace Starscream.Web.Api.Modules
                 };
 
             Put["/password/reset/{token}"] =
-                _ =>
+                p =>
                 {
+                    var newPasswordRequest = this.Bind<NewPasswordRequest>();
+                    var token = Guid.Parse((string)p.token);
+                    commandDispatcher.Dispatch(this.UserSession(),
+                                               new ResetPassword(token, passwordEncryptor.Encrypt(newPasswordRequest.Password)));
                     return null;
                 };
         }
