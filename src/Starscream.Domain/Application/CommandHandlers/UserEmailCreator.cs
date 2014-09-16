@@ -18,8 +18,8 @@ namespace Starscream.Domain.Application.CommandHandlers
 
         public void Handle(IUserSession userIssuingCommand, CreateEmailLoginUser command)
         {
-            _writeableRepository.Create(new UserEmailLogin(command.Name, command.Email, command.EncryptedPassword, command.PhoneNumber));
-            NotifyObservers(new UserCreated(command.Email, command.Name, command.PhoneNumber));
+            var userCreated = _writeableRepository.Create(new UserEmailLogin(command.Name, command.Email, command.EncryptedPassword, command.PhoneNumber));
+            NotifyObservers(new UserEmailCreated(userCreated.Id,command.Email, command.Name, command.PhoneNumber));
         }
 
         public event DomainEvent NotifyObservers;

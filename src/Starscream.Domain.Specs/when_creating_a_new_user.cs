@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using FizzWare.NBuilder;
+using Machine.Specifications;
 using Moq;
 using Starscream.Domain.Application.CommandHandlers;
 using Starscream.Domain.Application.Commands;
@@ -15,17 +16,31 @@ namespace Starscream.Domain.Specs
         static CreateEmailLoginUser _command;
         static IWriteableRepository _writeableRepository;
         static ICommandHandler<CreateEmailLoginUser> _handler;
-        static UserCreated _expectedEvent;
+        static UserEmailCreated _expectedEvent;
         static object _eventRaised;
+        static UserEmailLogin _userCreated;
+        
 
         Establish context =
             () =>
             {
                 _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password");
+
+                _userCreated = Builder<UserEmailLogin>.CreateNew()
+                    .With(user => user.Email, _command.Email)
+                    .With(user => user.Name, _command.Name)
+                    .With(user => user.EncryptedPassword,_command.EncryptedPassword.Password)
+                    .With(user => user.PhoneNumber, _command.PhoneNumber)
+                    .Build();
+
                 _writeableRepository = Mock.Of<IWriteableRepository>();
+                Mock.Get(_writeableRepository)
+                    .Setup(repository => repository.Create(Moq.It.IsAny<UserEmailLogin>()))
+                    .Returns(_userCreated);
+
                 _handler = new UserEmailCreator(_writeableRepository);
 
-                _expectedEvent = new UserCreated(_command.Email, _command.Name, _command.PhoneNumber);
+                _expectedEvent = new UserEmailCreated(_userCreated.Id,_command.Email, _command.Name, _command.PhoneNumber);
                 _handler.NotifyObservers += x => _eventRaised = x;
             };
 

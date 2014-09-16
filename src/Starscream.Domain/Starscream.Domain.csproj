@@ -52,6 +52,7 @@
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
+    <Compile Include="DomainEvents\UserEmailCreated.cs" />
     <Compile Include="DomainEvents\UserFacebookCreated.cs" />
 	<Compile Include="Entities\PasswordResetAuthorization.cs" />
     <Compile Include="Entities\User.cs" />

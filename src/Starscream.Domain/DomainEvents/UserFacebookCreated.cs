@@ -1,16 +1,16 @@
-﻿namespace Starscream.Domain.DomainEvents
-{
-    public class UserFacebookCreated
-    {
-        public string email { get; protected set; }
-        public string name { get; protected set; }
-        public string id { get; protected set; }
+﻿using System;
 
-        public UserFacebookCreated(string email, string name, string id)
+namespace Starscream.Domain.DomainEvents
+{
+    public class UserFacebookCreated:UserCreated
+    {
+
+        public string FacebookId { get; protected set; }
+
+        public UserFacebookCreated(Guid id, string email, string name, string facebookId) : base(id,email,name )
         {
-            this.email = email;
-            this.name = name;
-            this.id = id;
+    
+            this.FacebookId = facebookId;
         }
     }
 }

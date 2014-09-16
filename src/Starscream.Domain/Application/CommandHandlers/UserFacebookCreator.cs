@@ -17,8 +17,8 @@ namespace Starscream.Domain.Application.CommandHandlers
 
         public void Handle(IUserSession userIssuingCommand, CreateFacebookLoginUser command)
         {
-            _writeableRepository.Create(new UserFacebookLogin(command.name,command.email,command.id,command.firstName,command.lastName,command.imageUrl,command.link));
-            NotifyObservers(new UserFacebookCreated(command.email,command.name,command.id));
+            var userCreated = _writeableRepository.Create(new UserFacebookLogin(command.name,command.email,command.id,command.firstName,command.lastName,command.imageUrl,command.link));
+            NotifyObservers(new UserFacebookCreated(userCreated.Id, command.email, command.name, command.id));
         }
 
         public event DomainEvent NotifyObservers;

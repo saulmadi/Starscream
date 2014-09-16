@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Starscream.Domain.Specs
         static ICommandHandler<CreateFacebookLoginUser> _handler;
         static UserFacebookCreated _expectedEvent;
         static object _eventRaised;
+        static UserFacebookLogin _userCreated;
 
         Establish context =
             () =>
@@ -30,10 +32,25 @@ namespace Starscream.Domain.Specs
                 _command = Builder<CreateFacebookLoginUser>.CreateNew().Build();
 
                 _writeableRepository = Mock.Of<IWriteableRepository>();
+                _userCreated = Builder<UserFacebookLogin>.CreateNew()
+                  .With(user => user.Email, _command.email)
+                  .With(user => user.Name, _command.name)
+                .With(user => user.FacebookId, _command.id)
+                .With(user => user.FirstName, _command.firstName)
+                .With(user => user.ImageUrl, _command.imageUrl)
+                .With(user => user.LastName, _command.lastName)
+                .With(user => user.URL, _command.link)
+                .With(user => user.Id, Guid.NewGuid())
+                  .Build();
+
 
                 _handler = new UserFacebookCreator(_writeableRepository);
 
-                _expectedEvent = new UserFacebookCreated(_command.email, _command.name, _command.id);
+                Mock.Get(_writeableRepository)
+                    .Setup(repository => repository.Create(Moq.It.IsAny<UserFacebookLogin>()))
+                    .Returns(_userCreated);
+
+                _expectedEvent = new UserFacebookCreated(_userCreated.Id,_command.email, _command.name, _command.id);
                 _handler.NotifyObservers += x => _eventRaised = x;
 
             };
