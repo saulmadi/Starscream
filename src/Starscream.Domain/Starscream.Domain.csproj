@@ -53,6 +53,7 @@
     <Compile Include="Entities\PasswordResetAuthorization.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFacebookLogging.cs" />
+    <Compile Include="Entities\UserGoogleLogging.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
     <Compile Include="Exceptions\ItemNotFoundException.cs" />

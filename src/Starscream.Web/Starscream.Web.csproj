@@ -141,6 +141,11 @@
     <Compile Include="Api\Modules\LoginModule.cs" />
     <Compile Include="Api\Modules\UserAccountModule.cs" />
     <Compile Include="Api\PasswordResetEmailSender.cs" />
+    <Compile Include="Api\Requests\Facebook\FacebookRegisterRequest.cs" />
+    <Compile Include="Api\Requests\Google\GoogleRegisterRequest.cs" />
+    <Compile Include="Api\Requests\Google\Image.cs" />
+    <Compile Include="Api\Requests\Google\Name.cs" />
+    <Compile Include="Api\Requests\Google\Result.cs" />
     <Compile Include="Api\Requests\LoginRequest.cs" />
     <Compile Include="Api\Infrastructure\Authentication\IApiUserMapper.cs" />
     <Compile Include="Api\Infrastructure\Authentication\LoggedInUserIdentity.cs" />

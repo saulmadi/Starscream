@@ -19,7 +19,7 @@
     };
 
     $scope.loginFacebook = function() {
-        facebookService.Login();
+        facebookService.Register();
     };
 
     $scope.loginGoogle = function() {
