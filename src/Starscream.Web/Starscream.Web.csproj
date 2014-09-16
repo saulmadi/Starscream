@@ -100,6 +100,8 @@
     <Content Include="app\controllers\parentController.js" />
     <Content Include="app\controllers\registrationController.js" />
     <Content Include="app\services\accountService.js" />
+    <Content Include="app\services\googleService.js" />
+    <Content Include="app\services\facebookService.js" />
     <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
     <Content Include="app\services\userService.js" />
@@ -119,6 +121,8 @@
     <Content Include="assets\bootstrap-3.1.1-dist\js\bootstrap.js" />
     <Content Include="assets\bootstrap-3.1.1-dist\js\bootstrap.min.js" />
     <Content Include="assets\bootswatch.min.css" />
+    <Content Include="assets\googlesdk.js" />
+    <Content Include="assets\fbsdk.js" />
     <Content Include="assets\jquery-1.10.2.min.js" />
     <Content Include="index.html" />
     <Content Include="Web.config">

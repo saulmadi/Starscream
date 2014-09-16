@@ -1,4 +1,4 @@
-﻿angular.module('Starscream.Controllers').controller('loginController', function ($scope, $location, loginService, userService) {
+﻿angular.module('Starscream.Controllers').controller('loginController', function ($scope, $location, loginService, userService, facebookService, googleService) {
         
     if (userService.GetUser()) {
         $location.path("/");
@@ -16,5 +16,13 @@
         }).catch(function (data) {
             $scope.error = "Invalid email address or password. Please try again.";
         });
+    };
+
+    $scope.loginFacebook = function() {
+        facebookService.Login();
+    };
+
+    $scope.loginGoogle = function() {
+        googleService.Login();
     };
 });

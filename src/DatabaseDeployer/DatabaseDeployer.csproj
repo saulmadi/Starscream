@@ -67,9 +67,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="connectionStrings.config">
+    <Content Include="connectionStrings.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
