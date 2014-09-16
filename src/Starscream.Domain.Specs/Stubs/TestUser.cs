@@ -1,5 +1,6 @@
 ﻿using System;
 using Starscream.Domain.Entities;
+using Starscream.Domain.ValueObjects;
 
 namespace Starscream.Domain.Specs.Stubs
 {
@@ -9,7 +10,6 @@ namespace Starscream.Domain.Specs.Stubs
         {
             Id = userId;
             Name = name;
-            EncryptedPassword = password;
         }
     }
 }

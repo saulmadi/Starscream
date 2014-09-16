@@ -20,7 +20,7 @@ namespace Starscream.Domain.Application.CommandHandlers
         {
             var passwordResetToken = _readOnlyRepository.GetById<PasswordResetAuthorization>(command.ResetPasswordToken);
             var user = _readOnlyRepository.GetById<User>(passwordResetToken.UserId);
-            user.ChangePassword(command.EncryptedPassword);
+            //user.ChangePassword(command.EncryptedPassword);
             _writeableRepository.Update(user);
             _writeableRepository.Delete<PasswordResetAuthorization>(command.ResetPasswordToken);
             NotifyObservers(new PasswordReset(passwordResetToken.UserId));
