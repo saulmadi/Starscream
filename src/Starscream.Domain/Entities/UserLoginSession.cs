@@ -9,14 +9,14 @@ namespace Starscream.Domain.Entities
         {            
         }
 
-        public UserLoginSession(Guid token, UserEmailLogin user, DateTime expires)
+        public UserLoginSession(Guid token, User user, DateTime expires)
         {
             Id = token;
             User = user;
             Expires = expires;
         }
 
-        public virtual UserEmailLogin User { get; protected set; }
+        public virtual User User { get; protected set; }
         public virtual DateTime Expires { get; protected set; }
     }
 }

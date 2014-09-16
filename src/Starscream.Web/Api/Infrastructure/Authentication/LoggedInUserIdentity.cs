@@ -23,7 +23,7 @@ namespace Starscream.Web.Api.Infrastructure.Authentication
             {
                 if (UserSession is UserLoginSession)
                 {
-                    UserEmailLogin executor = ((UserLoginSession) UserSession).User;
+                    User executor = ((UserLoginSession) UserSession).User;
                     if (executor == null)
                     {
                         throw new Exception("The user should not be null on the user session.");

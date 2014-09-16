@@ -4,6 +4,6 @@ namespace Starscream.Domain.Services
 {
     public interface IUserSessionFactory
     {
-        UserLoginSession Create(UserEmailLogin executor);
+        UserLoginSession Create(User executor);
     }
 }
