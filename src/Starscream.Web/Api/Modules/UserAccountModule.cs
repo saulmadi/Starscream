@@ -28,7 +28,7 @@ namespace Starscream.Web.Api.Modules
                 _ =>
                     {
                         var req = this.Bind<FacebookRegisterRequest>();
-                        commandDispatcher.Dispatch(this.UserSession(), new CreateFacebookLoginUser(req.id,req.email, req.first_name, req.last_name,req.link,req.name));
+                        commandDispatcher.Dispatch(this.UserSession(), new CreateFacebookLoginUser(req.id,req.email, req.first_name, req.last_name,req.link,req.name,req.url_image));
                         return null;
                     };
 

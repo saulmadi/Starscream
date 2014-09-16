@@ -52,9 +52,7 @@ namespace Starscream.Domain.Specs
                         z.FacebookId == _command.id &&
                         z.ImageUrl == _command.imageUrl &&
                         z.URL == _command.link &&
-                        z.Name == _command.name
-
-                        )
+                        z.Name == _command.name)
                         ));
             };
 

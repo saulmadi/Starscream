@@ -18,11 +18,5 @@
         });
     };
 
-    $scope.loginFacebook = function() {
-        facebookService.Register();
-    };
-
-    $scope.loginGoogle = function() {
-        googleService.Login();
-    };
+    
 });

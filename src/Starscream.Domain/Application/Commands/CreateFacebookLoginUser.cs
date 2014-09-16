@@ -10,6 +10,9 @@ namespace Starscream.Domain.Application.Commands
         public string name { get; protected set; }
         public string imageUrl { get; protected set; }
 
+        protected CreateFacebookLoginUser()
+        {
+        }
 
         public CreateFacebookLoginUser(string id, string email, string firstName, string lastName, string link, string name, string imageUrl)
         {
