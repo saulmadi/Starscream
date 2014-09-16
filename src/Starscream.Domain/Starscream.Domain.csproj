@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Application\CommandHandlers\PasswordResetter.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetTokenCreator.cs" />
-    <Compile Include="Application\CommandHandlers\UserCreator.cs" />
+    <Compile Include="Application\CommandHandlers\UserEmailCreator.cs" />
+    <Compile Include="Application\CommandHandlers\UserFacebookCreator.cs" />
+    <Compile Include="Application\Commands\CreateFacebookLoginUser.cs" />
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
     <Compile Include="Application\Commands\CreateEmailLoginUser.cs" />
     <Compile Include="Application\Commands\ResetPassword.cs" />
@@ -50,10 +52,11 @@
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
-    <Compile Include="Entities\PasswordResetAuthorization.cs" />
+    <Compile Include="DomainEvents\UserFacebookCreated.cs" />
+	<Compile Include="Entities\PasswordResetAuthorization.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\UserFacebookLogging.cs" />
-    <Compile Include="Entities\UserGoogleLogging.cs" />
+    <Compile Include="Entities\UserFacebookLogin.cs" />
+    <Compile Include="Entities\UserGoogleLogin.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
     <Compile Include="Exceptions\ItemNotFoundException.cs" />

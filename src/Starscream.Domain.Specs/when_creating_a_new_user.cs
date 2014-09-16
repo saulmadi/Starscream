@@ -23,7 +23,7 @@ namespace Starscream.Domain.Specs
             {
                 _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password");
                 _writeableRepository = Mock.Of<IWriteableRepository>();
-                _handler = new UserCreator(_writeableRepository);
+                _handler = new UserEmailCreator(_writeableRepository);
 
                 _expectedEvent = new UserCreated(_command.Email, _command.Name, _command.PhoneNumber);
                 _handler.NotifyObservers += x => _eventRaised = x;
