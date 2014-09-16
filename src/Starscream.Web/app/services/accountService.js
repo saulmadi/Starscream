@@ -4,6 +4,9 @@
         Register: function (email, password, name, phoneNumber) {
             return $httpq.post("/register", { email: email, password: password, name: name, phoneNumber: phoneNumber });            
         },
+        RegisterFacebook: function (payload) {
+            return $httpq.post("/register/facebook",payload);
+        },
         RequestToResetPassword: function (email) {
             return $httpq.post("/password/requestReset", { email: email });
         },

@@ -1,4 +1,4 @@
-﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService) {
+﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService, facebookService, googleService) {
 
     $scope.user = { };
 
@@ -40,5 +40,17 @@
             }).catch(function(err1, err2, err3) {
                 debugger;
             });
+    };
+    
+    $scope.registerFacebook = function () {
+        facebookService.Register().then(function () {
+            $scope.registered = true;
+        }).catch(function () {
+            debugger;
+        });
+    };
+
+    $scope.registerGoogle = function () {
+        googleService.Login();
     };
 });

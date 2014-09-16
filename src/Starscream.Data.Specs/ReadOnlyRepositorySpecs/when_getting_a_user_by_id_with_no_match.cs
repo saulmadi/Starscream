@@ -21,9 +21,9 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
                 };
 
         Because of =
-            () => _exception = Catch.Exception(() => _readOnlyRepository.GetById<User>(Guid.NewGuid()));
+            () => _exception = Catch.Exception(() => _readOnlyRepository.GetById<UserEmailLogin>(Guid.NewGuid()));
 
         It should_throw_the_expected_exception =
-            () => _exception.ShouldBeOfType<ItemNotFoundException<User>>();
+            () => _exception.ShouldBeOfType<ItemNotFoundException<UserEmailLogin>>();
     }
 }

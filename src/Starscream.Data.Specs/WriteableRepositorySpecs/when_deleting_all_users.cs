@@ -21,24 +21,24 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
                     _session = InMemorySession.New(new MappingScheme());
                     _writeableRepository = new WriteableRepository(_session);
 
-                    var users = new List<User>
+                    var users = new List<UserEmailLogin>
                                     {
-                                        new User("test1", "test1@test.com", new EncryptedPassword("password")),
-                                        new User("test2", "test2@test.com", new EncryptedPassword("password")),
-                                        new User("test3", "test2@test.com", new EncryptedPassword("password"))
+                                        new UserEmailLogin("test1", "test1@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test2", "test2@test.com", new EncryptedPassword("password")),
+                                        new UserEmailLogin("test3", "test2@test.com", new EncryptedPassword("password"))
                                     };
                     users.ForEach(x => _session.Save(x));
                     _session.Flush();                    
                 };
 
         Because of =
-            () => _writeableRepository.DeleteAll<User>();
+            () => _writeableRepository.DeleteAll<UserEmailLogin>();
 
         It should_make_the_change_in_the_session =
             () =>
                 {
                     _session.Flush();
-                    _session.QueryOver<User>().List().ShouldBeEmpty();
+                    _session.QueryOver<UserEmailLogin>().List().ShouldBeEmpty();
                 };
     }
 }

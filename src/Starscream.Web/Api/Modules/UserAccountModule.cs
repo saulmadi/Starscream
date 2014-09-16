@@ -5,6 +5,7 @@ using Nancy;
 using Nancy.ModelBinding;
 using Starscream.Web.Api.Infrastructure;
 using Starscream.Web.Api.Requests;
+using Starscream.Web.Api.Requests.Facebook;
 
 namespace Starscream.Web.Api.Modules
 {
@@ -18,7 +19,22 @@ namespace Starscream.Web.Api.Modules
                     {
                         var req = this.Bind<NewUserRequest>();
                         commandDispatcher.Dispatch(this.UserSession(),
-                                                   new CreateUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber));
+                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber));
+                        return null;
+                    };
+
+
+            Post["/register/facebook"] =
+                _ =>
+                    {
+                        var req = this.Bind<FacebookRegisterRequest>();
+                        commandDispatcher.Dispatch(this.UserSession(), new CreateFacebookLoginUser(req.id,req.email, req.first_name, req.last_name,req.link,req.name,req.url_image));
+                        return null;
+                    };
+
+            Post["/register/google"] =
+                _ =>
+                    {
                         return null;
                     };
 

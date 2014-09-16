@@ -45,6 +45,12 @@
     <Reference Include="ExpectedObjects">
       <HintPath>..\..\lib\ExpectedObjects.1.0.0.2\lib\ExpectedObjects.dll</HintPath>
     </Reference>
+    <Reference Include="FizzWare.NBuilder">
+      <HintPath>..\..\lib\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\lib\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Machine.Specifications.0.8.3\lib\net45\Machine.Specifications.dll</HintPath>
@@ -59,6 +65,9 @@
     <Reference Include="Moq">
       <HintPath>..\..\lib\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -69,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastExtentions.cs" />
+    <Compile Include="when_creating_a_facebook_user.cs" />
+    <Compile Include="when_creating_new_facebook_user.cs" />
     <Compile Include="Stubs\AnotherTestCommand.cs" />
     <Compile Include="Stubs\AnotherTestCommandHandler.cs" />
     <Compile Include="Stubs\TestCommand.cs" />

@@ -30,18 +30,42 @@ namespace Starscream.Web.Api.Modules
                         try
                         {
                             var user =
-                                readOnlyRepository.First<User>(
+                                readOnlyRepository.First<UserEmailLogin>(
                                     x => x.Email == loginInfo.Email && x.EncryptedPassword == encryptedPassword.Password);
 
                             UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
                             return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
                         }
-                        catch (ItemNotFoundException<User>)
+                        catch (ItemNotFoundException<UserEmailLogin>)
                         {
                             throw new UnauthorizedAccessException();
                         }
                     };
+
+            Post["/login/facebook"] = _ =>
+                                      {
+                                          var loginInfo = this.Bind<LoginSocialRequest>();
+                                          if (loginInfo.Email == null) throw new UserInputPropertyMissingException("Email");
+                                          if (loginInfo.Id == null) throw new UserInputPropertyMissingException("Social Id");
+
+                                          try
+                                          {
+                                              var user =
+                                                  readOnlyRepository.First<UserFacebookLogin>(
+                                                      x => x.Email == loginInfo.Email && x.FacebookId== loginInfo.Id );
+
+                                              UserLoginSession userLoginSession = userSessionFactory.Create(user);
+
+                                              return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
+                                          }
+                                          catch (ItemNotFoundException<UserEmailLogin>)
+                                          {
+                                              throw new UnauthorizedAccessException();
+                                          }
+                                      };
+
+
         }
     }
 }

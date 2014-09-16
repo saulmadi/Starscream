@@ -27,9 +27,9 @@ namespace Starscream.Domain.Validators
             {
                 try
                 {
-                    _readOnlyRepsitory.First<User>(x => x.Email == command.Email);
+                    _readOnlyRepsitory.First<UserEmailLogin>(x => x.Email == command.Email);
                 }
-                catch (ItemNotFoundException<User>)
+                catch (ItemNotFoundException<UserEmailLogin>)
                 {
                     validationFailures.Add(new ValidationFailure("Email", ValidationFailureType.DoesNotExist));
                 }
