@@ -20,8 +20,8 @@ init:
 
 # enable service required for build/tests
 services:
-#  - mssql2012sp1        # start SQL Server 2012 SP1 Express
-#  - iis                 # start IIS
+  - mssql2012sp1        # start SQL Server 2012 SP1 Express
+  - iis                 # start IIS
 
 # enable patching of AssemblyInfo.* files
 assembly_info:
