@@ -13,7 +13,7 @@
             userService.SetUser($scope.user.email, data.name, data.token, $scope.rememberMe);
             $scope.$parent.user = userService.GetUser();
             $location.path("/");
-        }).catch(function (data) {
+        }).catch(function () {
             $scope.error = "Invalid email address or password. Please try again.";
         });
     };
@@ -28,7 +28,14 @@
         });
     };
 
-    $scope.loginGoogle = function() {
+    $scope.loginGoogle = function () {
+        googleService.Login().then(function(data) {
+            userService.SetUser($scope.user.email, data.name, data.token, $scope.rememberMe);
+            $scope.$parent.user = userService.GetUser();
+            $location.path("/");
+        }).catch(function() {
+            $scope.error = "Invalid google user, you need to register first.";
+        });
     };
 
 });

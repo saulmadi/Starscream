@@ -51,6 +51,10 @@
     };
 
     $scope.registerGoogle = function () {
-        googleService.Login();
+        googleService.Register().then(function () {
+            $scope.registered = true;
+        }).catch(function() {
+            debugger;
+        });
     };
 });

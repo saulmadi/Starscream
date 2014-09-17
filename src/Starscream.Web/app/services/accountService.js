@@ -7,6 +7,9 @@
         RegisterFacebook: function (payload) {
             return $httpq.post("/register/facebook",payload);
         },
+        RegisterGoogle: function (payload) {
+            return $httpq.post("/register/google",payload);
+        },
         RequestToResetPassword: function (email) {
             return $httpq.post("/password/requestReset", { email: email });
         },

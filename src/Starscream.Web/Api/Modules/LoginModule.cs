@@ -65,6 +65,28 @@ namespace Starscream.Web.Api.Modules
                                           }
                                       };
 
+            Post["/login/google"] = _ =>
+            {
+                var loginInfo = this.Bind<LoginSocialRequest>();
+                if (loginInfo.Email == null) throw new UserInputPropertyMissingException("Email");
+                if (loginInfo.Id == null) throw new UserInputPropertyMissingException("Social Id");
+
+                try
+                {
+                    var user =
+                        readOnlyRepository.First<UserGoogleLogin>(
+                            x => x.Email == loginInfo.Email && x.GoogleId == loginInfo.Id);
+
+                    UserLoginSession userLoginSession = userSessionFactory.Create(user);
+
+                    return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
+                }
+                catch (ItemNotFoundException<UserEmailLogin>)
+                {
+                    throw new UnauthorizedAccessException();
+                }
+            };
+
 
         }
     }

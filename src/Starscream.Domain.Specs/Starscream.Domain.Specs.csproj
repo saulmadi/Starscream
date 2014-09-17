@@ -79,7 +79,7 @@
   <ItemGroup>
     <Compile Include="CastExtentions.cs" />
     <Compile Include="when_creating_a_facebook_user.cs" />
-    <Compile Include="when_creating_new_facebook_user.cs" />
+    <Compile Include="when_creating_google_user.cs" />
     <Compile Include="Stubs\AnotherTestCommand.cs" />
     <Compile Include="Stubs\AnotherTestCommandHandler.cs" />
     <Compile Include="Stubs\TestCommand.cs" />
