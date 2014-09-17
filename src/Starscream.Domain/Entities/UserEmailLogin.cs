@@ -22,5 +22,10 @@ namespace Starscream.Domain.Entities
 
         public virtual string PhoneNumber { get; protected set; }
         public virtual string EncryptedPassword { get; protected set; }
+
+        public virtual void ChangePassword(EncryptedPassword encryptedPassword)
+        {
+            EncryptedPassword = encryptedPassword.Password;
+        }
     }
 }

@@ -25,5 +25,6 @@ namespace Starscream.Domain.Entities
             Email = emailAddress;
         }
 
+        
     }
 }
