@@ -1,7 +1,4 @@
-using Starscream.Domain.Services;
-using Starscream.Notifications;
-
-namespace Starscream.Domain.Specs.Stubs
+namespace Starscream.Notifications.Specs.Testing
 {
     public class TestCommandValidator : ICommandValidator<TestCommand>
     {
