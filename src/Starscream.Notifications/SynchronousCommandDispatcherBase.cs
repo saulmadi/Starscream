@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Starscream.Notifications;
 
-namespace Starscream.Domain.Services
+namespace Starscream.Notifications
 {
     public abstract class SynchronousCommandDispatcherBase : ICommandDispatcher
     {

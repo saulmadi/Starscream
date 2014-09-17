@@ -50,7 +50,6 @@
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
     <Compile Include="Application\Commands\CreateEmailLoginUser.cs" />
     <Compile Include="Application\Commands\ResetPassword.cs" />
-    <Compile Include="DomainEvent.cs" />
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
@@ -67,11 +66,7 @@
     <Compile Include="Exceptions\NoAvailableHandlerException.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="PasswordResetEmail.cs" />
-    <Compile Include="Services\ICommandHandler.cs" />
-    <Compile Include="Services\ICommandValidator.cs" />
     <Compile Include="Services\IEmailSender.cs" />
-    <Compile Include="Services\SynchronousCommandDispatcherBase.cs" />
-    <Compile Include="Services\ImmediateCommandDispatcher.cs" />
     <Compile Include="ValidationFailure.cs" />
     <Compile Include="ValidationFailureType.cs" />
     <Compile Include="Validators\PassowrdResetValidator.cs" />

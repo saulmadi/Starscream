@@ -4,6 +4,7 @@ using Machine.Specifications;
 using Moq;
 using Starscream.Domain.Services;
 using Starscream.Domain.Specs.Stubs;
+using Starscream.Notifications;
 using It = Machine.Specifications.It;
 
 namespace Starscream.Domain.Specs

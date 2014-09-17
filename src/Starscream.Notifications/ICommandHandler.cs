@@ -1,6 +1,4 @@
-using Starscream.Notifications;
-
-namespace Starscream.Domain.Services
+namespace Starscream.Notifications
 {
     public interface ICommandHandler
     {
@@ -9,6 +7,6 @@ namespace Starscream.Domain.Services
 
     public interface ICommandHandler<in T> : ICommandHandler
     {
-        void Handle(IUserSession userIssuingCommand, T command);        
+        void Handle(IUserSession userIssuingCommand, T command);
     }
 }

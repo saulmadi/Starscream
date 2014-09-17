@@ -8,6 +8,7 @@ using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
 using Starscream.Domain.Validators;
 using Starscream.Domain.ValueObjects;
+using Starscream.Notifications;
 using It = Machine.Specifications.It;
 
 namespace Starscream.Domain.Specs.Validation
