@@ -6,6 +6,7 @@ using Nancy.ModelBinding;
 using Starscream.Web.Api.Infrastructure;
 using Starscream.Web.Api.Requests;
 using Starscream.Web.Api.Requests.Facebook;
+using Starscream.Web.Api.Requests.Google;
 
 namespace Starscream.Web.Api.Modules
 {
@@ -35,6 +36,8 @@ namespace Starscream.Web.Api.Modules
             Post["/register/google"] =
                 _ =>
                     {
+                        var req = this.Bind<GoogleRegisterRequest>();
+                        commandDispatcher.Dispatch(this.UserSession(), new CreateGoogleLoginUser(req.id,req.email,req.name.givenName,req.name.familyName,req.url,req.displayName,req.image.url));
                         return null;
                     };
 

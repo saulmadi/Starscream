@@ -6,6 +6,9 @@
         },
         LoginFacebook: function (payload) {
             return $httpq.post("/login/facebook", payload);
+        },
+        LoginGoogle: function (payload) {
+            return $httpq.post("/login/google", payload);
         }
     };
 });

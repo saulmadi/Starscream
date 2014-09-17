@@ -19,6 +19,7 @@ namespace Starscream.Web.Api.Requests.Google
             public bool isPlusUser { get; set; }
             public int circledByCount { get; set; }
             public bool verified { get; set; }
+            public string email { get; set; }
             public Result result { get; set; }
         }
     }

@@ -11,5 +11,15 @@ namespace Starscream.Domain.Entities
         protected UserGoogleLogin()
         {
         }
+
+        public UserGoogleLogin(string name, string email, string googleId, string firstName, string lastName, string imageUrl, string url): base(name, email)
+        {
+            GoogleId = googleId;
+            FirstName = firstName;
+            LastName = lastName;
+            ImageUrl = imageUrl;
+            URL = url;
+
+        }
     }
 }
