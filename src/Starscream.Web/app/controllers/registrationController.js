@@ -16,15 +16,15 @@
         if ($scope.user.password != $scope.user.passwordConfirm) {
             password1.setCustomValidity('Passwords must match.');
         } else {
-            password1.setCustomValidity('');
+            if ($scope.user.password.length < 8) {
+                password1.setCustomValidity('Passwords must be at least 8 characters long.');
+            }
+            else {
+                password1.setCustomValidity('');
+            }
         }
             
-        if($scope.user.password.length<8) {
-            password1.setCustomValidity('Passwords must be at least 8 characters long.');
-        }
-        else {
-            password1.setCustomValidity('');
-        }
+       
     };
 
     password1.addEventListener('change', checkPasswordValidity, false);
