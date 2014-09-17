@@ -15,7 +15,7 @@
                 } else {
                     def.reject();
                 }
-            });
+            }, { scope: 'email' });
             return def.promise;
         },
         Login: function () {
@@ -32,7 +32,7 @@
                 } else {
                     def.reject();
                 }
-            });
+            }, { scope: 'email'});
             return def.promise;
         }
     };
