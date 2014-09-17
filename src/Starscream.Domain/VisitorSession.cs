@@ -1,5 +1,6 @@
 using System;
 using Starscream.Domain.Services;
+using Starscream.Notifications;
 
 namespace Starscream.Domain
 {

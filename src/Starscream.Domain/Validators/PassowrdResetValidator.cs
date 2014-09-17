@@ -5,6 +5,7 @@ using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
+using Starscream.Notifications;
 
 namespace Starscream.Domain.Validators
 {

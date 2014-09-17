@@ -3,6 +3,7 @@ using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Services;
 using Nancy;
 using Nancy.ModelBinding;
+using Starscream.Notifications;
 using Starscream.Web.Api.Infrastructure;
 using Starscream.Web.Api.Requests;
 using Starscream.Web.Api.Requests.Facebook;

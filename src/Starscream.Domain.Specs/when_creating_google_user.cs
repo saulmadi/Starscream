@@ -11,6 +11,7 @@ using Starscream.Domain.Application.Commands;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
+using Starscream.Notifications;
 using It = Machine.Specifications.It;
 
 namespace Starscream.Domain.Specs

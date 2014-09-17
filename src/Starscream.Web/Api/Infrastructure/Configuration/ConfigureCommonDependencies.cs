@@ -8,6 +8,7 @@ using Starscream.Data;
 using Starscream.Domain;
 using Starscream.Domain.Services;
 using StarScream.EmailClients.DotNet;
+using Starscream.Notifications;
 using StarScream.TemplateEngines.Razor;
 using Starscream.Web.Api.emails;
 using Starscream.Web.Api.Infrastructure.Authentication;

@@ -1,3 +1,5 @@
+using Starscream.Notifications;
+
 namespace Starscream.Domain.Services
 {
     public interface ICommandHandler
