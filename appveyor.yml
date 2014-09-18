@@ -8,6 +8,7 @@ branches:
   only:
     - master
 
+
 # Operating system (build VM template)
 os: Windows Server 2012
 
