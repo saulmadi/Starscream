@@ -28,6 +28,7 @@ task :createArtifact do
 	end
 end
 
+
 task :removeArtifacts do
 	require 'fileutils'
 	FileUtils.rm_rf BUILD_PATH
