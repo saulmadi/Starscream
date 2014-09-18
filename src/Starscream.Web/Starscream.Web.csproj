@@ -102,6 +102,7 @@
     <Content Include="app\services\accountService.js" />
     <Content Include="app\services\googleService.js" />
     <Content Include="app\services\facebookService.js" />
+    <Content Include="app\services\homeService.js" />
     <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
     <Content Include="app\services\userService.js" />
