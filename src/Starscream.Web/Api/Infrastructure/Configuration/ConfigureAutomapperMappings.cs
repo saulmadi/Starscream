@@ -1,5 +1,8 @@
 using System;
+using AutoMapper;
 using Autofac;
+using Starscream.Domain.Entities;
+using Starscream.Web.Api.Responses.Admin;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {
@@ -12,15 +15,9 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             get
             {
                 return container =>
-                           {
-                               //Mapper.CreateMap<Company, CompanyModel>().ReverseMap();
-                               //Mapper.CreateMap<Market, MarketModel>().ReverseMap();
-                               //Mapper.CreateMap<Location, LocationModel>().ReverseMap();
-                               //Mapper.CreateMap<Executor, ExecutorDetailModel>().ReverseMap();
-                               //Mapper.CreateMap<ITier, TierModel>();
-                               //Mapper.CreateMap<Nymex, NymexModel>().ReverseMap();
-                               //Mapper.CreateMap<Ask, AskModel>().ReverseMap();
-                           };
+                    {
+                        Mapper.CreateMap<User, AdminUserResponse>();
+                    };
             }
         }
 

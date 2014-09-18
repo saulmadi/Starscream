@@ -57,6 +57,7 @@
     <Compile Include="DomainEvents\UserFacebookCreated.cs" />
     <Compile Include="DomainEvents\UserGoogleCreated.cs" />
     <Compile Include="Entities\PasswordResetAuthorization.cs" />
+    <Compile Include="Entities\ProfileAdministrator.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFacebookLogin.cs" />
     <Compile Include="Entities\UserGoogleLogin.cs" />

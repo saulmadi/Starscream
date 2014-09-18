@@ -102,6 +102,7 @@
     <Content Include="app\services\accountService.js" />
     <Content Include="app\services\googleService.js" />
     <Content Include="app\services\facebookService.js" />
+    <Content Include="app\services\homeService.js" />
     <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
     <Content Include="app\services\userService.js" />
@@ -140,7 +141,9 @@
     <Compile Include="Api\Infrastructure\RestExceptions\CommandValidationExceptionRepackager.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />
     <Compile Include="Api\Modules\UserAccountModule.cs" />
+    <Compile Include="Api\Modules\AdminModule.cs" />
     <Compile Include="Api\PasswordResetEmailSender.cs" />
+    <Compile Include="Api\Requests\Admin\AdminUsersRequest.cs" />
     <Compile Include="Api\Requests\Facebook\FacebookRegisterRequest.cs" />
     <Compile Include="Api\Requests\Google\GoogleRegisterRequest.cs" />
     <Compile Include="Api\Requests\Google\Image.cs" />
@@ -163,6 +166,8 @@
     <Compile Include="Api\Requests\NewPasswordRequest.cs" />
     <Compile Include="Api\Requests\NewUserRequest.cs" />
     <Compile Include="Api\Requests\ResetPasswordRequest.cs" />
+    <Compile Include="Api\Responses\Admin\AdminUserResponse.cs" />
+    <Compile Include="Api\Responses\Admin\AdminUsersListResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\BadRequestExceptionRepackager.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\ErrorResponse.cs" />
