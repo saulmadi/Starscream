@@ -7,6 +7,7 @@ namespace Starscream.Domain.Entities
     {
         public virtual string Name { get; protected set; }
         public virtual string Email { get; protected set; }
+        public virtual Profile Profile { get; protected set; }
 
         public User(string name, string email)
         {
@@ -25,6 +26,9 @@ namespace Starscream.Domain.Entities
             Email = emailAddress;
         }
 
-        
+        public virtual void AssignProfile(Profile profile)
+        {
+            Profile = profile;
+        }
     }
 }
