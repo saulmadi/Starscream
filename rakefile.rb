@@ -20,6 +20,7 @@ task :all => [:build, :specs, :createArtifact]
 
 task :build => [:removeArtifacts, :compile]
 
+
 task :createArtifact do
 	puts 'Creating deployment artifact...'
 	Dir.mkdir(DEPLOY_PATH) unless Dir.exists?(DEPLOY_PATH)	
