@@ -21,9 +21,13 @@ namespace DatabaseDeployer
         {
             var encryptor = new HashPasswordEncryptor();
             var userEmailLogin = new UserEmailLogin("Test User", "admin@test.com", encryptor.Encrypt("password"), "615-555-1212");
-            userEmailLogin.AssignProfile(new Profile("Administrator"));
+            userEmailLogin.AssignProfile(new ProfileAdministrator());
             _session.Save(userEmailLogin);
-            _session.Save(new UserEmailLogin("Test User", "test@test.com", encryptor.Encrypt("password"), "615-555-1212"));
+            for (int i = 0; i < 20; i++)
+            {
+                _session.Save(new UserEmailLogin("Test User "+ i, "test@test.com " + i, encryptor.Encrypt("password"), "615-555-1212"));
+            }
+            
         }
 
         #endregion
