@@ -2,6 +2,7 @@ using Starscream.Domain.Application.Commands;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
+using Starscream.Notifications;
 
 namespace Starscream.Domain.Application.CommandHandlers
 {

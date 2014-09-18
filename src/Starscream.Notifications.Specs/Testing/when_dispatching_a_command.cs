@@ -2,11 +2,9 @@
 using BlingBag;
 using Machine.Specifications;
 using Moq;
-using Starscream.Domain.Services;
-using Starscream.Domain.Specs.Stubs;
 using It = Machine.Specifications.It;
 
-namespace Starscream.Domain.Specs
+namespace Starscream.Notifications.Specs.Testing
 {
     public class when_dispatching_a_command
     {

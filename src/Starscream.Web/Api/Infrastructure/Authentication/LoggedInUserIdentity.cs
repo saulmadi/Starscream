@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Nancy.Security;
+using Starscream.Notifications;
 
 namespace Starscream.Web.Api.Infrastructure.Authentication
 {

@@ -1,4 +1,4 @@
-namespace Starscream.Domain.Services
+namespace Starscream.Notifications
 {
     public interface ICommandValidator
     {

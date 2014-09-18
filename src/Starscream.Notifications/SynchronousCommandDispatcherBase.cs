@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Starscream.Domain.Services
+namespace Starscream.Notifications
 {
     public abstract class SynchronousCommandDispatcherBase : ICommandDispatcher
     {

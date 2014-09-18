@@ -1,4 +1,4 @@
-﻿namespace Starscream.Domain.Specs.Stubs
+﻿namespace Starscream.Notifications.Specs.Testing
 {
     public class TestEvent
     {

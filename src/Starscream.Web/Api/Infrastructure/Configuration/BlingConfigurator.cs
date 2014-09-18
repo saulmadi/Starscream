@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using BlingBag;
 using Starscream.Domain;
+using Starscream.Notifications;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {

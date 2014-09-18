@@ -50,7 +50,6 @@
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
     <Compile Include="Application\Commands\CreateEmailLoginUser.cs" />
     <Compile Include="Application\Commands\ResetPassword.cs" />
-    <Compile Include="DomainEvent.cs" />
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
@@ -67,12 +66,7 @@
     <Compile Include="Exceptions\NoAvailableHandlerException.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="PasswordResetEmail.cs" />
-    <Compile Include="Services\ICommandDispatcher.cs" />
-    <Compile Include="Services\ICommandHandler.cs" />
-    <Compile Include="Services\ICommandValidator.cs" />
     <Compile Include="Services\IEmailSender.cs" />
-    <Compile Include="Services\SynchronousCommandDispatcherBase.cs" />
-    <Compile Include="Services\ImmediateCommandDispatcher.cs" />
     <Compile Include="ValidationFailure.cs" />
     <Compile Include="ValidationFailureType.cs" />
     <Compile Include="Validators\PassowrdResetValidator.cs" />
@@ -85,7 +79,6 @@
     <Compile Include="Services\ITimeProvider.cs" />
     <Compile Include="Services\ITokenExpirationProvider.cs" />
     <Compile Include="Services\IIdentityGenerator.cs" />
-    <Compile Include="Services\IUserSession.cs" />
     <Compile Include="Services\IUserSessionFactory.cs" />
     <Compile Include="Services\IWriteableRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +94,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Starscream.Notifications\Starscream.Notifications.csproj">
+      <Project>{C26344A8-5474-43E3-BC10-260F48EDB3C8}</Project>
+      <Name>Starscream.Notifications</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

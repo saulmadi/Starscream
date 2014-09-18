@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using BlingBag;
 
-namespace Starscream.Domain.Services
+namespace Starscream.Notifications
 {
     public class ImmediateCommandDispatcher : SynchronousCommandDispatcherBase
     {
@@ -26,12 +25,12 @@ namespace Starscream.Domain.Services
 
         protected override IEnumerable<object> FindHandlers(Type genericCommandType)
         {
-            return _commandHandlers.Where(x => x.GetType().GetInterfaces().Any(i => i == genericCommandType));
+            return _commandHandlers.Where(x => Enumerable.Any<Type>(x.GetType().GetInterfaces(), i => i == genericCommandType));
         }
 
         protected override IEnumerable<object> FindValidators(Type genericCommandValidatorType)
         {
-            return _commandValidators.Where(x => x.GetType().GetInterfaces().Any(i => i == genericCommandValidatorType));
+            return _commandValidators.Where(x => Enumerable.Any<Type>(x.GetType().GetInterfaces(), i => i == genericCommandValidatorType));
         }
     }
 }
