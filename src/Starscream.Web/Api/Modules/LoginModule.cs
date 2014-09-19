@@ -33,13 +33,19 @@ namespace Starscream.Web.Api.Modules
                                 readOnlyRepository.First<UserEmailLogin>(
                                     x => x.Email == loginInfo.Email && x.EncryptedPassword == encryptedPassword.Password);
 
+                            if (!user.IsActive) throw new DisableUserAccountException();
                             UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
-                            return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
+                            return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name,
+                                                                     userLoginSession.Expires);
                         }
                         catch (ItemNotFoundException<UserEmailLogin>)
                         {
-                            throw new UnauthorizedAccessException();
+                            throw new UnauthorizedAccessException("Invalid email address or password. Please try again.");
+                        }
+                        catch (DisableUserAccountException)
+                        {
+                            throw new UnauthorizedAccessException("Your account has been disabled. Please contact your administrator for help.");
                         }
                     };
 
@@ -55,13 +61,20 @@ namespace Starscream.Web.Api.Modules
                                                   readOnlyRepository.First<UserFacebookLogin>(
                                                       x => x.Email == loginInfo.Email && x.FacebookId== loginInfo.Id );
 
+                                              if (!user.IsActive) throw new DisableUserAccountException();
+
                                               UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
                                               return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
                                           }
                                           catch (ItemNotFoundException<UserEmailLogin>)
                                           {
-                                              throw new UnauthorizedAccessException();
+                                              throw new UnauthorizedAccessException("Invalid facebook user, you need to register first.");
+                                          }
+                                          catch (DisableUserAccountException)
+                                          {
+
+                                              throw new UnauthorizedAccessException("Your account has been disabled. Please contact your administrator for help.");
                                           }
                                       };
 
@@ -76,6 +89,8 @@ namespace Starscream.Web.Api.Modules
                     var user =
                         readOnlyRepository.First<UserGoogleLogin>(
                             x => x.Email == loginInfo.Email && x.GoogleId == loginInfo.Id);
+                    
+                    if (!user.IsActive) throw new DisableUserAccountException();
 
                     UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
@@ -83,7 +98,11 @@ namespace Starscream.Web.Api.Modules
                 }
                 catch (ItemNotFoundException<UserEmailLogin>)
                 {
-                    throw new UnauthorizedAccessException();
+                    throw new UnauthorizedAccessException("Invalid google user, you need to register first.");
+                }
+                catch (DisableUserAccountException)
+                {
+                    throw new UnauthorizedAccessException("Your account has been disabled. Please contact your administrator for help.");
                 }
             };
 

@@ -15,7 +15,7 @@ namespace Starscream.Domain.Entities
             Name = name;
             Email = email;
             Id = Guid.NewGuid();
-            IsActive = false;
+            IsActive = true;
             Profile = "Default Profile";
         }
 
