@@ -10,7 +10,7 @@
     $scope.login = function () {
         $scope.error = "";
         loginService.Login($scope.user.email, $scope.user.password).then(function (data) {
-            userService.SetUser($scope.user.email, data.name, data.token, $scope.rememberMe);
+            userService.SetUser($scope.user.email, data.name, data.token, $scope.rememberMe, data.expires);
             $scope.$parent.user = userService.GetUser();
             $location.path("/");
         }).catch(function (error) {

@@ -3,11 +3,12 @@
     var key = "user";
 
     return {
-        SetUser: function (email, name, token, remember) {
+        SetUser: function (email, name, token, remember, expires) {
             var user = {
                 email: email,
                 name: name,
-                token: token
+                token: token,
+                expires: expires
             };
             
             var userString = JSON.stringify(user);
@@ -19,15 +20,22 @@
             }            
         },
         GetUser: function () {
+            var user;
             var userFromLocalStorage = window.localStorage.getItem(key);
             if (userFromLocalStorage) {
-                return JSON.parse(userFromLocalStorage);
+                user = JSON.parse(userFromLocalStorage);
             } else {
                 var userFromSession = window.sessionStorage.getItem(key);
                 if (!userFromSession) return false;
-                return JSON.parse(userFromSession);
+                user = JSON.parse(userFromSession);
             }
-
+            var expires = new Date(user.expires);
+            var isExpired = expires < new Date();
+            if (isExpired) {
+                this.RemoveUser();
+                return false;
+            }
+            return user;
         },
         RemoveUser: function () {
             window.sessionStorage.removeItem("user");

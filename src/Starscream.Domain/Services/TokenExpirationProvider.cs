@@ -7,7 +7,7 @@ namespace Starscream.Domain.Services
     {
         public DateTime GetExpiration(DateTime now)
         {
-            var expirationDays = Convert.ToInt32((string)(ConfigurationManager.AppSettings["PasswordExpirationDays"] ?? "10"));
+            var expirationDays = Convert.ToInt32((string)(ConfigurationManager.AppSettings["PasswordExpirationDays"] ?? "15"));
             return now.AddDays(expirationDays);
         }
     }
