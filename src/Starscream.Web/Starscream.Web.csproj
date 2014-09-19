@@ -143,6 +143,7 @@
     <Compile Include="Api\Modules\UserAccountModule.cs" />
     <Compile Include="Api\Modules\AdminModule.cs" />
     <Compile Include="Api\PasswordResetEmailSender.cs" />
+    <Compile Include="Api\Requests\Admin\AdminEnableUsersRequest.cs" />
     <Compile Include="Api\Requests\Admin\AdminUsersRequest.cs" />
     <Compile Include="Api\Requests\Facebook\FacebookRegisterRequest.cs" />
     <Compile Include="Api\Requests\Google\GoogleRegisterRequest.cs" />

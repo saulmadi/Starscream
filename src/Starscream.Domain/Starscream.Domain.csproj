@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CommandHandlers\EnablingUser.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetter.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetTokenCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserEmailCreator.cs" />
@@ -49,11 +50,14 @@
     <Compile Include="Application\Commands\CreateGoogleLoginUser.cs" />
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
     <Compile Include="Application\Commands\CreateEmailLoginUser.cs" />
+    <Compile Include="Application\Commands\DisableUser.cs" />
+    <Compile Include="Application\Commands\EnableUser.cs" />
     <Compile Include="Application\Commands\ResetPassword.cs" />
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
     <Compile Include="DomainEvents\UserEmailCreated.cs" />
+    <Compile Include="DomainEvents\UserEnabled.cs" />
     <Compile Include="DomainEvents\UserFacebookCreated.cs" />
     <Compile Include="DomainEvents\UserGoogleCreated.cs" />
     <Compile Include="Entities\PasswordResetAuthorization.cs" />
