@@ -1,7 +1,10 @@
-﻿namespace Starscream.Web.Api.Responses.Admin
+﻿using System;
+
+namespace Starscream.Web.Api.Responses.Admin
 {
     public class AdminUserResponse
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public string Email { get; set; }
