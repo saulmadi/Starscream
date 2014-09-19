@@ -21,7 +21,7 @@ namespace Starscream.Domain.Application.CommandHandlers
         {
             var user = _readOnlyRepository.GetById<User>(command.id);
 
-            user.EnableUser(true);
+            user.EnableUser();
 
             _writeableRepository.Update(user);
 

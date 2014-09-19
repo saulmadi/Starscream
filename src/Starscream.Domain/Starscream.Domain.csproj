@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CommandHandlers\DisablingUser.cs" />
     <Compile Include="Application\CommandHandlers\EnablingUser.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetter.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetTokenCreator.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
+    <Compile Include="DomainEvents\UserDisabled.cs" />
     <Compile Include="DomainEvents\UserEmailCreated.cs" />
     <Compile Include="DomainEvents\UserEnabled.cs" />
     <Compile Include="DomainEvents\UserFacebookCreated.cs" />

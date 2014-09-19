@@ -1,17 +1,17 @@
 using System;
 
-namespace Starscream.Domain.Application.Commands
+namespace Starscream.Domain.DomainEvents
 {
-    public class DisableUser
+    public class UserDisabled 
     {
         public Guid id { get; protected set; }
 
-        public DisableUser(Guid id)
+        public UserDisabled(Guid id)
         {
             this.id = id;
         }
 
-        protected DisableUser()
+        protected UserDisabled()
         {
             
         }

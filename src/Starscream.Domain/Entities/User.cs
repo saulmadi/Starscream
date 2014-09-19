@@ -34,9 +34,14 @@ namespace Starscream.Domain.Entities
             Profile = profile.Name;
         }
 
-        public virtual void EnableUser(bool status)
+        public virtual void EnableUser()
         {
-            IsActive = status;
+            IsActive = true;
+        }
+
+        public virtual void DisableUser()
+        {
+            IsActive = false;
         }
     }
 }
