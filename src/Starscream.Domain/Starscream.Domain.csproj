@@ -69,6 +69,7 @@
     <Compile Include="Entities\UserGoogleLogin.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
+    <Compile Include="Exceptions\DisableUserAccountException.cs" />
     <Compile Include="Exceptions\ItemNotFoundException.cs" />
     <Compile Include="Exceptions\NoAvailableHandlerException.cs" />
     <Compile Include="IEntity.cs" />
