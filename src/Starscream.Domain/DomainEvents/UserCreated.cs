@@ -15,6 +15,9 @@ namespace Starscream.Domain.DomainEvents
             Name = name;
         }
 
-
+        protected UserCreated()
+        {
+            
+        }
     }
 }

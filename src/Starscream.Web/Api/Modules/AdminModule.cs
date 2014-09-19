@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web.UI.WebControls;
 using AutoMapper;
 using Nancy;
 using Nancy.ModelBinding;
+using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
+using Starscream.Notifications;
+using Starscream.Web.Api.Infrastructure;
+using Starscream.Web.Api.Requests;
 using Starscream.Web.Api.Requests.Admin;
 using Starscream.Web.Api.Responses.Admin;
 
@@ -14,8 +19,8 @@ namespace Starscream.Web.Api.Modules
 {
     public class AdminModule : NancyModule
     {
-        public AdminModule(IPasswordEncryptor passwordEncryptor, IReadOnlyRepository readOnlyRepository,
-                           IUserSessionFactory userSessionFactory, IMappingEngine mappingEngine)
+        public AdminModule(IReadOnlyRepository readOnlyRepository, IMappingEngine mappingEngine,
+            ICommandDispatcher commandDispatcher)
         {
             Get["/users"] =
                 _ =>
@@ -36,6 +41,22 @@ namespace Starscream.Web.Api.Modules
 
                         return new AdminUsersListResponse(mappedItems);
                     };
+
+            Post["/users/enable"] =
+                _ =>
+                {
+                    var request = this.Bind<AdminEnableUsersRequest>();
+                    if (request.Enable)
+                    {
+                        commandDispatcher.Dispatch(this.UserSession(), new EnableUser(request.Id)); 
+                    }
+                    else
+                    {
+                        commandDispatcher.Dispatch(this.UserSession(), new DisableUser(request.Id));
+                    }
+                
+                    return null;
+                };
         }
     }
 }

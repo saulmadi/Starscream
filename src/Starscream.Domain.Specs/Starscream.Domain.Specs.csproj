@@ -85,6 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastExtentions.cs" />
+    <Compile Include="when_disabling_a_user.cs" />
+    <Compile Include="when_enabling_a_user.cs" />
     <Compile Include="when_creating_a_facebook_user.cs" />
     <Compile Include="when_creating_google_user.cs" />
     <Compile Include="Stubs\TestUser.cs" />
