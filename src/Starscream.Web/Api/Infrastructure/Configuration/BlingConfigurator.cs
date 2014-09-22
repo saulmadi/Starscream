@@ -1,7 +1,9 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using BlingBag;
+using Castle.DynamicProxy;
 using Starscream.Domain;
 using Starscream.Notifications;
 
@@ -17,6 +19,12 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
         }
 
         #region IBlingConfigurator<DomainEvent> Members
+
+        public object GetHandler(object obj)
+        {
+            
+            return obj;
+        }
 
         public Func<EventInfo, bool> EventSelector
         {
