@@ -8,9 +8,10 @@
         <link href="/assets/bootswatch.min.css" rel="stylesheet" media="screen">          
     </head>
     <body>
-        <script src="assets/fbsdk.js"></script>
-        <script src="assets/googlesdk.js"></script>
-
+        <script src="/assets/fbsdk.js"></script>
+        <script src="/assets/googlesdk.js"></script>
+        <script src="/assets/le.min.js"></script>        
+        <script src="/assets/logentriessdk.js"></script>
 
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -105,11 +106,21 @@
         <script src="/app/services/loginService.js"> </script>
         <script src="/app/services/userService.js"> </script>
         <script src="/app/services/accountService.js"> </script>
-        <script src="app/services/facebookService.js"></script>
-        <script src="app/services/googleService.js"></script>
-        <script src="app/services/homeService.js"></script>
-
+        <script src="/app/services/facebookService.js"></script>
+        <script src="/app/services/googleService.js"></script>
+        <script src="/app/services/homeService.js"></script>
+        
         <!--directives-->
         <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+        <script type="text/javascript">
+            
+            window.onerror = function(msg, url, line) {
+                LE.error({ message: msg, url: url, line: line });
+                var suppressErrorAlert = true;
+                return suppressErrorAlert;
+            };
+        </script>
+
     </body>
 </html>

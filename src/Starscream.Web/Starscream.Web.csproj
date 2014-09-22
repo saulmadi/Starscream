@@ -125,6 +125,8 @@
     <Content Include="assets\googlesdk.js" />
     <Content Include="assets\fbsdk.js" />
     <Content Include="assets\jquery-1.10.2.min.js" />
+    <Content Include="assets\le.min.js" />
+    <Content Include="assets\logentriessdk.js" />
     <Content Include="index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
