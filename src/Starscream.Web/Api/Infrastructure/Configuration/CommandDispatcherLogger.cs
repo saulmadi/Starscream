@@ -21,14 +21,15 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
 
             try
             {
-                _logger.Info(command.GetType() + " called ");
-                _logger.Warn("Warning");
+             
                 _decoratedDispatcher.Dispatch(userSession,command);
             }
             catch (Exception e)
             {
-                Debug.Write(e.Message);
-                Console.WriteLine(e.Message);
+              _logger.Error("Error calling " + command.GetType());
+              _logger.Error(command);
+              _logger.Error(e.Message);
+
             }
         }
     }
