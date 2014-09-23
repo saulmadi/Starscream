@@ -55,15 +55,6 @@
         
     </form>
 
-    <div ng-hide="registered" class="form-group">
-        <div class="col-lg-10 col-lg-offset-2">
-            <button ng-click="registerFacebook()" class="btn btn-info"> Register using Facebook </button>
-            <button ng-click="registerGoogle()" class="btn btn-danger">Register using Google+</button>
-        </div>
-    </div>
-
-
-
     <div id="confirmation" ng-show="registered" class="alert alert-info">        
         <strong>Thanks!</strong>
         Your user account has been registered. You can now <a href="/#/login">log in</a> with the email address and password you just created.
