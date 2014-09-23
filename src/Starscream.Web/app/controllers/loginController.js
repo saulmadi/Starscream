@@ -26,20 +26,16 @@
     $scope.loginFacebook = function() {
         facebookService.Login().then(function (data) {
             setUserSession(data);
-        }).catch(function () {
-            facebookService.Register().then(function() {
-                $scope.loginFacebook();
-            });
+        }).catch(function (error) {
+            $scope.error = error;
         });
     };
 
     $scope.loginGoogle = function () {
         googleService.Login().then(function(data) {
             setUserSession(data);
-        }).catch(function () {
-            googleService.Register().then(function () {
-                $scope.loginGoogle();
-            });
+        }).catch(function (error) {
+            $scope.error = error;
         });
     };
     
