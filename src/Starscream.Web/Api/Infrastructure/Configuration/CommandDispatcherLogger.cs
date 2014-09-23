@@ -22,6 +22,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             try
             {
                 _logger.Info(command.GetType() + " called ");
+                _logger.Warn("Warning");
                 _decoratedDispatcher.Dispatch(userSession,command);
             }
             catch (Exception e)

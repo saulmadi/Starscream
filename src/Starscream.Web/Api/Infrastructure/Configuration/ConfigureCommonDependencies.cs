@@ -35,7 +35,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                            container.RegisterType<BaseUrlProvider>().As<IBaseUrlProvider>();
                            container.RegisterType<ApiUserMapper>().As<IApiUserMapper<Guid>>();
                            container.RegisterInstance(LogManager.GetLogger("Logger")).As<ILog>();
-                           
+                           log4net.Config.XmlConfigurator.Configure();
                           
                            ConfigureCommandAndEventHandlers(container);
                            AutoRegisterEmailTemplates(container);
