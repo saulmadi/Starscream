@@ -7,6 +7,7 @@ using Autofac.Extras.DynamicProxy2;
 using AutoMapper;
 using BlingBag;
 using Castle.DynamicProxy;
+using log4net;
 using Starscream.Data;
 using Starscream.Domain;
 using Starscream.Domain.Services;
@@ -33,7 +34,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                            container.RegisterInstance(Mapper.Engine).As<IMappingEngine>();
                            container.RegisterType<BaseUrlProvider>().As<IBaseUrlProvider>();
                            container.RegisterType<ApiUserMapper>().As<IApiUserMapper<Guid>>();
-                          
+                           container.RegisterInstance(LogManager.GetLogger("Logger")).As<ILog>();
                            
                           
                            ConfigureCommandAndEventHandlers(container);
@@ -65,9 +66,9 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             container.RegisterType<BlingInitializer<DomainEvent>>().As<IBlingInitializer<DomainEvent>>();
             container.RegisterType<BlingConfigurator>().As<IBlingConfigurator<DomainEvent>>();
             container.RegisterType<AutoFacBlingDispatcher>().As<IBlingDispatcher>();
-            container.RegisterType<ImmediateCommandDispatcher>().Named<ICommandDispatcher>("implementor");
+            container.RegisterType<ImmediateCommandDispatcher>().Named<ICommandDispatcher>("CommandDispatcher");
 
-            container.RegisterDecorator<ICommandDispatcher>((c, inner) => new CommandDispatcherLogger(inner),"implementor" );
+            container.RegisterDecorator<ICommandDispatcher>((c, inner) => new CommandDispatcherLogger(inner,c.Resolve<ILog>()), "CommandDispatcher");
         }
 
         static void AutoRegisterEmailTemplates(ContainerBuilder container)

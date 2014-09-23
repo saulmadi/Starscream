@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using BlingBag;
 using Castle.DynamicProxy;
@@ -9,6 +10,35 @@ using Starscream.Notifications;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {
+    public class BlingConfiguratorLogger : IBlingConfigurator<DomainEvent>
+    {
+        readonly IBlingConfigurator<DomainEvent> _decorated;
+
+        public BlingConfiguratorLogger(IBlingConfigurator<DomainEvent> decorated )
+        {
+            _decorated = decorated;
+        }
+
+        public object GetHandler(object obj)
+        {
+            return _decorated.GetHandler(obj);
+        }
+
+
+
+        public Func<EventInfo, bool> EventSelector
+        {
+            get { return x => _decorated.EventSelector(x); } 
+        }
+
+        public DomainEvent HandleEvent {
+            get
+            {
+                return x => _decorated.HandleEvent(x);
+            }
+        }
+    }
+
     public class BlingConfigurator : IBlingConfigurator<DomainEvent>
     {
         readonly IBlingDispatcher _dispatcher;

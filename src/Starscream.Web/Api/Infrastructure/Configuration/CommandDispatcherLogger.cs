@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using log4net;
+using Starscream.Notifications;
 
-namespace Starscream.Notifications
+namespace Starscream.Web.Api.Infrastructure.Configuration
 {
     public class CommandDispatcherLogger:ICommandDispatcher
     {
         readonly ICommandDispatcher _decoratedDispatcher;
+        readonly ILog _logger;
 
-        public CommandDispatcherLogger(ICommandDispatcher decoratedDispatcher)
+        public CommandDispatcherLogger(ICommandDispatcher decoratedDispatcher, ILog logger)
         {
             _decoratedDispatcher = decoratedDispatcher;
+            _logger = logger;
         }
 
         public void Dispatch(IUserSession userSession, object command)
@@ -21,6 +21,7 @@ namespace Starscream.Notifications
 
             try
             {
+                _logger.Info(command.GetType() + " called ");
                 _decoratedDispatcher.Dispatch(userSession,command);
             }
             catch (Exception e)
