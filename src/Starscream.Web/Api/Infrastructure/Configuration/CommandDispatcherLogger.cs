@@ -30,12 +30,14 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
             }
             catch (Exception e)
             {
-              _logger.Error("1) Error calling " + command.GetType());
+                var errorMessage = "1) Error calling " + command.GetType() + "\n";
+              
               var properties = command.GetType().GetProperties();
               var propertiesMessage = properties.Aggregate("", (current, property) => current + ("Property Name " + property.Name + " Property Value " + property.GetValue(command)));
 
-              _logger.Error("2) "+ propertiesMessage);
-              _logger.Error("3) "+e.Message);
+              errorMessage += "2) " + propertiesMessage + "\n";
+                errorMessage += "3) " + e.Message; 
+              _logger.Error(errorMessage);
 
             }
         }
