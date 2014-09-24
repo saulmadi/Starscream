@@ -70,12 +70,6 @@
     <Compile Include="Testing\when_dispatching_a_command.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Starscream.Notifications\Starscream.Notifications.csproj">
-      <Project>{C26344A8-5474-43E3-BC10-260F48EDB3C8}</Project>
-      <Name>Starscream.Notifications</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

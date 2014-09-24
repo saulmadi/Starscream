@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AcklenAvenue.Commands;
 using FizzWare.NBuilder;
 using Machine.Specifications;
 using Moq;
@@ -12,7 +13,7 @@ using Starscream.Domain.Application.Commands;
 using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
-using Starscream.Notifications;
+
 using It = Machine.Specifications.It;
 
 namespace Starscream.Domain.Specs

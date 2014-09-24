@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using log4net;
 using NHibernate.Linq;
-using Starscream.Notifications;
+using AcklenAvenue.Commands;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {
