@@ -30,8 +30,8 @@
             FB.login(function (response) {
                 if (response.authResponse) {
                     FB.api('/me', function (response) {
-                        login(response).then(function() {
-                            def.resolve();
+                        login(response).then(function(data) {
+                            def.resolve(data);
                         }).catch(function (error) {
                             if (isDisable(error)) {
                                 def.reject(error);

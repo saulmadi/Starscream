@@ -33,8 +33,8 @@
                         });
                         request.execute(function (response) {
                             response["email"] = response.emails[0].value;
-                            login({ Id: response.id, Email: response.email }).then(function () {
-                                def.resolve();
+                            login({ Id: response.id, Email: response.email }).then(function (data) {
+                                def.resolve(data);
                             }).catch(function (error) {
                                 if (isDisable(error)) {
                                     def.reject(error);
