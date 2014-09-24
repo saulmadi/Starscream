@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AcklenAvenue.Commands">
+      <HintPath>..\..\lib\AcklenAvenue.Commands.1.0.0.1\lib\net45\AcklenAvenue.Commands.dll</HintPath>
+    </Reference>
     <Reference Include="AcklenAvenue.Data, Version=1.3.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\AcklenAvenue.Data.1.3.0.1\lib\net40\AcklenAvenue.Data.dll</HintPath>
@@ -244,10 +247,6 @@
     <ProjectReference Include="..\StarScream.EmailClients.DotNet\StarScream.EmailClients.DotNet.csproj">
       <Project>{B85057A5-F5AA-4397-85A3-EF3F21AEA76D}</Project>
       <Name>StarScream.EmailClients.DotNet</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Starscream.Notifications\Starscream.Notifications.csproj">
-      <Project>{C26344A8-5474-43E3-BC10-260F48EDB3C8}</Project>
-      <Name>Starscream.Notifications</Name>
     </ProjectReference>
     <ProjectReference Include="..\StarScream.TemplateEngines.Razor\StarScream.TemplateEngines.Razor.csproj">
       <Project>{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}</Project>

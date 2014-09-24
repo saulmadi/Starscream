@@ -38,10 +38,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Email.Specs", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{EF4DEAAF-A377-4A23-93BC-271111472E5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starscream.Notifications", "Starscream.Notifications\Starscream.Notifications.csproj", "{C26344A8-5474-43E3-BC10-260F48EDB3C8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starscream.Notifications.Specs", "Starscream.Notifications.Specs\Starscream.Notifications.Specs.csproj", "{E2116690-46F4-44E2-AC0F-0B1763143613}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,14 +92,6 @@ Global
 		{7E479800-68E4-43D7-A922-002153CB49CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E479800-68E4-43D7-A922-002153CB49CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E479800-68E4-43D7-A922-002153CB49CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C26344A8-5474-43E3-BC10-260F48EDB3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C26344A8-5474-43E3-BC10-260F48EDB3C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C26344A8-5474-43E3-BC10-260F48EDB3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C26344A8-5474-43E3-BC10-260F48EDB3C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2116690-46F4-44E2-AC0F-0B1763143613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2116690-46F4-44E2-AC0F-0B1763143613}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2116690-46F4-44E2-AC0F-0B1763143613}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2116690-46F4-44E2-AC0F-0B1763143613}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@ using BlingBag;
 using Castle.DynamicProxy;
 using log4net;
 using Starscream.Domain;
-using Starscream.Notifications;
+using AcklenAvenue.Commands;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {

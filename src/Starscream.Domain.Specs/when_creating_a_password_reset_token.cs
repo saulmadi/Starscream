@@ -1,4 +1,5 @@
 ﻿using System;
+using AcklenAvenue.Commands;
 using AcklenAvenue.Testing.Moq;
 using AcklenAvenue.Testing.Moq.ExpectedObjects;
 using Machine.Specifications;
@@ -9,7 +10,7 @@ using Starscream.Domain.DomainEvents;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Starscream.Domain.ValueObjects;
-using Starscream.Notifications;
+
 using It = Machine.Specifications.It;
 
 namespace Starscream.Domain.Specs
