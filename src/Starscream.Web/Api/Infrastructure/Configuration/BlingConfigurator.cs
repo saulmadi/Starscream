@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using BlingBag;
 using Castle.DynamicProxy;
+using log4net;
 using Starscream.Domain;
 using Starscream.Notifications;
 
@@ -16,11 +17,28 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
     public class BlingConfigurator : IBlingConfigurator<DomainEvent>
     {
         readonly IBlingDispatcher _dispatcher;
+        readonly ILog _logger;
 
-        public BlingConfigurator(IBlingDispatcher dispatcher)
+        public BlingConfigurator(IBlingDispatcher dispatcher, ILog logger)
         {
             _dispatcher = dispatcher;
-            
+            _logger = logger;
+            BlingLogger.LogException = LogException;
+            BlingLogger.LogInfo = LogInfo;
+        }
+
+        void LogInfo(Info info)
+        {
+            var message = "Date: " + info.DateTime + Environment.NewLine;
+            message += "Info Message: " + info.Message + Environment.NewLine;
+            _logger.Info(message);
+        }
+
+        void LogException(Error error)
+        {
+            var message = "Date: " + error.DateTime + Environment.NewLine;
+            message += "Error Message: " + error.Exception + Environment.NewLine;
+            _logger.Error(message);
         }
 
         #region IBlingConfigurator<DomainEvent> Members

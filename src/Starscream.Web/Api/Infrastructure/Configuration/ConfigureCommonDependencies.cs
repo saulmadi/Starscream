@@ -65,12 +65,17 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
         {
             container.RegisterType<BlingInitializer<DomainEvent>>().As<IBlingInitializer<DomainEvent>>();
             container.RegisterType<BlingConfigurator>().As<IBlingConfigurator<DomainEvent>>();
+
+         
             
             container.RegisterType<AutoFacBlingDispatcher>().As<IBlingDispatcher>();
+          
             container.RegisterType<ImmediateCommandDispatcher>().Named<ICommandDispatcher>("CommandDispatcher");
 
             container.RegisterDecorator<ICommandDispatcher>((c, inner) => new CommandDispatcherLogger(inner,c.Resolve<ILog>()), "CommandDispatcher");
         }
+
+      
 
         static void AutoRegisterEmailTemplates(ContainerBuilder container)
         {
