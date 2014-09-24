@@ -3,7 +3,8 @@
     $scope.$parent.title = "Home";
     $scope.users = [];
     $scope.paginationPayload = { PageNumber: 1, PageSize: 20, Field: "Name" };
-
+    $scope.sortCriteria = "";
+    
     $scope.GetUsers = function (payload) {
         homeService.GetUsers(payload).then(function(data) {
             $scope.users = data.adminUsers;
@@ -20,7 +21,8 @@
         $scope.GetUsers($scope.paginationPayload);
     };
 
-    $scope.sort = function(param) {
+    $scope.sort = function (param) {
+        $scope.sortCriteria = param;
         $scope.paginationPayload.Field = param;
         $scope.GetUsers($scope.paginationPayload);
     };
