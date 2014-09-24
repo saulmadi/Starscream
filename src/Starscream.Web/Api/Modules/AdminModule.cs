@@ -28,8 +28,9 @@ namespace Starscream.Web.Api.Modules
                     {
                         var request = this.Bind<AdminUsersRequest>();
                         var admin = new ProfileAdministrator();
-                        var param = Expression.Parameter(typeof(User), "User");
-                        var mySortExpression = Expression.Lambda<Func<User, object>>(Expression.Property(param, request.Field), param);
+                        var parameter = Expression.Parameter(typeof(User), "User");
+                        var mySortExpression = Expression.Lambda<Func<User, object>>(Expression.Property(parameter, request.Field), parameter);
+                        
                         IQueryable<User> users =
                             readOnlyRepository.Query<User>(x => x.Profile != admin.Name).AsQueryable();
 
