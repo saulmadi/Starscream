@@ -92,7 +92,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                                        {
                                            typeof (ReadOnlyRepository).Assembly,
                                            typeof (IEntity).Assembly,
-                                           typeof (DotNetSmtpClient).Assembly,
+                                           typeof (MailGunSmtpClient).Assembly,
                                            typeof (EmailSender).Assembly,
                                            typeof (RazorViewEngine).Assembly                                          
                                        })
