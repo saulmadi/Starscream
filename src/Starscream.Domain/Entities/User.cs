@@ -43,5 +43,10 @@ namespace Starscream.Domain.Entities
         {
             IsActive = false;
         }
+
+        public virtual void ChangeName(string name)
+        {
+            Name = name;
+        }
     }
 }

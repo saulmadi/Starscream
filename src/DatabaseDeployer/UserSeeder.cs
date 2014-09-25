@@ -25,7 +25,7 @@ namespace DatabaseDeployer
             _session.Save(userEmailLogin);
             for (int i = 0; i < 20; i++)
             {
-                _session.Save(new UserEmailLogin("Test User "+ i, "test" + i + "@test.com ", encryptor.Encrypt("password"), "615-555-1212"));
+                _session.Save(new UserEmailLogin("Test User "+ i, "test" + i + "@test.com", encryptor.Encrypt("password"), "615-555-1212"));
             }
             
         }

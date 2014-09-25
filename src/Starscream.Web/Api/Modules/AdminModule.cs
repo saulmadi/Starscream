@@ -59,6 +59,24 @@ namespace Starscream.Web.Api.Modules
                 
                     return null;
                 };
+
+            Get["/user/{userId}"] =
+                _ =>
+                {
+                    var userId = Guid.Parse((string)_.userId);
+                    var user = readOnlyRepository.GetById<User>(userId);
+                    var mappedUser = mappingEngine
+                            .Map<User, AdminUserResponse>(user);
+                    return mappedUser;
+                };
+
+            Post["/user"] =
+                _ =>
+                {
+                    var request = this.Bind<AdminUpdateUserRequest>();
+                    commandDispatcher.Dispatch(this.UserSession(), new UpdateUserProfile(request.Id, request.Name, request.Email));
+                    return null;
+                };
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿angular.module('Starscream.Controllers').controller('homeController', function ($scope, userService, $location, homeService) {
+﻿angular.module('Starscream.Controllers').controller('homeController', function ($scope, userService, $location, adminService) {
     if (!userService.GetUser()) $location.path("/login");
     $scope.$parent.title = "Home";
     $scope.users = [];
@@ -6,7 +6,7 @@
     $scope.sortCriteria = "";
     
     $scope.GetUsers = function (payload) {
-        homeService.GetUsers(payload).then(function(data) {
+        adminService.GetUsers(payload).then(function (data) {
             $scope.users = data.adminUsers;
         });
     };
@@ -28,7 +28,7 @@
     };
     
     $scope.EnableUser = function(payload) {
-        homeService.EnableUser(payload).then(function() {
+        adminService.EnableUser(payload).then(function () {
             $scope.GetUsers($scope.paginationPayload);
         });
     };
