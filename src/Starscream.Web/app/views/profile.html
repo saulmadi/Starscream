@@ -1,1 +1,24 @@
-﻿<h1>asdasd</h1>
+﻿<h1>{{user.name}}'s Profile</h1>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Details</div>
+    <div class="panel-body">
+        <form role="form">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" ng-model="name"/>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" ng-model="email" />
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text" class="form-control" disabled="disabled" placeholder="Active" ng-if="user.isActive">
+                <input type="text" class="form-control" disabled="disabled" placeholder="No Active" ng-if="!user.isActive">
+            </div>
+            <button type="submit" class="btn btn-success" ng-click="updateProfile()">Update</button>
+        </form>
+    </div>
+
+</div>

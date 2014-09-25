@@ -11,7 +11,7 @@
             return $httpq.get("/user/" + id );
         },
         UpdateProfile: function(payload) {
-            return $httpq.post("/user/" + id, payload);
+            return $httpq.post("/user/", payload);
         }
         
     };

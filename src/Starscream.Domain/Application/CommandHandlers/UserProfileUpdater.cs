@@ -17,8 +17,7 @@ namespace Starscream.Domain.Application.CommandHandlers
 
         public void Handle(IUserSession userIssuingCommand, UpdateUserProfile command)
         {
-            var userSession = (UserLoginSession)userIssuingCommand;
-            var user = _readonlyRepo.GetById<User>(userSession.User.Id);
+            var user = _readonlyRepo.GetById<User>(command.Id);
             user.ChangeName(command.Name);
             user.ChangeEmailAddress(command.Email);
             NotifyObservers(new UserProfileUpdated(user.Id, command.Name, command.Email));
