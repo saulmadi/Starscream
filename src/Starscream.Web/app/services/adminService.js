@@ -6,6 +6,13 @@
         },
         EnableUser: function (payload) {
             return $httpq.post("/users/enable", payload);
+        },
+        GetUser: function(id) {
+            return $httpq.get("/user/" + id );
+        },
+        UpdateProfile: function(payload) {
+            return $httpq.post("/user/" + id, payload);
         }
+        
     };
 });
