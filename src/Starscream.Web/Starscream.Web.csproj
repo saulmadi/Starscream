@@ -150,6 +150,59 @@
     <Content Include="assets\jquery-1.10.2.min.js" />
     <Content Include="assets\le.min.js" />
     <Content Include="assets\logentriessdk.js" />
+    <Content Include="assets\themes\amelia\bootstrap.min.css" />
+    <Content Include="assets\themes\cerulean\bootstrap.css" />
+    <Content Include="assets\themes\cerulean\bootstrap.min.css" />
+    <Content Include="assets\themes\cerulean\thumbnail.png" />
+    <Content Include="assets\themes\cosmo\bootstrap.css" />
+    <Content Include="assets\themes\cosmo\bootstrap.min.css" />
+    <Content Include="assets\themes\cosmo\thumbnail.png" />
+    <Content Include="assets\themes\custom\bootstrap.css" />
+    <Content Include="assets\themes\custom\bootstrap.min.css" />
+    <Content Include="assets\themes\cyborg\bootstrap.css" />
+    <Content Include="assets\themes\cyborg\bootstrap.min.css" />
+    <Content Include="assets\themes\cyborg\thumbnail.png" />
+    <Content Include="assets\themes\darkly\bootstrap.css" />
+    <Content Include="assets\themes\darkly\bootstrap.min.css" />
+    <Content Include="assets\themes\darkly\thumbnail.png" />
+    <Content Include="assets\themes\flatly\bootstrap.css" />
+    <Content Include="assets\themes\flatly\bootstrap.min.css" />
+    <Content Include="assets\themes\flatly\thumbnail.png" />
+    <Content Include="assets\themes\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\themes\journal\bootstrap.css" />
+    <Content Include="assets\themes\journal\bootstrap.min.css" />
+    <Content Include="assets\themes\journal\thumbnail.png" />
+    <Content Include="assets\themes\lumen\bootstrap.css" />
+    <Content Include="assets\themes\lumen\bootstrap.min.css" />
+    <Content Include="assets\themes\lumen\thumbnail.png" />
+    <Content Include="assets\themes\paper\bootstrap.css" />
+    <Content Include="assets\themes\paper\bootstrap.min.css" />
+    <Content Include="assets\themes\paper\thumbnail.png" />
+    <Content Include="assets\themes\readable\bootstrap.css" />
+    <Content Include="assets\themes\readable\bootstrap.min.css" />
+    <Content Include="assets\themes\readable\thumbnail.png" />
+    <Content Include="assets\themes\sandstone\bootstrap.css" />
+    <Content Include="assets\themes\sandstone\bootstrap.min.css" />
+    <Content Include="assets\themes\sandstone\thumbnail.png" />
+    <Content Include="assets\themes\simplex\bootstrap.css" />
+    <Content Include="assets\themes\simplex\bootstrap.min.css" />
+    <Content Include="assets\themes\simplex\thumbnail.png" />
+    <Content Include="assets\themes\slate\bootstrap.css" />
+    <Content Include="assets\themes\slate\bootstrap.min.css" />
+    <Content Include="assets\themes\slate\thumbnail.png" />
+    <Content Include="assets\themes\spacelab\bootstrap.css" />
+    <Content Include="assets\themes\spacelab\bootstrap.min.css" />
+    <Content Include="assets\themes\spacelab\thumbnail.png" />
+    <Content Include="assets\themes\superhero\bootstrap.css" />
+    <Content Include="assets\themes\superhero\bootstrap.min.css" />
+    <Content Include="assets\themes\superhero\thumbnail.png" />
+    <Content Include="assets\themes\tests\thumbnail.html" />
+    <Content Include="assets\themes\united\bootstrap.css" />
+    <Content Include="assets\themes\united\bootstrap.min.css" />
+    <Content Include="assets\themes\united\thumbnail.png" />
+    <Content Include="assets\themes\yeti\bootstrap.css" />
+    <Content Include="assets\themes\yeti\bootstrap.min.css" />
+    <Content Include="assets\themes\yeti\thumbnail.png" />
     <Content Include="index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -224,6 +277,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="smtp.config" />
+    <Content Include="assets\themes\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\themes\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\themes\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -234,6 +290,7 @@
   <ItemGroup>
     <Folder Include="app\directives\" />
     <Folder Include="app\interceptors\" />
+    <Folder Include="assets\themes\global\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AcklenAvenue.Email\AcklenAvenue.Email.csproj">
