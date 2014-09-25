@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\profileController.js" />
     <Content Include="app\controllers\resetPasswordController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\forgotPasswordController.js" />
@@ -120,6 +121,7 @@
     <Content Include="app\controllers\parentController.js" />
     <Content Include="app\controllers\registrationController.js" />
     <Content Include="app\services\accountService.js" />
+    <Content Include="app\services\adminService.js" />
     <Content Include="app\services\googleService.js" />
     <Content Include="app\services\facebookService.js" />
     <Content Include="app\services\homeService.js" />
@@ -127,6 +129,7 @@
     <Content Include="app\services\loginService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
+    <Content Include="app\views\profile.html" />
     <Content Include="app\views\reset-password.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\forgot-password.html" />
@@ -167,6 +170,7 @@
     <Compile Include="Api\Modules\AdminModule.cs" />
     <Compile Include="Api\PasswordResetEmailSender.cs" />
     <Compile Include="Api\Requests\Admin\AdminEnableUsersRequest.cs" />
+    <Compile Include="Api\Requests\Admin\AdminUpdateUserRequest.cs" />
     <Compile Include="Api\Requests\Admin\AdminUsersRequest.cs" />
     <Compile Include="Api\Requests\Facebook\FacebookRegisterRequest.cs" />
     <Compile Include="Api\Requests\Google\GoogleRegisterRequest.cs" />

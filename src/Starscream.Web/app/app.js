@@ -29,6 +29,10 @@ app.config(function($routeProvider) {
             .when('/404', {
                 templateUrl: 'App/Views/404.html'
             })
+            .when('/profile/:userId', {
+                templateUrl: 'app/views/profile.html',
+                controller: 'profileController'
+            })
             .otherwise({
                 redirectTo: '/404'
             });
