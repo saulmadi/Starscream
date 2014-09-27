@@ -4,10 +4,11 @@ using Starscream.Domain.Entities;
 
 namespace Starscream.Data
 {
-    public class UserAutoMappingOverride : IAutoMappingOverride<UserEmailLogin>
+    public class UserAutoMappingOverride : IAutoMappingOverride<User>
     {
-        public void Override(AutoMapping<UserEmailLogin> mapping)
-        {                      
+        public void Override(AutoMapping<User> mapping)
+        {
+            mapping.HasManyToMany<Role>(x => x.UserRoles).Cascade.All();
         }
     }
 }
