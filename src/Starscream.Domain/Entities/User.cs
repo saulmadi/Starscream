@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Starscream.Domain.ValueObjects;
 
 namespace Starscream.Domain.Entities
@@ -9,6 +10,7 @@ namespace Starscream.Domain.Entities
         public virtual string Email { get; protected set; }
         public virtual string Profile {get; protected set; }
         public virtual bool IsActive { get; protected set; }
+         IEnumerable<Role> _userRoles = new List<Role>(); 
 
         public User(string name, string email)
         {
@@ -48,5 +50,17 @@ namespace Starscream.Domain.Entities
         {
             Name = name;
         }
+
+        public virtual IEnumerable<Role> UserRoles
+        {
+            get { return _userRoles; } 
+            protected set { _userRoles = value; }
+        }
+
+        public virtual void AddRol(Role role)
+        {
+           ( (IList<Role>)_userRoles).Add(role);
+        }
+
     }
 }

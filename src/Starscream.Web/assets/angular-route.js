@@ -9,7 +9,7 @@
     /**
      * @ngdoc module
      * @name ngRoute
-     * @description
+     * @Description
      *
      * # ngRoute
      *
@@ -30,7 +30,7 @@
      * @name $routeProvider
      * @kind function
      *
-     * @description
+     * @Description
      *
      * Used for configuring routes.
      *
@@ -143,7 +143,7 @@
          *
          * @returns {Object} self
          *
-         * @description
+         * @Description
          * Adds a new route definition to the `$route` service.
          */
         this.when = function (path, route) {
@@ -173,7 +173,7 @@
          * @param opts {Object} options
          * @return {?Object}
          *
-         * @description
+         * @Description
          * Normalizes the given path, returning a regular expression
          * and the original path.
          *
@@ -213,7 +213,7 @@
          * @ngdoc method
          * @name $routeProvider#otherwise
          *
-         * @description
+         * @Description
          * Sets route definition that will be used on route change when no other route definition
          * is matched.
          *
@@ -255,7 +255,7 @@
                  *
                  * @property {Object} routes Object with all route configuration Objects as its properties.
                  *
-                 * @description
+                 * @Description
                  * `$route` is used for deep-linking URLs to controllers and views (HTML partials).
                  * It watches `$location.url()` and tries to map the path to an existing route definition.
                  *
@@ -374,7 +374,7 @@
                  * @ngdoc event
                  * @name $route#$routeChangeStart
                  * @eventType broadcast on root scope
-                 * @description
+                 * @Description
                  * Broadcasted before a route change. At this  point the route services starts
                  * resolving all of the dependencies needed for the route change to occur.
                  * Typically this involves fetching the view template as well as any dependencies
@@ -390,7 +390,7 @@
                  * @ngdoc event
                  * @name $route#$routeChangeSuccess
                  * @eventType broadcast on root scope
-                 * @description
+                 * @Description
                  * Broadcasted after a route dependencies are resolved.
                  * {@link ngRoute.directive:ngView ngView} listens for the directive
                  * to instantiate the controller and render the view.
@@ -405,7 +405,7 @@
                  * @ngdoc event
                  * @name $route#$routeChangeError
                  * @eventType broadcast on root scope
-                 * @description
+                 * @Description
                  * Broadcasted if any of the resolve promises are rejected.
                  *
                  * @param {Object} angularEvent Synthetic event object
@@ -418,7 +418,7 @@
                  * @ngdoc event
                  * @name $route#$routeUpdate
                  * @eventType broadcast on root scope
-                 * @description
+                 * @Description
                  *
                  * The `reloadOnSearch` property has been set to false, and we are reusing the same
                  * instance of the Controller.
@@ -432,7 +432,7 @@
                          * @ngdoc method
                          * @name $route#reload
                          *
-                         * @description
+                         * @Description
                          * Causes `$route` service to reload the current route even if
                          * {@link ng.$location $location} hasn't changed.
                          *
@@ -456,7 +456,7 @@
                  * @param route {Object} route regexp to match the url against
                  * @return {?Object}
                  *
-                 * @description
+                 * @Description
                  * Check if the route matches the current url.
                  *
                  * Inspired by match in
@@ -609,7 +609,7 @@
      * @name $routeParams
      * @requires $route
      *
-     * @description
+     * @Description
      * The `$routeParams` service allows you to retrieve the current set of route parameters.
      *
      * Requires the {@link ngRoute `ngRoute`} module to be installed.
@@ -650,7 +650,7 @@
      * @name ngView
      * @restrict ECA
      *
-     * @description
+     * @Description
      * # Overview
      * `ngView` is a directive that complements the {@link ngRoute.$route $route} service by
      * including the rendered template of the current route into the main layout (`index.html`) file.
@@ -817,7 +817,7 @@
      * @ngdoc event
      * @name ngView#$viewContentLoaded
      * @eventType emit on the current ngView scope
-     * @description
+     * @Description
      * Emitted every time the ngView content is reloaded.
      */
     ngViewFactory.$inject = ['$route', '$anchorScroll', '$animate'];
