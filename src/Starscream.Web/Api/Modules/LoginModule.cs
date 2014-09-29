@@ -37,7 +37,7 @@ namespace Starscream.Web.Api.Modules
                             UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
                             return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name,
-                                                                     userLoginSession.Expires);
+                                                                     userLoginSession.Expires, userLoginSession.Claims);
                         }
                         catch (ItemNotFoundException<UserEmailLogin>)
                         {
@@ -65,7 +65,7 @@ namespace Starscream.Web.Api.Modules
 
                                               UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
-                                              return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
+                                              return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires, userLoginSession.Claims);
                                           }
                                           catch (ItemNotFoundException<UserEmailLogin>)
                                           {
@@ -94,7 +94,7 @@ namespace Starscream.Web.Api.Modules
 
                     UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
-                    return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires);
+                    return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires, userLoginSession.Claims);
                 }
                 catch (ItemNotFoundException<UserEmailLogin>)
                 {
