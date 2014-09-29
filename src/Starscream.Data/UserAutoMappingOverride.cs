@@ -8,7 +8,7 @@ namespace Starscream.Data
     {
         public void Override(AutoMapping<User> mapping)
         {
-            mapping.HasManyToMany<Role>(x => x.UserRoles).Cascade.All();
+            mapping.HasManyToMany<Role>(x => x.UserRoles).Cascade.All().Table("UsersRoles");
         }
     }
 }
