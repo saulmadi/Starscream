@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AcklenAvenue.Commands;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
@@ -38,7 +39,21 @@ namespace Starscream.Web.Api.Infrastructure.Authentication
 
         public IEnumerable<string> Claims
         {
-            get { return new string[] {}; }
+            get
+            {
+                if (UserSession is UserLoginSession)
+                {
+                    User executor = ((UserLoginSession)UserSession).User;
+                    if (executor == null)
+                    {
+                        throw new Exception("The user should not be null on the user session.");
+                    }
+                    return executor.UserRoles.Select(x => x.Description);
+                }
+                return null;
+
+
+            }
         }
 
         #endregion

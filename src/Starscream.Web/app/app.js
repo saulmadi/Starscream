@@ -97,7 +97,9 @@ app.config(function($routeProvider) {
 
                             var user = userService.GetUser();
                             if (user) {
-                                config.headers["Authorization"] = 'Bearer ' + user.Token;
+                                debugger;
+                                config.headers["Authorization"] = 'Bearer ' + user.token;
+
                             }
                             if (config.method == "POST" || config.method == "PUT") {
                                 console.log(JSON.stringify(config.data));

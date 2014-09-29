@@ -7,6 +7,7 @@ using AcklenAvenue.Commands;
 using AutoMapper;
 using Nancy;
 using Nancy.ModelBinding;
+using Nancy.Security;
 using Starscream.Domain.Application.Commands;
 using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
@@ -47,6 +48,7 @@ namespace Starscream.Web.Api.Modules
             Post["/users/enable"] =
                 _ =>
                 {
+                   this.RequiresClaims(new[] {"Administrator"});
                     var request = this.Bind<AdminEnableUsersRequest>();
                     if (request.Enable)
                     {

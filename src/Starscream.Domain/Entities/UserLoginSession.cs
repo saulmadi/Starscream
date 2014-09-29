@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Security.Claims;
 using AcklenAvenue.Commands;
 using Starscream.Domain.Services;
 
@@ -16,9 +18,12 @@ namespace Starscream.Domain.Entities
             Id = token;
             User = user;
             Expires = expires;
+
+            Claims = string.Join(",", user.UserRoles.Select(x => x.Description));
         }
 
         public virtual User User { get; protected set; }
         public virtual DateTime Expires { get; protected set; }
+        public virtual string Claims { get; protected set; }
     }
 }

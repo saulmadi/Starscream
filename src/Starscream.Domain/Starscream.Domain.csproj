@@ -52,6 +52,8 @@
     <Compile Include="Application\CommandHandlers\UserFacebookCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserGoogleCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserProfileUpdater.cs" />
+    <Compile Include="Application\CommandHandlers\UserRolAdder.cs" />
+    <Compile Include="Application\Commands\AddRoleToUser.cs" />
     <Compile Include="Application\Commands\CreateFacebookLoginUser.cs" />
     <Compile Include="Application\Commands\CreateGoogleLoginUser.cs" />
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
@@ -69,8 +71,10 @@
     <Compile Include="DomainEvents\UserFacebookCreated.cs" />
     <Compile Include="DomainEvents\UserGoogleCreated.cs" />
     <Compile Include="DomainEvents\UserProfileUpdated.cs" />
+    <Compile Include="DomainEvents\UserRoleAdded.cs" />
     <Compile Include="Entities\PasswordResetAuthorization.cs" />
     <Compile Include="Entities\ProfileAdministrator.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFacebookLogin.cs" />
     <Compile Include="Entities\UserGoogleLogin.cs" />

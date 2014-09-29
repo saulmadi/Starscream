@@ -1,3 +1,4 @@
+using System;
 using DomainDrivenDatabaseDeployer;
 using Starscream.Domain;
 using Starscream.Domain.Entities;
@@ -20,14 +21,24 @@ namespace DatabaseDeployer
         public void Seed()
         {
             var encryptor = new HashPasswordEncryptor();
-            var userEmailLogin = new UserEmailLogin("Test User", "admin@test.com", encryptor.Encrypt("password"), "615-555-1212");
-            userEmailLogin.AssignProfile(new ProfileAdministrator());
+
+            var admiRole = new Role(Guid.NewGuid(), "Administrator");
+            var basicRole = new Role(Guid.NewGuid(), "Basic");
+            var userEmailLogin = new UserEmailLogin("Test User", "test@test.com", encryptor.Encrypt("password"), "615-555-1212");
+            userEmailLogin.AddRol(basicRole);
+            var administratorUser = new UserEmailLogin("Admin User", "admin@test.com", encryptor.Encrypt("password"),
+                "123");
+            administratorUser.AddRol(admiRole);
+            administratorUser.AddRol(basicRole);
+
+            _session.Save(admiRole);
+            _session.Save(basicRole);
+
+
             _session.Save(userEmailLogin);
-            for (int i = 0; i < 20; i++)
-            {
-                _session.Save(new UserEmailLogin("Test User "+ i, "test" + i + "@test.com", encryptor.Encrypt("password"), "615-555-1212"));
-            }
-            
+            _session.Save(administratorUser);
+
+
         }
 
         #endregion
