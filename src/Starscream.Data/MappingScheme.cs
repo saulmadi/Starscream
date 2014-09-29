@@ -2,6 +2,7 @@ using System;
 using AcklenAvenue.Data;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
+using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Helpers;
 using Starscream.Domain;
 using Starscream.Domain.Entities;
@@ -40,7 +41,7 @@ namespace Starscream.Data
                 return x =>
                            {
                                x.AutoMappings.Add(autoPersistenceModel);
-                               if (!_configuration.Equals("Test"))
+                               if (_configuration.IsEmpty())
                                {
                                    x.HbmMappings.AddFromAssemblyOf<ReadOnlyRepository>();
                                }
