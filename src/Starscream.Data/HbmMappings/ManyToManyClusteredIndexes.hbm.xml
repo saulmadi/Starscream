@@ -4,5 +4,6 @@ assembly="Starscream.Data.HbmMappings">
   <database-object>
     <create>create clustered index ix on UsersRoles(User_id, Role_id)</create>
     <drop>drop index UsersRoles.ix</drop>
+    
   </database-object>
 </hibernate-mapping>

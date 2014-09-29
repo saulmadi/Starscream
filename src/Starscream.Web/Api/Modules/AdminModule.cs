@@ -48,7 +48,7 @@ namespace Starscream.Web.Api.Modules
             Post["/users/enable"] =
                 _ =>
                 {
-                   this.RequiresClaims(new[] {"Administrator"});
+                   
                     var request = this.Bind<AdminEnableUsersRequest>();
                     if (request.Enable)
                     {
