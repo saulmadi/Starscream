@@ -10,8 +10,20 @@ namespace Starscream.Data
 {
     public class MappingScheme : IDatabaseMappingScheme<MappingConfiguration>
     {
+        private readonly string _configuration;
+
         #region IDatabaseMappingScheme<MappingConfiguration> Members
 
+        public MappingScheme(string configuration)
+        {
+            _configuration = configuration;
+        }
+
+
+        public MappingScheme()
+        {
+            _configuration = "";
+        }
         public Action<MappingConfiguration> Mappings
         {
             get
@@ -28,7 +40,11 @@ namespace Starscream.Data
                 return x =>
                            {
                                x.AutoMappings.Add(autoPersistenceModel);
-                               x.HbmMappings.AddFromAssemblyOf<ReadOnlyRepository>();
+                               if (!_configuration.Equals("Test"))
+                               {
+                                   x.HbmMappings.AddFromAssemblyOf<ReadOnlyRepository>();
+                               }
+                               
                            };
             }
         }

@@ -19,7 +19,7 @@ namespace Starscream.Data.Specs.WriteableRepositorySpecs
         Establish context =
             () =>
                 {
-                    _session = InMemorySession.New(new MappingScheme());
+                    _session = InMemorySession.New(new MappingScheme("Test"));
                     _writeableRepository = new WriteableRepository(_session);
 
                     var users = new List<UserEmailLogin>

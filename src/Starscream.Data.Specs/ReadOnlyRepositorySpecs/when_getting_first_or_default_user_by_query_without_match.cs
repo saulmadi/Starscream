@@ -16,7 +16,7 @@ namespace Starscream.Data.Specs.ReadOnlyRepositorySpecs
         Establish context =
             () =>
                 {
-                    ISession session = InMemorySession.New(new MappingScheme());
+                    ISession session = InMemorySession.New(new MappingScheme("Test"));
 
                     var users = new List<UserEmailLogin>
                                     {
