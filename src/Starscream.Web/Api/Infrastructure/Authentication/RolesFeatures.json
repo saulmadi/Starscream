@@ -1,0 +1,28 @@
+﻿[
+  {
+    "Name": "Administrador",
+    "Features": [
+      {
+        "Description": "uno",
+        "URL": "uno.com"
+      },
+      {
+        "Description": "dos",
+        "URL": "dos.com"
+      }
+    ]
+  },
+  {
+    "Name": "Basic",
+    "Features": [
+      {
+        "Description": "tres",
+        "URL": "tres.com"
+      },
+      {
+        "Description": "cuatro",
+        "URL": "cuatro.com"
+      }
+    ]
+  }
+]

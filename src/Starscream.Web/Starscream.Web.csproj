@@ -112,6 +112,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Api\Infrastructure\Authentication\RolesFeatures.json" />
     <Content Include="app\app.js" />
     <Content Include="app\controllers\profileController.js" />
     <Content Include="app\controllers\resetPasswordController.js" />
@@ -212,10 +213,15 @@
     <Compile Include="Api\BaseUrlProvider.cs" />
     <Compile Include="Api\emails\PasswordResetEmailTemplate.cs" />
     <Compile Include="Api\IBaseUrlProvider.cs" />
+    <Compile Include="Api\Infrastructure\Authentication\IMenuProvider.cs" />
+    <Compile Include="Api\Infrastructure\Authentication\MenuProvider.cs" />
+    <Compile Include="Api\Infrastructure\Authentication\Roles\Feature.cs" />
+    <Compile Include="Api\Infrastructure\Authentication\Roles\UsersRoles.cs" />
     <Compile Include="Api\Infrastructure\Configuration\AutoFacBlingDispatcher.cs" />
     <Compile Include="Api\Infrastructure\Configuration\BlingConfigurator.cs" />
     <Compile Include="Api\Infrastructure\Configuration\CommandDispatcherLogger.cs" />
     <Compile Include="Api\Infrastructure\Exceptions\NoCurrentUserException.cs" />
+    <Compile Include="Api\Infrastructure\Exceptions\RolNotFound.cs" />
     <Compile Include="Api\Infrastructure\IdentityExtentions.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\CommandValidationExceptionRepackager.cs" />
     <Compile Include="Api\Modules\LoginModule.cs" />

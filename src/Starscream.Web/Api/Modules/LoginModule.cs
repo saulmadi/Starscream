@@ -21,6 +21,7 @@ namespace Starscream.Web.Api.Modules
             Post["/login"] =
                 _ =>
                     {
+
                         var loginInfo = this.Bind<LoginRequest>();
                         if (loginInfo.Email == null) throw new UserInputPropertyMissingException("Email");
                         if (loginInfo.Password == null) throw new UserInputPropertyMissingException("Password");
