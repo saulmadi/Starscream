@@ -1,0 +1,20 @@
+﻿[
+        {
+            "Name": "Administrator",
+            "Features": [
+                {
+                    "Description": "uno"
+                    
+                }
+            ]
+        },
+        {
+            "Name": "Basic",
+            "Features": [
+                {
+                    "Description": "tres"
+                   
+                }
+            ]
+        }
+    ]

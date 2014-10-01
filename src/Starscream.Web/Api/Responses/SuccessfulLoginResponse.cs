@@ -9,7 +9,7 @@ namespace Starscream.Web.Api.Responses
 
         }
 
-        public SuccessfulLoginResponse(T token, string name, DateTime expires, string claims)
+        public SuccessfulLoginResponse(T token, string name, DateTime expires, string[] claims)
         {
             Token = token;
             Name = name;
@@ -20,6 +20,6 @@ namespace Starscream.Web.Api.Responses
         public T Token { get; set; }
         public string Name { get; set; }
         public DateTime Expires { get; set; }
-        public string Claims { get; set; }
+        public string[] Claims { get; set; }
     }
 }
