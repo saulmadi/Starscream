@@ -18,7 +18,7 @@ namespace Starscream.Web.Api.Infrastructure.Authentication
         {
             var firstOrDefault = _usersRoles.FirstOrDefault(x => x.Name.Equals(claim));
             if (firstOrDefault != null)
-                return firstOrDefault.Features.Select(y => y.URL).ToArray();
+                return firstOrDefault.Features.Select(y => y.Description).ToArray();
 
             throw new RolNotFound(claim);
         }

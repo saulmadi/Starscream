@@ -1,28 +1,28 @@
 ﻿[
-  {
-    "Name": "Administrador",
-    "Features": [
-      {
-        "Description": "uno",
-        "URL": "uno.com"
-      },
-      {
-        "Description": "dos",
-        "URL": "dos.com"
-      }
+        {
+            "Name": "Administrador",
+            "Features": [
+                {
+                    "Description": "uno"
+                    
+                },
+                {
+                    "Description": "dos"
+                   
+                }
+            ]
+        },
+        {
+            "Name": "Basic",
+            "Features": [
+                {
+                    "Description": "tres"
+                   
+                },
+                {
+                    "Description": "cuatro"
+                 
+                }
+            ]
+        }
     ]
-  },
-  {
-    "Name": "Basic",
-    "Features": [
-      {
-        "Description": "tres",
-        "URL": "tres.com"
-      },
-      {
-        "Description": "cuatro",
-        "URL": "cuatro.com"
-      }
-    ]
-  }
-]

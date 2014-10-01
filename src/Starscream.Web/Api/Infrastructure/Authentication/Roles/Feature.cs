@@ -9,7 +9,5 @@ namespace Starscream.Web.Api.Infrastructure.Authentication.Roles
     public class Feature
     {
          public string Description { get; set; }
-         public string URL { get; set; }
-
     }
 }

@@ -271,6 +271,11 @@
     <Compile Include="Api\Infrastructure\RestExceptions\UnauthorizedExceptionRepackager.cs" />
     <Compile Include="Api\Infrastructure\RestExceptions\UserInputPropertyMissingException.cs" />
     <Compile Include="Api\Responses\SuccessfulLoginResponse.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -319,6 +324,12 @@
       <Project>{EABDB5FE-FD37-4C87-BD52-67D7D996CA03}</Project>
       <Name>StarScream.TemplateEngines.Razor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

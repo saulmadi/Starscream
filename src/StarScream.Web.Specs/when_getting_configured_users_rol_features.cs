@@ -40,8 +40,8 @@ namespace StarScream.Web.Specs
                 _menuProvider = new MenuProvider(_usersRoles);
 
                 _expectedUsersRoles = new[] {
-                    feutures1.FirstOrDefault().URL, 
-                    feutures2.FirstOrDefault().URL
+                    feutures1.FirstOrDefault().Description, 
+                    feutures2.FirstOrDefault().Description
                 };
 
 

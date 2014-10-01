@@ -1,6 +1,11 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using AcklenAvenue.Email;
 using Autofac;
 using Autofac.Extras.DynamicProxy2;
@@ -8,6 +13,7 @@ using AutoMapper;
 using BlingBag;
 using Castle.DynamicProxy;
 using log4net;
+using Newtonsoft.Json;
 using Starscream.Data;
 using Starscream.Domain;
 using Starscream.Domain.Services;
@@ -16,6 +22,7 @@ using AcklenAvenue.Commands;
 using StarScream.TemplateEngines.Razor;
 using Starscream.Web.Api.emails;
 using Starscream.Web.Api.Infrastructure.Authentication;
+using Starscream.Web.Api.Infrastructure.Authentication.Roles;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
 {
@@ -42,9 +49,26 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
 
                            AutoRegisterAllDomainEvents(container);
                            AutoRegisterAllCommandHandlers(container);
+                           RegisterUsersFeutures(container);
                        };
             }
         }
+
+        void RegisterUsersFeutures(ContainerBuilder container)
+        {
+
+
+            var bytes = Properties.Resources.RolesFeatures;
+            var reader = new StreamReader(new MemoryStream(bytes), Encoding.Default);
+
+
+            var usersRoles = new JsonSerializer().Deserialize<IEnumerable<UsersRoles>>(new JsonTextReader(reader));
+            
+
+            container.RegisterType<MenuProvider>().As<IMenuProvider>().WithParameter("usersRoles",usersRoles);
+
+        }
+
         void AutoRegisterAllCommandHandlers(ContainerBuilder container)
         {
             container.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
