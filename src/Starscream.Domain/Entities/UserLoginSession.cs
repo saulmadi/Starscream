@@ -25,5 +25,12 @@ namespace Starscream.Domain.Entities
         public virtual User User { get; protected set; }
         public virtual DateTime Expires { get; protected set; }
         public virtual string Claims { get; protected set; }
+
+        public virtual string[] GetClaimsAsArray()
+        {
+
+            return Claims.Split(',');
+        }
+
     }
 }

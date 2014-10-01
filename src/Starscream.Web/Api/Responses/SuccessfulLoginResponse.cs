@@ -9,12 +9,12 @@ namespace Starscream.Web.Api.Responses
 
         }
 
-        public SuccessfulLoginResponse(T token, string name, DateTime expires, string claims)
+        public SuccessfulLoginResponse(T token, string name, DateTime expires, string[] claims)
         {
             Token = token;
             Name = name;
             Expires = expires;
-            Claims = claims.Split(',');
+            Claims = claims;
         }
 
         public T Token { get; set; }

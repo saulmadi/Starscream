@@ -5,6 +5,7 @@ using Starscream.Domain.Entities;
 using Starscream.Domain.Exceptions;
 using Starscream.Domain.Services;
 using Starscream.Domain.ValueObjects;
+using Starscream.Web.Api.Infrastructure.Authentication;
 using Starscream.Web.Api.Infrastructure.Exceptions;
 using Starscream.Web.Api.Requests;
 using Starscream.Web.Api.Responses;
@@ -16,7 +17,7 @@ namespace Starscream.Web.Api.Modules
     public class LoginModule : NancyModule
     {
         public LoginModule(IPasswordEncryptor passwordEncryptor, IReadOnlyRepository readOnlyRepository,
-                           IUserSessionFactory userSessionFactory)
+                           IUserSessionFactory userSessionFactory, IMenuProvider menuProvider)
         {
             Post["/login"] =
                 _ =>
@@ -38,7 +39,7 @@ namespace Starscream.Web.Api.Modules
                             UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
                             return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name,
-                                                                     userLoginSession.Expires, userLoginSession.Claims);
+                                                                     userLoginSession.Expires, menuProvider.getFeatures(userLoginSession.GetClaimsAsArray()));
                         }
                         catch (ItemNotFoundException<UserEmailLogin>)
                         {
@@ -66,7 +67,7 @@ namespace Starscream.Web.Api.Modules
 
                                               UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
-                                              return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires, userLoginSession.Claims);
+                                              return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires, menuProvider.getFeatures(userLoginSession.GetClaimsAsArray()));
                                           }
                                           catch (ItemNotFoundException<UserEmailLogin>)
                                           {
@@ -95,7 +96,7 @@ namespace Starscream.Web.Api.Modules
 
                     UserLoginSession userLoginSession = userSessionFactory.Create(user);
 
-                    return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires, userLoginSession.Claims);
+                    return new SuccessfulLoginResponse<Guid>(userLoginSession.Id, user.Name, userLoginSession.Expires, menuProvider.getFeatures(userLoginSession.GetClaimsAsArray()));
                 }
                 catch (ItemNotFoundException<UserEmailLogin>)
                 {
