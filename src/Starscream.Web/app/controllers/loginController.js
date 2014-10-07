@@ -9,7 +9,7 @@
 
 
     var setUserSession = function(data) {
-        userService.SetUser($scope.user.email, data.name, data.token, $scope.rememberMe, data.expires);
+        userService.SetUser($scope.user.email, data.name, data.token, $scope.rememberMe, data.expires,data.claims);
         $scope.$parent.user = userService.GetUser();
         $location.path("/");
     };
