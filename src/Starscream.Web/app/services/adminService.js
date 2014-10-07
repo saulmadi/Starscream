@@ -12,6 +12,9 @@
         },
         UpdateProfile: function(payload) {
             return $httpq.post("/user/", payload);
+        },
+        GetRol:function() {
+            return $httpq.get("/rol");
         }
         
     };

@@ -1,4 +1,6 @@
-﻿var app = angular.module('Starscream', ['ng', 'ngRoute', 'Starscream.Controllers', 'Starscream.Services', 'Starscream.Directives']);
+﻿'use strict';
+var app = angular.module('Starscream', ['ng', 'ngRoute', 'Starscream.Controllers', 'Starscream.Services', 'Starscream.Directives']);
+
 
 angular.module('Starscream.Controllers', []);
 angular.module('Starscream.Services', []);
@@ -26,6 +28,13 @@ app.config(function($routeProvider) {
                 templateUrl: 'app/views/home.html',
                 controller: 'homeController'
             })
+            .when('/activate-deactivate-users', {
+                templateUrl: 'app/views/activate-deactivateUsers.html',
+                controller: 'homeController'
+            
+                 }
+
+            )
             .when('/404', {
                 templateUrl: 'App/Views/404.html'
             })
@@ -86,6 +95,7 @@ app.config(function($routeProvider) {
             ]);
         }
     ])
+    
     .config([
         '$httpProvider', function($httpProvider) {
             $httpProvider.interceptors.push([
@@ -116,4 +126,24 @@ app.config(function($routeProvider) {
                 }
             ]);
         }
-    ]);
+    ])
+    .run(function ($rootScope, $location, loginService) {
+        var routesThatDontRequireAuth = ['/login'];
+
+        var routeClean = function (route) {
+            return _.find(routesThatDontRequireAuth,
+              function (noAuthRoute) {
+                  return _.str.startsWith(route, noAuthRoute);
+              });
+        };
+
+        $rootScope.$on('$routeChangeStart', function (event, next, current) {
+            // if route requires auth and user is not logged in
+            if (!routeClean($location.url()) && !loginService.GetLoggedIn()) {
+                // redirect back to login
+                $location.path('/login');
+            }
+        });
+        
+    })
+;

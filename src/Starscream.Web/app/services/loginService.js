@@ -1,14 +1,31 @@
 ﻿angular.module('Starscream.Services').factory('loginService', function($httpq) {
+    var loggedIn = false;
+
+   
 
     return {
-        Login: function(email, password) {
-            return $httpq.post("/login", { email: email, password: password });
+        Login: function (email, password) {
+
+            var response = $httpq.post("/login", { email: email, password: password });
+            return response;
         },
         LoginFacebook: function (payload) {
-            return $httpq.post("/login/facebook", payload);
+          
+            var response = $httpq.post("/login/facebook", payload);
+            return response;
         },
         LoginGoogle: function (payload) {
-            return $httpq.post("/login/google", payload);
+
+            var response = $httpq.post("/login/google", payload);
+            return response;
+        },
+
+        GetLoggedIn : function() {
+            return loggedIn;
+        },
+
+        SetLoggedIn: function(value) {
+            loggedIn = value;
         }
     };
 });

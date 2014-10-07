@@ -29,5 +29,12 @@ namespace Starscream.Web.Api.Infrastructure.Authentication
 
             return result.ToArray();
         }
+
+        public string[] getAllFeatures()
+        {
+          
+            return _usersRoles.SelectMany(x => x.Features).Select(x => x.Description).ToArray();
+
+        }
     }
 }

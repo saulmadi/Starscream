@@ -1,4 +1,5 @@
 ﻿using System;
+using Nancy.Security;
 using Starscream.Data;
 using Starscream.Domain;
 using Starscream.Domain.Entities;
@@ -79,6 +80,13 @@ namespace Starscream.Web.Api.Modules
                                               throw new UnauthorizedAccessException("Your account has been disabled. Please contact your administrator for help.");
                                           }
                                       };
+            Get["/roles"] =
+                _ =>
+                {
+                    this.RequiresAuthentication();
+                   return Response.AsJson(menuProvider.getAllFeatures());
+                };
+
 
             Post["/login/google"] = _ =>
             {
@@ -106,6 +114,8 @@ namespace Starscream.Web.Api.Modules
                 {
                     throw new UnauthorizedAccessException("Your account has been disabled. Please contact your administrator for help.");
                 }
+
+
             };
 
 
