@@ -2,7 +2,7 @@
     'use strict';
 
     return {
-        items: [
+        menu: [
             {
                 display: 'Admin',
                 features: [
@@ -27,7 +27,7 @@
 
         getFeatures: function() {
             var features = [];
-            this.items.forEach(function (value, index, array) {
+            this.menu.forEach(function (value, index, array) {
                 var tmpFeature = features.concat(value.features);
                 features = tmpFeature;
             });

@@ -13,8 +13,5 @@
             $location.path("/login");
         };
 
-    $scope.getUserMenuBar = function() {
-        var features = menuService.features;
-
-    };
+        $scope.menu = menuService.menu;
 });
