@@ -123,6 +123,7 @@
     <Content Include="app\controllers\registrationController.js" />
     <Content Include="app\services\accountService.js" />
     <Content Include="app\services\adminService.js" />
+    <Content Include="app\services\featureRoutesService.js" />
     <Content Include="app\services\googleService.js" />
     <Content Include="app\services\facebookService.js" />
     <Content Include="app\services\homeService.js" />
@@ -130,9 +131,10 @@
     <Content Include="app\services\loginService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
+    <Content Include="app\views\home.html" />
     <Content Include="app\views\profile.html" />
     <Content Include="app\views\reset-password.html" />
-    <Content Include="app\views\home.html" />
+    <Content Include="app\views\activate-deactivateUsers.html" />
     <Content Include="app\views\forgot-password.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\registration.html" />

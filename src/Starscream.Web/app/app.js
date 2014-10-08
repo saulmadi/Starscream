@@ -1,4 +1,6 @@
-﻿var app = angular.module('Starscream', ['ng', 'ngRoute', 'Starscream.Controllers', 'Starscream.Services', 'Starscream.Directives']);
+﻿'use strict';
+var app = angular.module('Starscream', ['ng', 'ngRoute', 'Starscream.Controllers', 'Starscream.Services', 'Starscream.Directives']);
+
 
 angular.module('Starscream.Controllers', []);
 angular.module('Starscream.Services', []);
@@ -26,6 +28,13 @@ app.config(function($routeProvider) {
                 templateUrl: 'app/views/home.html',
                 controller: 'homeController'
             })
+            .when('/activate-deactivate-users', {
+                templateUrl: 'app/views/activate-deactivateUsers.html',
+                controller: 'homeController'
+            
+                 }
+
+            )
             .when('/404', {
                 templateUrl: 'App/Views/404.html'
             })
@@ -86,6 +95,7 @@ app.config(function($routeProvider) {
             ]);
         }
     ])
+    
     .config([
         '$httpProvider', function($httpProvider) {
             $httpProvider.interceptors.push([
@@ -97,7 +107,7 @@ app.config(function($routeProvider) {
 
                             var user = userService.GetUser();
                             if (user) {
-                                debugger;
+                           
                                 config.headers["Authorization"] = 'Bearer ' + user.token;
 
                             }
@@ -116,4 +126,75 @@ app.config(function($routeProvider) {
                 }
             ]);
         }
-    ]);
+    ])
+    .run(function ($rootScope, $location, loginService, userService, featureRoutesService) {
+        var routesThatDontRequireAuth = ['/login'];
+        
+        var routesThatRequireRole = featureRoutesService.features;
+
+
+        var routeClean = function (route) {
+           return  routesThatDontRequireAuth.some(function(value, index, array) {
+
+                return route.substr(0, value.length) === value;
+            });
+
+            
+        };
+
+        var routeWithRoles = function (route) {
+
+           
+            var x = routesThatRequireRole.some(function (value) {
+             
+                return route === value.route;
+            });
+   
+            return x;
+        };
+
+        var urlFeature = function (url, features) {
+           
+            var feauturesNames = features.filter(function(value) {
+               return  url === value.route;
+            });
+            return feauturesNames[0];
+        };
+        
+        var featureInUserClaims = function(feature, claims) {
+
+            return claims.some(function(value) {
+                return value === feature;
+            });
+        }
+
+        $rootScope.$on('$routeChangeStart', function (event, next, current) {
+
+            var features = featureRoutesService.features;
+            var userClaims = userService.GetUser().claims;
+            var url = $location.url();
+
+            // if route requires auth and user is not logged in
+
+
+            if (!routeClean(url) && !loginService.GetLoggedIn()) {
+                // redirect back to login
+
+                event.preventDefault();
+                $location.path('/login');
+            } else {
+                
+                if (routeWithRoles(url) ) {
+                    var feature = urlFeature(url, features);
+                    if (!featureInUserClaims(feature.name, userClaims)) {
+                        event.preventDefault();
+                        $location.path("/404");
+                    }
+                   
+                }
+
+            }
+        });
+        
+    })
+;

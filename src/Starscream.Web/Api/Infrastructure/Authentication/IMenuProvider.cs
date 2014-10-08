@@ -4,6 +4,7 @@ namespace Starscream.Web.Api.Infrastructure.Authentication
     {
         string[] getFeatures(string claim);
         string[] getFeatures(string[] claims);
+        string[] getAllFeatures();
     }
 
 

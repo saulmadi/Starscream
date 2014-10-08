@@ -79,6 +79,7 @@ namespace Starscream.Web.Api.Modules
                     commandDispatcher.Dispatch(this.UserSession(), new UpdateUserProfile(request.Id, request.Name, request.Email));
                     return null;
                 };
+           
         }
     }
 }

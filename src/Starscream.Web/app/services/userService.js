@@ -3,12 +3,13 @@
     var key = "user";
 
     return {
-        SetUser: function (email, name, token, remember, expires) {
+        SetUser: function (email, name, token, remember, expires, claims) {
             var user = {
                 email: email,
                 name: name,
                 token: token,
-                expires: expires
+                expires: expires,
+                claims: claims
             };
             
             var userString = JSON.stringify(user);
