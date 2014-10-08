@@ -142,39 +142,55 @@ app.config(function($routeProvider) {
             
         };
 
-        var routeWithRoles = function (route, claims) {
-            var routeFeauture;
-            var routeFound = routesThatRequireRole.some(function(value) {
-                routeFeauture = value.name;
-                return route.substr(0, value.length) === value.route;
+        var routeWithRoles = function (route) {
+
+           
+            var x = routesThatRequireRole.some(function (value) {
+             
+                return route === value.route;
             });
-            if (routeFound) {
-                claims.some(function(value) {
-                    return value === routeFeauture;
-                });
-            }
-            return false;
+   
+            return x;
         };
 
+        var urlFeature = function (url, features) {
+           
+            var feauturesNames = features.filter(function(value) {
+               return  url === value.route;
+            });
+            return feauturesNames[0];
+        };
         
+        var featureInUserClaims = function(feature, claims) {
+
+            return claims.some(function(value) {
+                return value === feature;
+            });
+        }
 
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
             var features = featureRoutesService.features;
-            var user = userService.GetUser();
+            var userClaims = userService.GetUser().claims;
+            var url = $location.url();
 
             // if route requires auth and user is not logged in
 
 
-            if (!routeClean($location.url()) && !loginService.GetLoggedIn()) {
+            if (!routeClean(url) && !loginService.GetLoggedIn()) {
                 // redirect back to login
-             
+
+                event.preventDefault();
                 $location.path('/login');
             } else {
                 
-                if (!routeWithRoles($location.url(), user.claims) && loginService.GetLoggedIn()) {
-                  
-                    $location.path('/login');
+                if (routeWithRoles(url) ) {
+                    var feature = urlFeature(url, features);
+                    if (!featureInUserClaims(feature.name, userClaims)) {
+                        event.preventDefault();
+                        $location.path("/404");
+                    }
+                   
                 }
 
             }

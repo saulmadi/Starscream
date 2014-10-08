@@ -5,11 +5,8 @@
         features:[ {
             name: 'ActivateDeactivateUsers',
             route: '/activate-deactivate-users'
-        },
-        {
-            name: 'Home',
-            route: '/'
         }
+        
         ]
 
     };
