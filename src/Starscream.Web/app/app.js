@@ -24,7 +24,7 @@ app.config(function($routeProvider) {
                 templateUrl: 'app/views/registration.html',
                 controller: 'registrationController'
             })
-            .when('/', {
+            .when('/home', {
                 templateUrl: 'app/views/home.html',
                 controller: 'homeController'
             })
@@ -136,7 +136,7 @@ app.config(function($routeProvider) {
         var routeClean = function (route) {
            return  routesThatDontRequireAuth.some(function(value, index, array) {
 
-                return route.substr(0, value.length) === value;
+                return route === value;
             });
 
             
@@ -176,13 +176,13 @@ app.config(function($routeProvider) {
 
             // if route requires auth and user is not logged in
 
-
             if (!routeClean(url) && !loginService.GetLoggedIn()) {
                 // redirect back to login
 
                 event.preventDefault();
                 $location.path('/login');
-            } else {
+            } 
+            else {
                 
                 if (routeWithRoles(url) ) {
                     var feature = urlFeature(url, features);

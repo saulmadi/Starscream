@@ -1,5 +1,8 @@
-﻿angular.module('Starscream.Controllers').controller('parentController', function ($scope, userService, $location) {
-        var user = userService.GetUser();
+﻿angular.module('Starscream.Controllers').controller('parentController', function ($scope, userService, $location, loginService) {
+    var user = userService.GetUser();
+    if (user) {
+        loginService.SetLoggedIn(true);
+    }
         $scope.user = user;
         $scope.title = "Welcome";
         $scope.logout = function() {
