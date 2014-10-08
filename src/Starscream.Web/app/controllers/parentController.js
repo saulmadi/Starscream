@@ -1,8 +1,10 @@
-﻿angular.module('Starscream.Controllers').controller('parentController', function ($scope, userService, $location, loginService) {
-    var user = userService.GetUser();
-    if (user) {
-        loginService.SetLoggedIn(true);
-    }
+﻿angular.module('Starscream.Controllers').controller('parentController', function ($scope, userService, $location, loginService, menuService) {
+        var user = userService.GetUser();
+        if (user) {
+            loginService.SetLoggedIn(true);
+        }
+
+        $scope.userMenuBar = [];
         $scope.user = user;
         $scope.title = "Welcome";
         $scope.logout = function() {
@@ -10,4 +12,9 @@
             $scope.user = false;
             $location.path("/login");
         };
-    });
+
+    $scope.getUserMenuBar = function() {
+        var features = menuService.features;
+
+    };
+});

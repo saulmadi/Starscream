@@ -1,6 +1,8 @@
-﻿angular.module('Starscream.Controllers').controller('homeController', function ($scope, userService, $location, adminService) {
-    //if (userService.GetUser())
-    //    $location.path("/home");
+﻿angular.module('Starscream.Controllers').controller('homeController', function ($scope, userService, $location, adminService, loginService) {
+    if (!userService.GetUser()) {
+        $location.path("/login");
+    } 
+        
     $scope.$parent.title = "Home";
     $scope.users = [];
     $scope.paginationPayload = { PageNumber: 1, PageSize: 20, Field: "Name" };
