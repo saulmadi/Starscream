@@ -1,11 +1,16 @@
-﻿angular.module('Starscream.Services').factory('accountService', function() {
+﻿angular.module('Starscream.Services').factory('featureRoutesService', function () {
     'use strict';
 
     return {
-        feature:[ {
-            name: 'ActivateUsers',
-            route: ''
-        }]
+        features:[ {
+            name: 'ActivateDeactivateUsers',
+            route: '/activate-deactivate-users'
+        },
+        {
+            name: 'Home',
+            route: '/'
+        }
+        ]
 
     };
 });

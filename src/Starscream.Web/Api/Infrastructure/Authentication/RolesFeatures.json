@@ -3,20 +3,20 @@
             "Name": "Administrator",
             "Features": [
                 {
-                    "Description": "uno"
+                    "Description": "ActivateDeactivateUsers"
                     
                 },
                 {
-                    "Description":  "Dos"
+                    "Description": "Home"
                 }
             ]
-        },
+        }, 
         {
             "Name": "Basic",
             "Features": [
                 {
-                    "Description": "tres"
-                   
+                   "Description": "Home"
+                    
                 }
             ]
         }

@@ -107,7 +107,7 @@ app.config(function($routeProvider) {
 
                             var user = userService.GetUser();
                             if (user) {
-                                debugger;
+                           
                                 config.headers["Authorization"] = 'Bearer ' + user.token;
 
                             }
@@ -127,21 +127,56 @@ app.config(function($routeProvider) {
             ]);
         }
     ])
-    .run(function ($rootScope, $location, loginService) {
+    .run(function ($rootScope, $location, loginService, userService, featureRoutesService) {
         var routesThatDontRequireAuth = ['/login'];
+        
+        var routesThatRequireRole = featureRoutesService.features;
+
 
         var routeClean = function (route) {
-            return _.find(routesThatDontRequireAuth,
-              function (noAuthRoute) {
-                  return _.str.startsWith(route, noAuthRoute);
-              });
+           return  routesThatDontRequireAuth.some(function(value, index, array) {
+
+                return route.substr(0, value.length) === value;
+            });
+
+            
         };
 
+        var routeWithRoles = function (route, claims) {
+            var routeFeauture;
+            var routeFound = routesThatRequireRole.some(function(value) {
+                routeFeauture = value.name;
+                return route.substr(0, value.length) === value.route;
+            });
+            if (routeFound) {
+                claims.some(function(value) {
+                    return value === routeFeauture;
+                });
+            }
+            return false;
+        };
+
+        
+
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
+
+            var features = featureRoutesService.features;
+            var user = userService.GetUser();
+
             // if route requires auth and user is not logged in
+
+
             if (!routeClean($location.url()) && !loginService.GetLoggedIn()) {
                 // redirect back to login
+             
                 $location.path('/login');
+            } else {
+                
+                if (!routeWithRoles($location.url(), user.claims) && loginService.GetLoggedIn()) {
+                  
+                    $location.path('/login');
+                }
+
             }
         });
         
