@@ -14,5 +14,6 @@
             $scope.menu = [];
         };
 
-        $scope.menu = menuService.getMenuForUser(user.claims || []);
+  //  $scope.menu = menuService.menu;
+         $scope.menu = menuService.getMenuForUser(user.claims || []);
 });
