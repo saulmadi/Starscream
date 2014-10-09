@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastExtentions.cs" />
+    <Compile Include="when_adding_abilities_to_user.cs" />
     <Compile Include="when_add_a_role_to_a_user.cs" />
     <Compile Include="when_disabling_a_user.cs" />
     <Compile Include="when_enabling_a_user.cs" />
