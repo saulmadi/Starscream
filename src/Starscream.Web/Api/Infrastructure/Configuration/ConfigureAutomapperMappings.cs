@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using Autofac;
 using Starscream.Domain.Entities;
+using Starscream.Web.Api.Requests;
 using Starscream.Web.Api.Responses.Admin;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
@@ -17,6 +18,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                 return container =>
                     {
                         Mapper.CreateMap<User, AdminUserResponse>();
+                        Mapper.CreateMap<UserAbility, UserAbilityRequest>();
                     };
             }
         }

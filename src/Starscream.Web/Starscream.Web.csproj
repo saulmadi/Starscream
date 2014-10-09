@@ -255,6 +255,8 @@
     <Compile Include="Api\Requests\NewPasswordRequest.cs" />
     <Compile Include="Api\Requests\NewUserRequest.cs" />
     <Compile Include="Api\Requests\ResetPasswordRequest.cs" />
+    <Compile Include="Api\Requests\UserAbilitiesRequest.cs" />
+    <Compile Include="Api\Requests\UserAbilityRequest.cs" />
     <Compile Include="Api\Responses\Admin\AdminUserResponse.cs" />
     <Compile Include="Api\Responses\Admin\AdminUsersListResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

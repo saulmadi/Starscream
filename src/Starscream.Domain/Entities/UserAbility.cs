@@ -11,7 +11,7 @@ namespace Starscream.Domain.Entities
     public class UserAbility : Entity
     {
 
-        public virtual string description { get; protected set; }
+        public virtual string Description { get; protected set; }
 
         protected UserAbility()
         {
@@ -20,7 +20,7 @@ namespace Starscream.Domain.Entities
 
         public UserAbility(string description)
         {
-            this.description = description;
+            this.Description = description;
             Id = Guid.NewGuid();
 
         }

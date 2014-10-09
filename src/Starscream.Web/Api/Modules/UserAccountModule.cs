@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using AcklenAvenue.Commands;
+using AutoMapper;
 using Starscream.Domain.Application.Commands;
+using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Nancy;
 using Nancy.ModelBinding;
@@ -15,7 +18,7 @@ namespace Starscream.Web.Api.Modules
 
     public class UserAccountModule : NancyModule
     {        
-        public UserAccountModule(ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor)
+        public UserAccountModule(IReadOnlyRepository readOnlyRepository,ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor, IMappingEngine mappingEngine)
         {
             Post["/register"] =
                 _ =>
@@ -61,6 +64,24 @@ namespace Starscream.Web.Api.Modules
                                                new ResetPassword(token, passwordEncryptor.Encrypt(newPasswordRequest.Password)));
                     return null;
                 };
+
+            Post["/abilites"] = p =>
+            {
+
+                var requestAbilites = this.Bind<UserAbilitiesRequest>();
+                return null;
+
+
+            };
+
+            Get["/abilities"] = _ =>
+            {
+                var abilites = readOnlyRepository.GetAll<UserAbility>();
+
+                var mappedAbilites = mappingEngine.Map<IEnumerable<UserAbility>, IEnumerable<UserAbilityRequest>>(abilites);
+
+                return mappedAbilites;
+            };
         }
     }
 }
