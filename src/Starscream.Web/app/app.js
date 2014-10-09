@@ -45,7 +45,8 @@ app.config(function($routeProvider) {
             .otherwise({
                 redirectTo: '/404'
             });
-    })
+})
+    
     .config([
         '$httpProvider', function($httpProvider) {
             $httpProvider.interceptors.push([
@@ -53,6 +54,7 @@ app.config(function($routeProvider) {
                     return {
                         'responseError': function(rejection) {
                             //log here
+                            
                             if (rejection.status == 401) {
                                 console.log("Not logged in. Redirecting to login page.");
                                 userService.RemoveUser();

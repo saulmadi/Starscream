@@ -1,7 +1,7 @@
 ﻿angular.module('Starscream.Services').factory('userService', function () {
 
     var key = "user";
-
+   
     return {
         SetUser: function (email, name, token, remember, expires, claims) {
             var user = {
@@ -42,12 +42,6 @@
             window.sessionStorage.removeItem("user");
             window.localStorage.removeItem("user");
         },
-        GetAbilities: function() {
-            return $http.get('/abilities');
-        },
-        AddAbilities: function(payload) {
-            var response = $http.post('/user/abilites', payload);
-            return response;
-        }
+       
     };
 });

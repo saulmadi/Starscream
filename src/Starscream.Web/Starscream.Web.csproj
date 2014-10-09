@@ -129,6 +129,7 @@
     <Content Include="app\services\homeService.js" />
     <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
+    <Content Include="app\services\userAbilitiesService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
     <Content Include="app\views\home.html" />
