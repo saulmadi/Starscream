@@ -54,6 +54,7 @@
     <Compile Include="Application\CommandHandlers\UserProfileUpdater.cs" />
     <Compile Include="Application\CommandHandlers\UserRolAdder.cs" />
     <Compile Include="Application\Commands\AddRoleToUser.cs" />
+    <Compile Include="Application\Commands\AddAbilitiesToUser.cs" />
     <Compile Include="Application\Commands\CreateFacebookLoginUser.cs" />
     <Compile Include="Application\Commands\CreateGoogleLoginUser.cs" />
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />

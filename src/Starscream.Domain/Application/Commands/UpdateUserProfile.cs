@@ -17,6 +17,7 @@ namespace Starscream.Domain.Application.Commands
 
         protected UpdateUserProfile()
         {
+
         }
     }
 }
