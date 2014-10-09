@@ -11,7 +11,8 @@
             userService.RemoveUser();
             $scope.user = false;
             $location.path("/login");
+            $scope.menu = [];
         };
 
-        $scope.menu = menuService.menu;
+        $scope.menu = menuService.getMenuForUser(user.claims || []);
 });
