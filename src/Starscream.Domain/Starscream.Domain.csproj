@@ -78,6 +78,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFacebookLogin.cs" />
     <Compile Include="Entities\UserGoogleLogin.cs" />
+    <Compile Include="Entities\UserAbility.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
     <Compile Include="Exceptions\DisableUserAccountException.cs" />

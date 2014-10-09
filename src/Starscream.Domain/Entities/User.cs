@@ -8,7 +8,7 @@ namespace Starscream.Domain.Entities
     {
         public virtual string Name { get; protected set; }
         public virtual string Email { get; protected set; }
-        public virtual string Profile {get; protected set; }
+        public virtual IEnumerable<UserAbility> Abilities {get; protected set; }
         public virtual bool IsActive { get; protected set; }
          IEnumerable<Role> _userRoles = new List<Role>(); 
 
@@ -18,7 +18,7 @@ namespace Starscream.Domain.Entities
             Email = email;
             Id = Guid.NewGuid();
             IsActive = true;
-            Profile = "Default Profile";
+            Abilities = new List<UserAbility>();
         }
 
         protected User()
@@ -31,10 +31,7 @@ namespace Starscream.Domain.Entities
             Email = emailAddress;
         }
 
-        public virtual void AssignProfile(IProfile profile)
-        {
-            Profile = profile.Name;
-        }
+       
 
         public virtual void EnableUser()
         {
