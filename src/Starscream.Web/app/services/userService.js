@@ -41,6 +41,13 @@
         RemoveUser: function () {
             window.sessionStorage.removeItem("user");
             window.localStorage.removeItem("user");
-        }        
+        },
+        GetAbilities: function() {
+            return $http.get('/abilities');
+        },
+        AddAbilities: function(payload) {
+            var response = $http.post('/user/abilites', payload);
+            return response;
+        }
     };
 });

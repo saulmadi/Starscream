@@ -39,6 +39,15 @@
                     <input type="password" class="form-control" ng-model="user.passwordConfirm" id="password2" required maxlength=""/><br />
                 </div>
             </div>
+            
+            <div class="form-group">
+                <label for="abilities" class="col-lg-2 control-label">Abilities</label>
+                <div class="col-lg-4">
+                    <select id="abilities" class="multiselect" multiple ng-model="abilities" ng-repeat="ability in abilities">
+                        <option value="{{ability.Description}}">{{ability.Description}}</option>
+                    </select>
+                </div>
+            </div>
       
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
@@ -47,9 +56,6 @@
                 </div>
             </div>
             
-            
-
-
         </fieldset>
         
         

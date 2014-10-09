@@ -147,6 +147,8 @@
     <Content Include="assets\bootstrap-3.1.1-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\bootstrap-3.1.1-dist\js\bootstrap.js" />
     <Content Include="assets\bootstrap-3.1.1-dist\js\bootstrap.min.js" />
+    <Content Include="assets\bootstrap-multiselect\bootstrap-multiselect.css" />
+    <Content Include="assets\bootstrap-multiselect\bootstrap-multiselect.js" />
     <Content Include="assets\bootswatch.min.css" />
     <Content Include="assets\googlesdk.js" />
     <Content Include="assets\fbsdk.js" />

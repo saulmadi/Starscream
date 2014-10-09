@@ -58,7 +58,7 @@ namespace Starscream.Domain.Entities
             protected set { _userRoles = value; }
         }
 
-        public IEnumerable<UserAbility> UserAbilities
+        public virtual IEnumerable<UserAbility> UserAbilities
         {
             get { return _userAbilities; }
             protected set { _userAbilities = value; }

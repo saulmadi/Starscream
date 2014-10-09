@@ -21,6 +21,7 @@ namespace Starscream.Domain.Application.CommandHandlers
 
         public void Handle(IUserSession userIssuingCommand, AddAbilitiesToUser command)
         {
+            //TODO validate duplicate abilities
             var user = ReadOnlyRepository.GetById<User>(command.UserId);
             var abilities = command.AbilitiesID.ToList().Select(x => ReadOnlyRepository.GetById<UserAbility>(x));
 

@@ -5,7 +5,7 @@
         <title>Starscream - {{title}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-        <link href="/assets/bootswatch.min.css" rel="stylesheet" media="screen">          
+        <link href="/assets/bootswatch.min.css" rel="stylesheet" media="screen">         
     </head>
     <body>
         <script src="/assets/fbsdk.js"></script>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
-                        <li ng-model="menu" ng-repeat="items in menu | filter: items.display:'!General'">
+                        <li ng-model="menu" ng-repeat="items in menu">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:" >{{items.display}}<span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="themes" ng-model="items" ng-repeat="item in items.features">
                                 <li>
@@ -33,28 +33,6 @@
                                 </li>                
                             </ul>
                         </li>
-                        <!--<li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="themes">
-                                <li><a href="../default/">Default</a></li>
-                                <li class="divider"></li>
-                                <li><a href="../amelia/">Amelia</a></li>                
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="../help/">Help</a>
-                        </li>
-                        <li>
-                            <a href="http://news.bootswatch.com">Blog</a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="download">
-                                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                                <li class="divider"></li>
-                                <li><a href="./bootswatch.less">bootswatch.less</a></li>
-                            </ul>
-                        </li>-->
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right" ng-show="user">
@@ -98,7 +76,9 @@
         <script src="/assets/jquery-1.10.2.min.js"> </script>
         <script src="/assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"> </script>    
         <script src="/assets/angular.min.js"> </script>
-        <script src="/assets/angular-route.js"> </script>        
+        <script src="/assets/angular-route.js"> </script>   
+        <link href="assets/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet" /> 
+        <script src="assets/bootstrap-multiselect/bootstrap-multiselect.js"></script>     
         <script src="/app/app.js"> </script>
         
         <!--controllers-->
@@ -134,6 +114,7 @@
                 var suppressErrorAlert = true;
                 return suppressErrorAlert;
             };
+
         </script>
 
     </body>

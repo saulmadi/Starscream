@@ -1,5 +1,5 @@
-﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService) {
-
+﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService, userService) {
+    $('.multiselect').multiselect();
     $scope.user = { };
 
     $scope.$parent.title = "Registration";
@@ -8,6 +8,8 @@
         $location.path("/login");
         return false;
     };
+
+    $scope.abilities = userService.GetAbilities(); 
 
     var password1 = document.getElementById('password1');
     var password2 = document.getElementById('password2');
