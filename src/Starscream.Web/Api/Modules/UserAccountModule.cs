@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AcklenAvenue.Commands;
 using AutoMapper;
 using Starscream.Domain.Application.Commands;
@@ -65,10 +66,13 @@ namespace Starscream.Web.Api.Modules
                     return null;
                 };
 
-            Post["/abilites"] = p =>
+            Post["/user/abilites"] = p =>
             {
 
                 var requestAbilites = this.Bind<UserAbilitiesRequest>();
+                commandDispatcher.Dispatch(this.UserSession(), new AddAbilitiesToUser(requestAbilites.UserId, requestAbilites.Abilities.Select(x => x.Id)));
+
+
                 return null;
 
 
