@@ -128,7 +128,7 @@ app.config(function($routeProvider) {
         }
     ])
     .run(function ($rootScope, $location, loginService, userService, menuService) {
-        var routesThatDontRequireAuth = ['/login'];
+        var routesThatDontRequireAuth = ['/login', '/forgot-password','/reset-password','/register'];
         
         var routesThatRequireRole = menuService.getFeatures();
 
@@ -168,7 +168,11 @@ app.config(function($routeProvider) {
 
             // if route requires auth and user is not logged in
 
-            if (!routeClean(url) && !loginService.GetLoggedIn()) {
+            var route = routeClean(url);
+            var loggedUser = loginService.GetLoggedIn();
+            
+
+            if (!route && !loggedUser) {
                 // redirect back to login
 
                 event.preventDefault();
