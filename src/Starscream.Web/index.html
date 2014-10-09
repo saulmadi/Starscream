@@ -25,7 +25,15 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
+                        <li ng-model="menu" ng-repeat="items in menu | filter: items.display:'!General'">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:" >{{items.display}}<span class="caret"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="themes" ng-model="items" ng-repeat="item in items.features">
+                                <li>
+                                    <a ng-href="#{{item.route}}">{{item.display}}</a>
+                                </li>                
+                            </ul>
+                        </li>
+                        <!--<li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="themes">
                                 <li><a href="../default/">Default</a></li>
@@ -46,7 +54,7 @@
                                 <li class="divider"></li>
                                 <li><a href="./bootswatch.less">bootswatch.less</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right" ng-show="user">
@@ -111,7 +119,7 @@
         <script src="/app/services/googleService.js"></script>
         <script src="/app/services/homeService.js"></script>
         <script src="app/services/adminService.js"></script>
-        <script src="app/services/featureRoutesService.js"></script>
+        <script src="app/services/menuService.js"></script>
         
 
         <!--directives-->

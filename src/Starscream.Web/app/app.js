@@ -24,7 +24,7 @@ app.config(function($routeProvider) {
                 templateUrl: 'app/views/registration.html',
                 controller: 'registrationController'
             })
-            .when('/', {
+            .when('/home', {
                 templateUrl: 'app/views/home.html',
                 controller: 'homeController'
             })
@@ -127,30 +127,22 @@ app.config(function($routeProvider) {
             ]);
         }
     ])
-    .run(function ($rootScope, $location, loginService, userService, featureRoutesService) {
+    .run(function ($rootScope, $location, loginService, userService, menuService) {
         var routesThatDontRequireAuth = ['/login'];
         
-        var routesThatRequireRole = featureRoutesService.features;
+        var routesThatRequireRole = menuService.getFeatures();
 
 
         var routeClean = function (route) {
            return  routesThatDontRequireAuth.some(function(value, index, array) {
-
-                return route.substr(0, value.length) === value;
+                return route === value;
             });
-
-            
         };
 
-        var routeWithRoles = function (route) {
-
-           
-            var x = routesThatRequireRole.some(function (value) {
-             
+        var routeWithRoles = function (route) {   
+            return routesThatRequireRole.some(function (value) {
                 return route === value.route;
             });
-   
-            return x;
         };
 
         var urlFeature = function (url, features) {
@@ -170,19 +162,19 @@ app.config(function($routeProvider) {
 
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
-            var features = featureRoutesService.features;
+            var features = menuService.getFeatures();//menuService.features;
             var userClaims = userService.GetUser().claims;
             var url = $location.url();
 
             // if route requires auth and user is not logged in
-
 
             if (!routeClean(url) && !loginService.GetLoggedIn()) {
                 // redirect back to login
 
                 event.preventDefault();
                 $location.path('/login');
-            } else {
+            } 
+            else {
                 
                 if (routeWithRoles(url) ) {
                     var feature = urlFeature(url, features);

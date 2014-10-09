@@ -5,14 +5,19 @@
                 {
                     "Description": "ActivateDeactivateUsers"
                     
-                }
+                },
+				{
+					"Description": "Home"
+				}
               
             ]
         }, 
         {
             "Name": "Basic",
             "Features": [
-                
+                {
+					"Description": "Home"
+				}
             ]
         }
     ]
