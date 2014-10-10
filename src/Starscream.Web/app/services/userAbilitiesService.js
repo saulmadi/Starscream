@@ -4,8 +4,8 @@
         GetAbilities: function () {
             return $httpq.get('/abilities');
         },
-        AddAbilities: function (payload) {
-            var response = $httpq.post('/user/abilites', payload);
+        AddAbilities: function (userId, abilities) {
+            var response = $httpq.post('/user/abilites', {userId:userId, abilities:abilities});
             return response;
         }
     };

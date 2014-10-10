@@ -121,6 +121,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\parentController.js" />
     <Content Include="app\controllers\registrationController.js" />
+    <Content Include="app\directives\multiselect-dropdown.js" />
     <Content Include="app\services\accountService.js" />
     <Content Include="app\services\adminService.js" />
     <Content Include="app\services\menuService.js" />
@@ -306,7 +307,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\directives\" />
     <Folder Include="app\interceptors\" />
     <Folder Include="assets\themes\global\" />
   </ItemGroup>

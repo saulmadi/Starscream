@@ -72,7 +72,6 @@ namespace Starscream.Web.Api.Modules
                 var requestAbilites = this.Bind<UserAbilitiesRequest>();
                 commandDispatcher.Dispatch(this.UserSession(), new AddAbilitiesToUser(requestAbilites.UserId, requestAbilites.Abilities.Select(x => x.Id)));
 
-
                 return null;
 
 

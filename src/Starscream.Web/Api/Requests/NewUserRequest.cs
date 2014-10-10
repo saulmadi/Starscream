@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Starscream.Web.Api.Requests
 {
     public class NewUserRequest
@@ -9,5 +11,7 @@ namespace Starscream.Web.Api.Requests
         public string Email { get; set; }
 
         public string Password { get; set; }
+
+        public IEnumerable<UserAbilityRequest> Abilities { get; set; }
     }
 }

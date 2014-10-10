@@ -1,5 +1,8 @@
 ﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService, userService, userAbilitiesService) {
-    $('.multiselect').multiselect();
+    $('.multiselect').multiselect({
+        includeSelectAllOption: true
+});
+    
     $scope.user = {};
     $scope.myAbilities = [];
     $scope.abilities = [];
@@ -42,8 +45,12 @@
         $scope.registered = false;
             
         accountService.Register($scope.user.email, $scope.user.password, $scope.user.name, $scope.user.phoneNumber)
-            .then(function() {
-                $scope.registered = true;
+            .then(function () {
+                var user = userService.GetUser();
+                userAbilitiesService.AddAbilities(user.id, $scope.myAbilities)
+                .then(function() {
+                    $scope.registered = true;
+                });
             }).catch(function(err1, err2, err3) {
                 debugger;
             });
