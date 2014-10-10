@@ -43,8 +43,8 @@
             <div class="form-group">
                 <label for="abilities" class="col-lg-2 control-label">Abilities</label>
                 <div class="col-lg-4">
-                    <select id="abilities" class="multiselect" multiple ng-model="abilities" ng-repeat="ability in abilities">
-                        <option value="{{ability.Description}}">{{ability.Description}}</option>
+                    <select id="abilities" class="multiselect" multiple ng-model="myAbilities" ng-options="ability.description for ability in abilities">
+                        <option value="">Select One</option>
                     </select>
                 </div>
             </div>

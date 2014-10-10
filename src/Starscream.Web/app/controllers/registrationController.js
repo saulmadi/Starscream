@@ -1,6 +1,8 @@
-﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService, userService,userAbilitiesService) {
+﻿angular.module('Starscream.Controllers').controller('registrationController', function ($scope, $location, accountService, userService, userAbilitiesService) {
     $('.multiselect').multiselect();
-    $scope.user = { };
+    $scope.user = {};
+    $scope.myAbilities = [];
+    $scope.abilities = [];
 
     $scope.$parent.title = "Registration";
 
@@ -9,7 +11,11 @@
         return false;
     };
 
-    $scope.abilities = userAbilitiesService.GetAbilities();
+    userAbilitiesService.GetAbilities()
+    .then(function(data) {
+        $scope.abilities = data;
+    });
+
     var password1 = document.getElementById('password1');
     var password2 = document.getElementById('password2');
 
