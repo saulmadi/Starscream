@@ -26,7 +26,7 @@ namespace Starscream.Web.Api.Modules
                     {
                         var req = this.Bind<NewUserRequest>();
                         commandDispatcher.Dispatch(this.UserSession(),
-                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber));
+                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber, req.Abilities.Select(x => x.Id)));
                         return null;
                     };
 
