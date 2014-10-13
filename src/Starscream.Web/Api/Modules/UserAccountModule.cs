@@ -1,6 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using AcklenAvenue.Commands;
+using AutoMapper;
 using Starscream.Domain.Application.Commands;
+using Starscream.Domain.Entities;
 using Starscream.Domain.Services;
 using Nancy;
 using Nancy.ModelBinding;
@@ -15,14 +19,15 @@ namespace Starscream.Web.Api.Modules
 
     public class UserAccountModule : NancyModule
     {        
-        public UserAccountModule(ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor)
+        public UserAccountModule(IReadOnlyRepository readOnlyRepository,ICommandDispatcher commandDispatcher, IPasswordEncryptor passwordEncryptor, IMappingEngine mappingEngine)
         {
             Post["/register"] =
                 _ =>
                     {
                         var req = this.Bind<NewUserRequest>();
+                        var abilities = mappingEngine.Map<IEnumerable<UserAbilityRequest>, IEnumerable<UserAbility>>(req.Abilities);
                         commandDispatcher.Dispatch(this.UserSession(),
-                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber));
+                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber, abilities));
                         return null;
                     };
 
@@ -61,6 +66,26 @@ namespace Starscream.Web.Api.Modules
                                                new ResetPassword(token, passwordEncryptor.Encrypt(newPasswordRequest.Password)));
                     return null;
                 };
+
+            Post["/user/abilites"] = p =>
+            {
+
+                var requestAbilites = this.Bind<UserAbilitiesRequest>();
+                commandDispatcher.Dispatch(this.UserSession(), new AddAbilitiesToUser(requestAbilites.UserId, requestAbilites.Abilities.Select(x => x.Id)));
+
+                return null;
+
+
+            };
+
+            Get["/abilities"] = _ =>
+            {
+                var abilites = readOnlyRepository.GetAll<UserAbility>();
+
+                var mappedAbilites = mappingEngine.Map<IEnumerable<UserAbility>, IEnumerable<UserAbilityRequest>>(abilites);
+
+                return mappedAbilites;
+            };
         }
     }
 }

@@ -48,12 +48,14 @@
     <Compile Include="Application\CommandHandlers\EnablingUser.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetter.cs" />
     <Compile Include="Application\CommandHandlers\PasswordResetTokenCreator.cs" />
+    <Compile Include="Application\CommandHandlers\UserAbilitiesAdder.cs" />
     <Compile Include="Application\CommandHandlers\UserEmailCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserFacebookCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserGoogleCreator.cs" />
     <Compile Include="Application\CommandHandlers\UserProfileUpdater.cs" />
     <Compile Include="Application\CommandHandlers\UserRolAdder.cs" />
     <Compile Include="Application\Commands\AddRoleToUser.cs" />
+    <Compile Include="Application\Commands\AddAbilitiesToUser.cs" />
     <Compile Include="Application\Commands\CreateFacebookLoginUser.cs" />
     <Compile Include="Application\Commands\CreateGoogleLoginUser.cs" />
     <Compile Include="Application\Commands\CreatePasswordResetToken.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Application\Commands\UpdateUserProfile.cs" />
     <Compile Include="DomainEvents\PasswordReset.cs" />
     <Compile Include="DomainEvents\PasswordResetTokenCreated.cs" />
+    <Compile Include="DomainEvents\UserAbilitiesAdded.cs" />
     <Compile Include="DomainEvents\UserCreated.cs" />
     <Compile Include="DomainEvents\UserDisabled.cs" />
     <Compile Include="DomainEvents\UserEmailCreated.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFacebookLogin.cs" />
     <Compile Include="Entities\UserGoogleLogin.cs" />
+    <Compile Include="Entities\UserAbility.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Exceptions\CommandValidationException.cs" />
     <Compile Include="Exceptions\DisableUserAccountException.cs" />

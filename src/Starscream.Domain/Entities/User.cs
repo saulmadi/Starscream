@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using Starscream.Domain.ValueObjects;
 
 namespace Starscream.Domain.Entities
 {
@@ -8,9 +8,9 @@ namespace Starscream.Domain.Entities
     {
         public virtual string Name { get; protected set; }
         public virtual string Email { get; protected set; }
-        public virtual string Profile {get; protected set; }
+        IEnumerable<UserAbility> _userAbilities = new List<UserAbility>();
         public virtual bool IsActive { get; protected set; }
-         IEnumerable<Role> _userRoles = new List<Role>(); 
+        IEnumerable<Role> _userRoles = new List<Role>(); 
 
         public User(string name, string email)
         {
@@ -18,8 +18,9 @@ namespace Starscream.Domain.Entities
             Email = email;
             Id = Guid.NewGuid();
             IsActive = true;
-            Profile = "Default Profile";
         }
+
+       
 
         protected User()
         {
@@ -31,10 +32,7 @@ namespace Starscream.Domain.Entities
             Email = emailAddress;
         }
 
-        public virtual void AssignProfile(IProfile profile)
-        {
-            Profile = profile.Name;
-        }
+       
 
         public virtual void EnableUser()
         {
@@ -57,10 +55,20 @@ namespace Starscream.Domain.Entities
             protected set { _userRoles = value; }
         }
 
+        public virtual IEnumerable<UserAbility> UserAbilities
+        {
+            get { return _userAbilities; }
+            protected set { _userAbilities = value; }
+        }
+
         public virtual void AddRol(Role role)
         {
            ( (IList<Role>)_userRoles).Add(role);
         }
 
+        public virtual void AddAbility(UserAbility ability)
+        {
+            ((IList<UserAbility>)_userAbilities).Add(ability);
+        }
     }
 }

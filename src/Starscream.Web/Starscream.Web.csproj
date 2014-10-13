@@ -121,6 +121,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\parentController.js" />
     <Content Include="app\controllers\registrationController.js" />
+    <Content Include="app\directives\multiselect-dropdown.js" />
     <Content Include="app\services\accountService.js" />
     <Content Include="app\services\adminService.js" />
     <Content Include="app\services\menuService.js" />
@@ -129,6 +130,7 @@
     <Content Include="app\services\homeService.js" />
     <Content Include="app\services\httpq.js" />
     <Content Include="app\services\loginService.js" />
+    <Content Include="app\services\userAbilitiesService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\views\404.html" />
     <Content Include="app\views\home.html" />
@@ -147,6 +149,8 @@
     <Content Include="assets\bootstrap-3.1.1-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\bootstrap-3.1.1-dist\js\bootstrap.js" />
     <Content Include="assets\bootstrap-3.1.1-dist\js\bootstrap.min.js" />
+    <Content Include="assets\bootstrap-multiselect\bootstrap-multiselect.css" />
+    <Content Include="assets\bootstrap-multiselect\bootstrap-multiselect.js" />
     <Content Include="assets\bootswatch.min.css" />
     <Content Include="assets\googlesdk.js" />
     <Content Include="assets\fbsdk.js" />
@@ -255,6 +259,8 @@
     <Compile Include="Api\Requests\NewPasswordRequest.cs" />
     <Compile Include="Api\Requests\NewUserRequest.cs" />
     <Compile Include="Api\Requests\ResetPasswordRequest.cs" />
+    <Compile Include="Api\Requests\UserAbilitiesRequest.cs" />
+    <Compile Include="Api\Requests\UserAbilityRequest.cs" />
     <Compile Include="Api\Responses\Admin\AdminUserResponse.cs" />
     <Compile Include="Api\Responses\Admin\AdminUsersListResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -301,7 +307,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\directives\" />
     <Folder Include="app\interceptors\" />
     <Folder Include="assets\themes\global\" />
   </ItemGroup>
@@ -346,7 +351,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>52136</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:5952/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

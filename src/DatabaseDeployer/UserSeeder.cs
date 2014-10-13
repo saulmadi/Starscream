@@ -31,6 +31,10 @@ namespace DatabaseDeployer
             administratorUser.AddRol(admiRole);
             administratorUser.AddRol(basicRole);
 
+            var userAbility = new UserAbility("Developer");
+            _session.Save(userAbility);
+            userEmailLogin.AddAbility(userAbility);
+
             _session.Save(admiRole);
             _session.Save(basicRole);
 

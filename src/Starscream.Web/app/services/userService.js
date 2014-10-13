@@ -1,7 +1,7 @@
 ﻿angular.module('Starscream.Services').factory('userService', function () {
 
     var key = "user";
-
+   
     return {
         SetUser: function (email, name, token, remember, expires, claims) {
             var user = {
@@ -41,6 +41,7 @@
         RemoveUser: function () {
             window.sessionStorage.removeItem("user");
             window.localStorage.removeItem("user");
-        }        
+        },
+       
     };
 });

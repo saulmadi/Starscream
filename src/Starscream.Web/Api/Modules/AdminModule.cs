@@ -27,13 +27,14 @@ namespace Starscream.Web.Api.Modules
             Get["/users"] =
                 _ =>
                     {
+                        this.RequiresClaims(new[] { "Administrator" });
                         var request = this.Bind<AdminUsersRequest>();
-                        var admin = new ProfileAdministrator();
+                      
                         var parameter = Expression.Parameter(typeof(User), "User");
                         var mySortExpression = Expression.Lambda<Func<User, object>>(Expression.Property(parameter, request.Field), parameter);
                         
                         IQueryable<User> users =
-                            readOnlyRepository.Query<User>(x => x.Profile != admin.Name).AsQueryable();
+                            readOnlyRepository.Query<User>(x => x.Name != this.UserLoginSession().User.Name).AsQueryable();
 
                         var orderedUsers = users.OrderBy(mySortExpression);
 
@@ -79,7 +80,9 @@ namespace Starscream.Web.Api.Modules
                     commandDispatcher.Dispatch(this.UserSession(), new UpdateUserProfile(request.Id, request.Name, request.Email));
                     return null;
                 };
-           
+
+            
+
         }
     }
 }
