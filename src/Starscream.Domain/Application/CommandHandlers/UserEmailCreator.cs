@@ -27,13 +27,11 @@ namespace Starscream.Domain.Application.CommandHandlers
             var userCreated = new UserEmailLogin(command.Name, command.Email, command.EncryptedPassword,
                 command.PhoneNumber);
 
-             command.abilities.ToList().ForEach(x => userCreated.AddAbility(_readOnlyRepository.GetById<UserAbility>(x.Id)));
-            
+            command.abilities.ToList().ForEach(x => userCreated.AddAbility(_readOnlyRepository.GetById<UserAbility>(x.Id)));
 
+            var userSaved = _writeableRepository.Create(userCreated);
 
-            _writeableRepository.Create(userCreated);
-
-            NotifyObservers(new UserEmailCreated(userCreated.Id,command.Email, command.Name, command.PhoneNumber));
+            NotifyObservers(new UserEmailCreated(userSaved.Id, command.Email, command.Name, command.PhoneNumber));
         }
 
         public event DomainEvent NotifyObservers;

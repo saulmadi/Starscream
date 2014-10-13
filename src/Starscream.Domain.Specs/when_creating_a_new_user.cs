@@ -33,11 +33,13 @@ namespace Starscream.Domain.Specs
             () =>
             {
 
-                 _userAbility = Builder<UserAbility>.CreateNew().Build();
+                _userAbility = Builder<UserAbility>.CreateNew()
+                                .Build();
                 _userAbilities = new List<UserAbility>() {_userAbility};
-            //    _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password", _userAbilities.Select(x => x.Id) );
+                _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password", _userAbilities);
 
                 _userCreated = Builder<UserEmailLogin>.CreateNew()
+                    .With(user => user.Id, Guid.NewGuid())
                     .With(user => user.Email, _command.Email)
                     .With(user => user.Name, _command.Name)
                     .With(user => user.EncryptedPassword,_command.EncryptedPassword.Password)
@@ -48,7 +50,9 @@ namespace Starscream.Domain.Specs
 
                 _writeableRepository = Mock.Of<IWriteableRepository>();
                 _readOnlyRepository = Mock.Of<IReadOnlyRepository>();
-               // Mock.Get(_readOnlyRepository).Setup(repository => repository.Query(x => ))
+
+                Mock.Get(_readOnlyRepository)
+                    .Setup(repository => repository.GetById<UserAbility>(_userAbility.Id)).Returns(_userAbility);
                 Mock.Get(_writeableRepository)
                     .Setup(repository => repository.Create(Moq.It.IsAny<UserEmailLogin>()))
                     .Returns(_userCreated);
