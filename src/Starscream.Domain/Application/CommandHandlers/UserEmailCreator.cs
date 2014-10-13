@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using AcklenAvenue.Commands;
 using Starscream.Domain.Application.Commands;
 using Starscream.Domain.DomainEvents;
@@ -26,9 +27,9 @@ namespace Starscream.Domain.Application.CommandHandlers
             var userCreated = new UserEmailLogin(command.Name, command.Email, command.EncryptedPassword,
                 command.PhoneNumber);
 
-            var listOfAbilities = command.abilities;
+             command.abilities.ToList().ForEach(x => userCreated.AddAbility(_readOnlyRepository.GetById<UserAbility>(x.Id)));
+            
 
-            listOfAbilities.ToList().ForEach(userCreated.AddAbility);
 
             _writeableRepository.Create(userCreated);
 

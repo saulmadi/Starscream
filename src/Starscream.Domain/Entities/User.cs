@@ -20,10 +20,7 @@ namespace Starscream.Domain.Entities
             IsActive = true;
         }
 
-        protected User(IEnumerable<UserAbility> userAbilities)
-        {
-            UserAbilities = userAbilities;
-        }
+       
 
         protected User()
         {

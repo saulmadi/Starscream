@@ -35,7 +35,7 @@ namespace Starscream.Domain.Specs
 
                  _userAbility = Builder<UserAbility>.CreateNew().Build();
                 _userAbilities = new List<UserAbility>() {_userAbility};
-                _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password", _userAbilities.Select(x => x.Id) );
+            //    _command = new CreateEmailLoginUser("email", new EncryptedPassword("password"), "name", "password", _userAbilities.Select(x => x.Id) );
 
                 _userCreated = Builder<UserEmailLogin>.CreateNew()
                     .With(user => user.Email, _command.Email)
