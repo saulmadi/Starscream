@@ -44,13 +44,9 @@
             
         $scope.registered = false;
             
-        accountService.Register($scope.user.email, $scope.user.password, $scope.user.name, $scope.user.phoneNumber)
+        accountService.Register($scope.user.email, $scope.user.password, $scope.user.name, $scope.user.phoneNumber, $scope.myAbilities)
             .then(function () {
-                var user = userService.GetUser();
-                userAbilitiesService.AddAbilities(user.id, $scope.myAbilities)
-                .then(function() {
-                    $scope.registered = true;
-                });
+                $scope.registered = true;
             }).catch(function(err1, err2, err3) {
                 debugger;
             });

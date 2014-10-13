@@ -18,7 +18,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
                 return container =>
                     {
                         Mapper.CreateMap<User, AdminUserResponse>();
-                        Mapper.CreateMap<UserAbility, UserAbilityRequest>();
+                        Mapper.CreateMap<UserAbility, UserAbilityRequest>().ReverseMap();
                     };
             }
         }

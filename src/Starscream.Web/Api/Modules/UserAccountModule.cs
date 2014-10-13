@@ -25,8 +25,9 @@ namespace Starscream.Web.Api.Modules
                 _ =>
                     {
                         var req = this.Bind<NewUserRequest>();
+                        var abilities = mappingEngine.Map<IEnumerable<UserAbilityRequest>, IEnumerable<UserAbility>>(req.Abilities);
                         commandDispatcher.Dispatch(this.UserSession(),
-                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber, req.Abilities.Select(x => x.Id)));
+                                                   new CreateEmailLoginUser(req.Email, passwordEncryptor.Encrypt(req.Password), req.Name, req.PhoneNumber, abilities));
                         return null;
                     };
 
