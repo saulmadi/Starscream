@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Starscream.Domain.Entities
@@ -7,8 +6,11 @@ namespace Starscream.Domain.Entities
     public class User : Entity
     {
         public virtual string Name { get; protected set; }
+
         public virtual string Email { get; protected set; }
+
         IEnumerable<UserAbility> _userAbilities = new List<UserAbility>();
+
         public virtual bool IsActive { get; protected set; }
         IEnumerable<Role> _userRoles = new List<Role>(); 
 
