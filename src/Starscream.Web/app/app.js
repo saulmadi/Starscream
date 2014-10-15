@@ -137,7 +137,7 @@ app.config(function($routeProvider) {
 
         var routeClean = function (route) {
            return  routesThatDontRequireAuth.some(function(value, index, array) {
-                return route === value;
+               return route.toString().indexOf(value) !== -1;
             });
         };
 
