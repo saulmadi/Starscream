@@ -1,16 +1,20 @@
-﻿angular.module('Starscream.Controllers').controller('forgotPasswordController', function ($scope, $location, userService, accountService) {
-        
-    if (userService.GetUser()) {
-        $location.path("/");
-    }
+﻿(function() {
+    'use strict';
 
-    $scope.user = {};
+    angular.module('Starscream.Controllers', []).controller('forgotPasswordController', function($scope, $location, userService, accountService) {
 
-    $scope.$parent.title = "Reset Password";
+        if (userService.GetUser()) {
+            $location.path("/");
+        }
 
-    $scope.resetPassword = function () {
-        accountService.RequestToResetPassword($scope.user.email).then(function () {
-            $scope.success = true;
-        });
-    };
-});
+        $scope.user = {};
+
+        $scope.$parent.title = "Reset Password";
+
+        $scope.resetPassword = function() {
+            accountService.RequestToResetPassword($scope.user.email).then(function() {
+                $scope.success = true;
+            });
+        };
+    });
+}());

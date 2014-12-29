@@ -1,12 +1,19 @@
-﻿angular.module('Starscream.Services').factory('userAbilitiesService', function ($httpq) {
+﻿(function() {
+	'use strict';
 
-    return {
-        GetAbilities: function () {
-            return $httpq.get('/abilities');
-        },
-        AddAbilities: function (userId, abilities) {
-            var response = $httpq.post('/user/abilites', {userId:userId, abilities:abilities});
-            return response;
-        }
-    };
-});
+	angular.module('Starscream.Services', []).factory('userAbilitiesService', function($httpq) {
+
+		return {
+			GetAbilities: function() {
+				return $httpq.get('/abilities');
+			},
+			AddAbilities: function(userId, abilities) {
+				var response = $httpq.post('/user/abilites', {
+					userId: userId,
+					abilities: abilities
+				});
+				return response;
+			}
+		};
+	});
+}());

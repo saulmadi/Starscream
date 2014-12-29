@@ -1,4 +1,7 @@
-﻿angular.module('Starscream.Controllers').controller('parentController', function ($scope, userService, $location, loginService, menuService) {
+﻿(function(){
+    'use strict';
+    
+    angular.module('Starscream.Controllers', []).controller('parentController', function($scope, userService, $location, loginService, menuService) {
         var user = userService.GetUser();
         if (user) {
             loginService.SetLoggedIn(true);
@@ -14,6 +17,7 @@
             $scope.menu = [];
         };
 
-  //  $scope.menu = menuService.menu;
-         $scope.menu = menuService.getMenuForUser(user.claims || []);
-});
+        //  $scope.menu = menuService.menu;
+        $scope.menu = menuService.getMenuForUser(user.claims || []);
+    });
+}());

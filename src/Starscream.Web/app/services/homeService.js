@@ -1,3 +1,7 @@
-﻿angular.module('Starscream.Services').factory('homeService', function ($httpq) {
+﻿(function() {
+	'use strict';
 
-});
+	angular.module('Starscream.Services', []).factory('homeService', function($httpq) {
+
+	});
+}());

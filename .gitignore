@@ -62,3 +62,7 @@ database_deployment
 
 /src/NovaEnergy.Presentation/local.config
 /src/DatabaseDeployer/local.config
+/src/Starscream.Web/node_modules/
+/src/Starscream.Web/main-app.js
+/src/Starscream.Web/main-libs.js
+/src/Starscream.Web/main-app.min.js
