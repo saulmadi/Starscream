@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Controllers', []).controller('registrationController', function($scope, $location, accountService, userService, userAbilitiesService) {
+    angular.module('Starscream.Controllers').controller('registrationController', function($scope, $location, accountService, userService, userAbilitiesService) {
         /*jshint -W087 */
         $('.multiselect').multiselect({
             includeSelectAllOption: true

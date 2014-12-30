@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
     
-    angular.module('Starscream.Services', []).factory('loginService', function($httpq) {
+    angular.module('Starscream.Services').factory('loginService', function($httpq) {
         var loggedIn = false;
 
         return {

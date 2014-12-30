@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Controllers', []).controller('forgotPasswordController', function($scope, $location, userService, accountService) {
+    angular.module('Starscream.Controllers').controller('forgotPasswordController', function($scope, $location, userService, accountService) {
 
         if (userService.GetUser()) {
             $location.path("/");

@@ -1,7 +1,7 @@
 ﻿(function() {
 	'use strict';
 
-	angular.module('Starscream.Services', []).factory('userAbilitiesService', function($httpq) {
+	angular.module('Starscream.Services').factory('userAbilitiesService', function($httpq) {
 
 		return {
 			GetAbilities: function() {

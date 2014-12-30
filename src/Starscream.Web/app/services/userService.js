@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
     
-    angular.module('Starscream.Services', []).factory('userService', function() {
+    angular.module('Starscream.Services').factory('userService', function() {
 
         var key = "user";
 

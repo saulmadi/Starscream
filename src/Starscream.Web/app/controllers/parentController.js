@@ -1,7 +1,7 @@
 ﻿(function(){
     'use strict';
     
-    angular.module('Starscream.Controllers', []).controller('parentController', function($scope, userService, $location, loginService, menuService) {
+    angular.module('Starscream.Controllers').controller('parentController', function($scope, userService, $location, loginService, menuService) {
         var user = userService.GetUser();
         if (user) {
             loginService.SetLoggedIn(true);

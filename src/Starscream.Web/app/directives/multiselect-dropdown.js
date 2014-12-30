@@ -1,6 +1,6 @@
 ﻿(function() {
     'use strict';
-    angular.module('Starscream.Directives', [])
+    angular.module('Starscream.Directives')
         .directive('multiselectDropdown', [function() {
             return function(scope, element, attributes) {
 

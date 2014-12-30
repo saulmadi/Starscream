@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Services', []).factory('googleService', function($q, $httpq, loginService, accountService) {
+    angular.module('Starscream.Services').factory('googleService', function($q, $httpq, loginService, accountService) {
         var login = function(payload) {
             var def = $q.defer();
             loginService.LoginGoogle(payload).then(function(data) {

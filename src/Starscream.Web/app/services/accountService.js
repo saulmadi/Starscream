@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Services', []).factory('accountService', function($httpq) {
+    angular.module('Starscream.Services').factory('accountService', function($httpq) {
 
         return {
             Register: function(email, password, name, phoneNumber, abilities) {
