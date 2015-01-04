@@ -10,17 +10,17 @@ module.exports = function(grunt) {
             },
             basic_and_extras: {
                 files: {
-                    'main-app.js': [
+                    'app/main-app.js': [
                         'app/app.js',
                         'app/controllers/{,*/}*.js',
                         'app/directives/{,*/}*.js',
                         'app/services/{,*/}*.js'
                     ],
-                    'main-libs.js': [
-                        'assets/jquery-1.10.2.min.js',
-                        'assets/bootstrap-3.1.1-dist/js/bootstrap.min.js',
+                    'app/main-libs.js': [
                         'assets/angular.min.js',
                         'assets/angular-route.js',
+                        'assets/jquery-1.10.2.min.js',
+                        'assets/bootstrap-3.1.1-dist/js/bootstrap.min.js',
                         'assets/bootstrap-multiselect/bootstrap-multiselect.js'
                     ]
                 },
