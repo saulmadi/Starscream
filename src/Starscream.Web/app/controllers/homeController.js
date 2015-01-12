@@ -1,7 +1,7 @@
-﻿(function(){
+﻿(function() {
     'use strict';
-    
-    angular.module('Starscream.Controllers').controller('homeController', function($scope, userService, $location, adminService) {
+
+    angular.module('Starscream.Controllers').controller('homeController', ['$scope', 'userService', '$location', 'adminService', function($scope, userService, $location, adminService) {
         var user = userService.GetUser();
         if (!user) {
             $location.path("/login");
@@ -46,5 +46,5 @@
         };
 
         $scope.GetUsers($scope.paginationPayload);
-    });
+    }]);
 }());

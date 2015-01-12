@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
     
-    angular.module('Starscream.Controllers').controller('loginController', function($scope, $location, accountService, loginService, userService, facebookService, googleService, menuService) {
+    angular.module('Starscream.Controllers').controller('loginController', ['$scope', '$location', 'accountService', 'loginService', 'userService', 'facebookService', 'googleService', 'menuService', function($scope, $location, accountService, loginService, userService, facebookService, googleService, menuService) {
 
         if (userService.GetUser()) {
             $location.path("/home");
@@ -50,6 +50,5 @@
             });
         };
 
-    });
-
+    }]);
 }());

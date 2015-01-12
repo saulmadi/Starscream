@@ -200,7 +200,7 @@
 }());;(function() {
     'use strict';
 
-    angular.module('Starscream.Controllers').controller('forgotPasswordController', function($scope, $location, userService, accountService) {
+    angular.module('Starscream.Controllers').controller('forgotPasswordController', ['$scope', '$location', 'userService', 'accountService', function($scope, $location, userService, accountService) {
 
         if (userService.GetUser()) {
             $location.path("/");
@@ -215,11 +215,11 @@
                 $scope.success = true;
             });
         };
-    });
-}());;(function(){
+    }]);
+}());;(function() {
     'use strict';
-    
-    angular.module('Starscream.Controllers').controller('homeController', function($scope, userService, $location, adminService) {
+
+    angular.module('Starscream.Controllers').controller('homeController', ['$scope', 'userService', '$location', 'adminService', function($scope, userService, $location, adminService) {
         var user = userService.GetUser();
         if (!user) {
             $location.path("/login");
@@ -264,12 +264,11 @@
         };
 
         $scope.GetUsers($scope.paginationPayload);
-    });
-}());
-;(function() {
+    }]);
+}());;(function() {
     'use strict';
     
-    angular.module('Starscream.Controllers').controller('loginController', function($scope, $location, accountService, loginService, userService, facebookService, googleService, menuService) {
+    angular.module('Starscream.Controllers').controller('loginController', ['$scope', '$location', 'accountService', 'loginService', 'userService', 'facebookService', 'googleService', 'menuService', function($scope, $location, accountService, loginService, userService, facebookService, googleService, menuService) {
 
         if (userService.GetUser()) {
             $location.path("/home");
@@ -318,12 +317,11 @@
             });
         };
 
-    });
-
+    }]);
 }());;(function(){
     'use strict';
     
-    angular.module('Starscream.Controllers').controller('parentController', function($scope, userService, $location, loginService, menuService) {
+    angular.module('Starscream.Controllers').controller('parentController', ['$scope', 'userService', '$location', 'loginService', 'menuService', function($scope, userService, $location, loginService, menuService) {
         var user = userService.GetUser();
         if (user) {
             loginService.SetLoggedIn(true);
@@ -341,12 +339,12 @@
 
         //  $scope.menu = menuService.menu;
         $scope.menu = menuService.getMenuForUser(user.claims || []);
-    });
+    }]);
 }());
 ;(function(){
     'use strict';
     
-    angular.module('Starscream.Controllers').controller('profileController', function($scope, $location, $routeParams, adminService) {
+    angular.module('Starscream.Controllers').controller('profileController', ['$scope', '$location', '$routeParams', 'adminService', function($scope, $location, $routeParams, adminService) {
         $scope.userId = $routeParams.userId;
         $scope.success = false;
         $scope.saveChanges = false;
@@ -370,12 +368,12 @@
         };
 
         getUserInfo();
-    });
+    }]);
 }());
 ;(function() {
     'use strict';
 
-    angular.module('Starscream.Controllers').controller('registrationController', function($scope, $location, accountService, userService, userAbilitiesService) {
+    angular.module('Starscream.Controllers').controller('registrationController',['$scope', '$location', 'accountService', 'userService', 'userAbilitiesService', function($scope, $location, accountService, userService, userAbilitiesService) {
         /*jshint -W087 */
         $('.multiselect').multiselect({
             includeSelectAllOption: true
@@ -427,11 +425,11 @@
                     debugger;
                 });
         };
-    });
+    }]);
 }());;(function() {
     'use strict';
 
-    angular.module('Starscream.Controllers').controller('resetPasswordController', function($scope, $routeParams, $location, userService, accountService) {
+    angular.module('Starscream.Controllers').controller('resetPasswordController', ['$scope', '$routeParams', '$location', 'userService', 'accountService', function($scope, $routeParams, $location, userService, accountService) {
 
         if (userService.GetUser()) {
             $location.path("/");
@@ -449,11 +447,11 @@
                 $scope.success = true;
             });
         };
-    });
+    }]);
 }());;(function() {
     'use strict';
     angular.module('Starscream.Directives')
-        .directive('multiselectDropdown', [function() {
+        .directive('multiselectDropdown', ['scope', 'element', 'attributes', function() {
             return function(scope, element, attributes) {
 
                 element = $(element[0]); // Get the element as a jQuery element
@@ -505,7 +503,7 @@
 }());;(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('accountService', function($httpq) {
+    angular.module('Starscream.Services').factory('accountService', ['$httpq', function($httpq) {
 
         return {
             Register: function(email, password, name, phoneNumber, abilities) {
@@ -534,11 +532,11 @@
                 });
             }
         };
-    });
+    }]);
 }());;(function(){
     'use strict';
     
-    angular.module('Starscream.Services').factory('adminService', function($httpq) {
+    angular.module('Starscream.Services').factory('adminService', ['$httpq', function($httpq) {
 
         return {
             GetUsers: function(payload) {
@@ -558,12 +556,12 @@
             }
 
         };
-    });
+    }]);
 }());
 ;(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('facebookService', function($q, $httpq, loginService, accountService) {
+    angular.module('Starscream.Services').factory('facebookService', ['$q', '$httpq', 'loginService', 'accountService', function($q, $httpq, loginService, accountService) {
 
         var login = function(payload) {
             var def = $q.defer();
@@ -618,11 +616,11 @@
                 return def.promise;
             }
         };
-    });
+    }]);
 }());;(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('googleService', function($q, $httpq, loginService, accountService) {
+    angular.module('Starscream.Services').factory('googleService', ['$q', '$httpq', 'loginService', 'accountService', function($q, $httpq, loginService, accountService) {
         var login = function(payload) {
             var def = $q.defer();
             loginService.LoginGoogle(payload).then(function(data) {
@@ -689,17 +687,17 @@
                 return def.promise;
             }
         };
-    });
+    }]);
 }());;(function() {
 	'use strict';
 
-	angular.module('Starscream.Services').factory('homeService', function($httpq) {
+	angular.module('Starscream.Services').factory('homeService', ['$httpq', function($httpq) {
 
-	});
+	}]);
 }());;(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('$httpq', function($http, $q) {
+    angular.module('Starscream.Services').factory('$httpq', ['$http', '$q', function($http, $q) {
 
         return {
             post: function(resource, payload) {
@@ -744,12 +742,12 @@
             },
 
         };
-    });
+    }]);
 
 }());;(function() {
     'use strict';
     
-    angular.module('Starscream.Services').factory('loginService', function($httpq) {
+    angular.module('Starscream.Services').factory('loginService', ['$httpq', function($httpq) {
         var loggedIn = false;
 
         return {
@@ -780,11 +778,11 @@
                 loggedIn = value;
             }
         };
-    });
+    }]);
 }());;(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('menuService', function() {
+    angular.module('Starscream.Services').factory('menuService', [function() {
 
         return {
             menu: [{
@@ -844,11 +842,11 @@
 
             }
         };
-    });
+    }]);
 }());;(function() {
 	'use strict';
 
-	angular.module('Starscream.Services').factory('userAbilitiesService', function($httpq) {
+	angular.module('Starscream.Services').factory('userAbilitiesService', ['$httpq', function($httpq) {
 
 		return {
 			GetAbilities: function() {
@@ -862,11 +860,11 @@
 				return response;
 			}
 		};
-	});
+	}]);
 }());;(function() {
     'use strict';
     
-    angular.module('Starscream.Services').factory('userService', function() {
+    angular.module('Starscream.Services').factory('userService', [function() {
 
         var key = "user";
 
@@ -914,5 +912,5 @@
             },
 
         };
-    });
+    }]);
 }());

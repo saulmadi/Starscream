@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
     angular.module('Starscream.Directives')
-        .directive('multiselectDropdown', [function() {
+        .directive('multiselectDropdown', ['scope', 'element', 'attributes', function() {
             return function(scope, element, attributes) {
 
                 element = $(element[0]); // Get the element as a jQuery element

@@ -1,7 +1,7 @@
 ﻿(function(){
     'use strict';
     
-    angular.module('Starscream.Services').factory('adminService', function($httpq) {
+    angular.module('Starscream.Services').factory('adminService', ['$httpq', function($httpq) {
 
         return {
             GetUsers: function(payload) {
@@ -21,5 +21,5 @@
             }
 
         };
-    });
+    }]);
 }());

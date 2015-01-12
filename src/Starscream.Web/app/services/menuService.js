@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('menuService', function() {
+    angular.module('Starscream.Services').factory('menuService', [function() {
 
         return {
             menu: [{
@@ -61,5 +61,5 @@
 
             }
         };
-    });
+    }]);
 }());

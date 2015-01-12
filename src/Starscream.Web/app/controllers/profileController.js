@@ -1,7 +1,7 @@
 ﻿(function(){
     'use strict';
     
-    angular.module('Starscream.Controllers').controller('profileController', function($scope, $location, $routeParams, adminService) {
+    angular.module('Starscream.Controllers').controller('profileController', ['$scope', '$location', '$routeParams', 'adminService', function($scope, $location, $routeParams, adminService) {
         $scope.userId = $routeParams.userId;
         $scope.success = false;
         $scope.saveChanges = false;
@@ -25,5 +25,5 @@
         };
 
         getUserInfo();
-    });
+    }]);
 }());

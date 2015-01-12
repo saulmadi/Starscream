@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Services').factory('$httpq', function($http, $q) {
+    angular.module('Starscream.Services').factory('$httpq', ['$http', '$q', function($http, $q) {
 
         return {
             post: function(resource, payload) {
@@ -46,6 +46,6 @@
             },
 
         };
-    });
+    }]);
 
 }());

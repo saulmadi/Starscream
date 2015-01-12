@@ -28,13 +28,15 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
+                preserveComments: false,
                 compress: {
                     drop_console: true
                 }
             },
             my_target: {
                 files: {
-                    'main-app.min.js': ['main-app.js']
+                    'app/main-app.min.js': ['app/main-app.js'],
+                    'app/main-libs.min.js': ['app/main-libs.js']
                 }
             }
         },
@@ -83,6 +85,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.registerTask('deploywatch', ['jshint', 'concat', 'watch']);
-    grunt.registerTask('deploydev', ['jshint', 'concat']);
+    grunt.registerTask('deploy', ['jshint', 'concat']);
     grunt.registerTask('deployprod', ['jshint', 'concat', 'uglify']);
 };

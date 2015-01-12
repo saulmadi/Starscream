@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('Starscream.Controllers').controller('resetPasswordController', function($scope, $routeParams, $location, userService, accountService) {
+    angular.module('Starscream.Controllers').controller('resetPasswordController', ['$scope', '$routeParams', '$location', 'userService', 'accountService', function($scope, $routeParams, $location, userService, accountService) {
 
         if (userService.GetUser()) {
             $location.path("/");
@@ -19,5 +19,5 @@
                 $scope.success = true;
             });
         };
-    });
+    }]);
 }());
