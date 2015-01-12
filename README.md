@@ -23,7 +23,7 @@ Now the frontend code will be deployed with a Grunt workflow. Steps for installi
 - watch: This task is really helpful, will run automatic tasks when changes on target files are made, this way we avoid running grunt instructions everytime we make some changes on the code.
 
 #### Custom Tasks ####
-- deploydev : This custom task has been defined on the gruntfile and is the command that is to be called when trying to run the define grunt tasks. The deploydev task will run the following grunt tasks: jshint, concat.
+- deploy : This custom task has been defined on the gruntfile and is the command that is to be called when trying to run the define grunt tasks. The deploydev task will run the following grunt tasks: jshint, concat.
 - deploywatch: Will run the following grunt tasks: jshint, concat, watch
 - deployprod: jshint, concat, uglify
 
