@@ -31,7 +31,7 @@ Now the frontend code will be deployed with a Grunt workflow. Steps for installi
 From now on the 'use strict' mode is necessary on files written for frontend code. Note that for using this it has to be wrapped inside a closure, otherwise it will throw warnings and errors from the linter. Also dependencies now have to be injected using the ** inline array annotation ** to avoid issues on resulting minified code, plus is the recommended way by the Angular team.
 Example: 
 	
-		```javascript
+		```
 		(function(){
 			'use strict';
 	
