@@ -30,15 +30,16 @@ Now the frontend code will be deployed with a Grunt workflow. Steps for installi
 #### Minor Code Conventions ####
 From now on the 'use strict' mode is necessary on files written for frontend code. Note that for using this it has to be wrapped inside a closure, otherwise it will throw warnings and errors from the linter. Also dependencies now have to be injected using the ** inline array annotation ** to avoid issues on resulting minified code, plus is the recommended way by the Angular team.
 Example: 
-	```javascript
-	(function(){
-		'use strict';
-
-		angular.module('Starscream.Controllers').controller('ControllerExample', ['dep1', 'dep2', function(dep1, dep2){
-				//logic here
-			}]);
-	}());
-	```
+	
+		```javascript
+		(function(){
+			'use strict';
+	
+			angular.module('Starscream.Controllers').controller('ControllerExample', ['dep1', 'dep2', function(dep1, dep2){
+					//logic here
+				}]);
+		}());
+		```
 
 Active demo: [http://starscream-starter.azurewebsites.net/](http://starscream-starter.azurewebsites.net/)
 
