@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using Autofac;
+
 using BlingBag;
 
 namespace Starscream.Web.Api.Infrastructure.Configuration
@@ -19,7 +22,7 @@ namespace Starscream.Web.Api.Infrastructure.Configuration
         {
             Type serviceType = typeof(IEnumerable<>).MakeGenericType(blingHandlerType);
             var handlers = _container.Resolve(serviceType) as IEnumerable;
-            return handlers;
+            return handlers.OfType<object>().GroupBy(o => o.GetType()).Select(objects => objects.First());
         }
     }
 }
